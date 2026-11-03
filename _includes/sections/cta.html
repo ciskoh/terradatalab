@@ -1,0 +1,13 @@
+{%- assign cta_text = t.cta.title | append: t.cta.button -%}
+{%- if cta_text != "" %}
+<section class="cta-band"{% if t.cta.title and t.cta.title != "" %} aria-labelledby="cta-title"{% endif %}>
+  <div class="wrap cta-band__inner">
+    {%- if t.cta.title and t.cta.title != "" %}
+    <h2 id="cta-title">{{ t.cta.title }}</h2>
+    {%- endif %}
+    {%- if t.cta.button and t.cta.button != "" %}
+    <a class="btn btn--inverse" href="{{ p.booking_url }}" target="_blank" rel="noopener">{{ t.cta.button }}</a>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}

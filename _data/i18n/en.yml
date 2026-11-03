@@ -1,0 +1,145 @@
+# TerraDataLab: ALL WEBSITE TEXT, English
+#
+# How to edit:
+#   - Change only the text between the quotes. Do not rename the keys (the words before ":").
+#   - Every language file (en.yml, de.yml, fr.yml, it.yml) has exactly the same keys.
+#   - For a long text spanning several lines use:   text: |
+#                                                     First line…
+#     Leave an empty line between paragraphs.
+#   - A list item starts with "- " on its own line.
+#   - Section order follows the page from top to bottom.
+#   - An empty text ("") is simply not shown on the page.
+
+meta:
+  title: ""                 # browser tab / search result title (empty: "TerraDataLab")
+  description: ""           # search result snippet (~155 characters)
+
+nav:
+  how_we_work: "How we work"         # header link to the How we work section
+  solutions: "Solutions"             # header link to the Solutions section
+  about: "Who we are"                # header link to the Who we are section
+  cta: "Let's talk"                  # header button (e-mail)
+  language: ""              # screen-reader label for the language switcher
+  skip: ""                  # "Skip to content" link for keyboard users
+
+hero:                       # first block of the page
+  eyebrow: ""               # small line above the headline (not used for now)
+  title: "Trust your interventions. Give your project the data infrastructure to prove it."   # headline
+  subtitle: "We build the data pipelines, tools and dashboards that show, with evidence, how your project makes the world a better place."   # text below the headline
+  offer: ""                 # short highlighted line ("the offer")
+  cta_primary: "Book a 30-minute call"      # main button: opens the booking page (new tab)
+  cta_secondary: "See how we work"          # second button: jumps to How we work
+
+how_we_work:                # "How we work" section (header link "How we work")
+  eyebrow: ""               # small line above the headline (not used for now)
+  title: "Built with you. Built for your project."   # headline, left column
+  body: |
+    We start with a workshop. Map what you actually need, not what a template says you should need. Then we build it—and you only pay for the parts that matter to your project.
+
+    The infrastructure is yours to choose. Want it in the cloud? On your servers? Hybrid? You decide. As your project evolves and you learn more, the platform evolves with it. No "phase 2 costs" that balloon. Just work that responds to what you're actually doing.
+
+    And you're never locked in. Raw data exports whenever you want. Core components are open source. APIs so you can plug it into whatever else your team uses. You own your data and your setup.
+  platform:                 # block "viewer at the centre + modules around it"
+    title: "Start with the core. Grow from there."   # centred headline of the block
+    intro: "A customisable data viewer brings all your project data into one place. Plug in the modules your project needs, when it needs them."   # text below the block headline
+    screenshot_alt: ""      # description of the screenshot for screen readers
+    core:                   # caption under the screenshot
+      name: "Core Data Viewer"
+      text: "One place to view and control your project data, for the whole team."
+    modules:                # items around the screenshot; ids must match _data/platform.yml (modules)
+      satellite:
+        name: "Satellite Hook"
+        text: "Enrich your data with satellite images and time series."
+      public_db:
+        name: "Public Databases"
+        text: "Fewer samples, stronger baseline."
+      metrics:
+        name: "Metric Calculator"
+        text: "Compliant metrics to measure your progress."
+      operations:
+        name: "Operations Hook"
+        text: "Keep track of measurements and interventions in your fields."
+      dynamic_monitoring:
+        name: "Dynamic Monitoring Tool"
+        text: "Satellite alerts when conditions deviate from baseline."
+      weather_scenarios:
+        name: "Weather Scenario Builder"
+        text: "Weather scenarios from your local climate history."
+  steps:                    # numbered steps, 01–03 automatically
+    - title: "Workshop"
+      text: "Define requirements together."
+    - title: "Setup"
+      text: "See your data overview immediately."
+    - title: "Development prioritized with you"
+      text: "Your priorities set the order. We build, review and refine together."
+  cta: "Let's talk about what your project actually needs."   # button below the steps (e-mail)
+
+solutions:                  # "Solutions" section: table of combinations
+  eyebrow: ""               # small line above the headline (not used for now)
+  title: "One platform. Five combinations."   # headline
+  intro: "From baseline through audit."       # text below the headline
+  legend_included: ""       # screen-reader text for a filled dot ("included")
+  legend_not_included: ""   # screen-reader text for an empty dot
+  columns:                  # table column headers; ids must match _data/platform.yml (solution_columns)
+    core: "Core Data Viewer"
+    satellite: "Satellite"
+    public_db: "Public DBs"
+    metrics: "Metrics"
+    operations: "Operations Hook"
+  items:                    # table rows (name + short text); ids must match _data/platform.yml (combinations)
+    see_field:
+      name: "See your field"
+      text: "All your project data in one view, shared by the whole team."
+    baseline:
+      name: "Get baseline"
+      text: "Satellite and soil data show where to sample, so fewer field measurements hold up in audit."
+    land_evolution:
+      name: "Land evolution"
+      text: "Track change over time with satellite evidence and metrics tied to their sources."
+    operations:
+      name: "Operations"
+      text: "Field work and satellite monitoring in one place, traceable as it happens."
+    audit:
+      name: "Audit preparation"
+      text: "Every number linked to its source and every observation to its place, ready for the verifier."
+
+cta:                        # green band near the bottom
+  title: "Ready to talk about your project?"   # text in the band
+  button: "Get in touch"    # button: opens the booking page (new tab)
+
+about:                      # "Who we are" section, after the green band
+  title: "Understand first. Build second."   # headline
+  intro: "Climate change is already here: our land, our roads and our food systems need active care to keep sustaining us. We believe there is no single solution, but many, each adapted to a place, a time and a community. So we connect the people a project needs (land managers, carbon developers and data specialists) and build the tools each project actually needs."   # text below the headline
+  values:                   # row of three short values, one line each
+    - "Measure what matters."
+    - "Prefer custom solutions."
+    - "Chase synergies, not compromise."
+  people:                   # people cards; ids must match _data/platform.yml (people); bios may use "I"
+    matteo:
+      name: "Matteo Jucker Riva"
+      role: "Data Scientist & Remote Sensing Specialist"
+      bio: "Geography PhD. 10+ years of field sampling and satellite data across soil carbon, land management, and ecosystem monitoring."
+      photo_alt: ""         # description of the photo for screen readers
+      linkedin: "LinkedIn"  # link text; the URL is linkedin_url of this person in _data/platform.yml
+    person_2:
+      name: ""              # empty = card not shown
+      role: ""
+      bio: ""
+      photo_alt: ""         # description of the photo for screen readers
+      linkedin: ""          # link text; the URL is linkedin_url of this person in _data/platform.yml
+
+footer:                     # bottom of the page
+  banner: "Part of the UrbanDataLab family."   # top strip of the footer
+  banner_link: "Visit urbandatalab.ch"         # link in the top strip (opens urbandatalab.ch)
+  pages_label: "Pages"      # title of the column with the section links
+  legal_label: "Legal"      # title of the column with Privacy / Imprint
+  contact_label: "Contact"  # title of the column with e-mail and LinkedIn
+  linkedin: "LinkedIn"      # LinkedIn link text (URL: linkedin_url in _data/platform.yml)
+  privacy: "Privacy"        # link to the privacy page
+  imprint: ""               # Imprint link hidden for now (page kept, unlinked)
+  copyright: "© 2026 TerraDataLab"   # copyright line under the logo
+
+not_found:                  # 404 page
+  title: ""
+  text: ""
+  back: ""

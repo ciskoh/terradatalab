@@ -1,0 +1,46 @@
+{%- assign core = p.modules | first -%}
+<section class="section section--alt" id="modules" aria-labelledby="modules-title" data-platform data-closest-prefix="{{ t.modules.closest_prefix | escape }}">
+  <div class="wrap">
+    <header class="section-head section-head--center">
+      <p class="eyebrow">{{ t.modules.eyebrow }}</p>
+      <h2 id="modules-title">{{ t.modules.title }}</h2>
+      <p class="lede">{{ t.modules.intro }}</p>
+    </header>
+
+    <div class="modules">
+      <ul class="module-list">
+        {%- for m in p.modules %}
+        {%- assign mt = t.modules.items[m.id] %}
+        <li>
+          <button type="button" class="module-toggle" data-module="{{ m.id }}"
+                  aria-pressed="{% if p.default_modules_on contains m.id %}true{% else %}false{% endif %}"{% if m.always_on %} disabled{% endif %}>
+            <span class="module-toggle__text">
+              <span class="module-toggle__name">{{ mt.name }}</span>
+              <span class="module-toggle__desc">{{ mt.desc }}</span>
+            </span>
+            <span class="switch" aria-hidden="true"></span>
+          </button>
+        </li>
+        {%- endfor %}
+      </ul>
+
+      <figure class="module-preview">
+        <div class="media">
+          {%- if core.image != "" %}
+          <img src="{{ core.image | prepend: '/assets/images/' | relative_url }}" alt="{{ t.modules.screenshot_alt | escape }}" loading="lazy">
+          {%- endif %}
+        </div>
+        <figcaption>{{ t.modules.match_label }} <strong data-match aria-live="polite"></strong></figcaption>
+      </figure>
+    </div>
+
+    <ul class="benefits">
+      {%- for b in t.modules.benefits %}
+      <li>
+        <h3>{{ b.title }}</h3>
+        <p>{{ b.text }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<section class="hero" id="top"{% if t.hero.title and t.hero.title != "" %} aria-labelledby="hero-title"{% endif %}>
+  <div class="hero__shape" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+    {%- if t.hero.eyebrow and t.hero.eyebrow != "" %}
+    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    {%- endif %}
+    {%- if t.hero.title and t.hero.title != "" %}
+    <h1 id="hero-title" class="hero__title">{{ t.hero.title }}</h1>
+    {%- endif %}
+    {%- if t.hero.subtitle and t.hero.subtitle != "" %}
+    <p class="hero__subtitle">{{ t.hero.subtitle }}</p>
+    {%- endif %}
+    {%- if t.hero.offer and t.hero.offer != "" %}
+    <p class="hero__offer">{{ t.hero.offer }}</p>
+    {%- endif %}
+    {%- assign hero_ctas = t.hero.cta_primary | append: t.hero.cta_secondary %}
+    {%- if hero_ctas != "" %}
+    <div class="actions">
+      {%- if t.hero.cta_primary and t.hero.cta_primary != "" %}
+      <a class="btn btn--primary" href="{{ p.booking_url }}" target="_blank" rel="noopener">{{ t.hero.cta_primary }}</a>
+      {%- endif %}
+      {%- if t.hero.cta_secondary and t.hero.cta_secondary != "" %}
+      <a class="btn btn--secondary" href="#how-we-work">{{ t.hero.cta_secondary }}</a>
+      {%- endif %}
+    </div>
+    {%- endif %}
+  </div>
+</section>

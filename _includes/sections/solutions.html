@@ -1,0 +1,68 @@
+{%- comment -%}
+  Solutions: static table of combinations (no JS). Columns and rows come from _data/platform.yml
+  (solution_columns, combinations), text from t.solutions. Filled dot = included, outlined dot = not included.
+{%- endcomment -%}
+{%- assign so = t.solutions -%}
+{%- assign table_text = "" -%}
+{%- for c in p.combinations -%}{%- assign table_text = table_text | append: so.items[c.id].name | append: so.items[c.id].text -%}{%- endfor -%}
+<section class="section" id="solutions"{% if so.title and so.title != "" %} aria-labelledby="solutions-title"{% endif %}>
+  <div class="wrap">
+    {%- assign head_text = so.eyebrow | append: so.title | append: so.intro %}
+    {%- if head_text != "" %}
+    <header class="section-head solutions__head">
+      {%- if so.eyebrow and so.eyebrow != "" %}
+      <p class="eyebrow">{{ so.eyebrow }}</p>
+      {%- endif %}
+      {%- if so.title and so.title != "" %}
+      <h2 id="solutions-title">{{ so.title }}</h2>
+      {%- endif %}
+      {%- if so.intro and so.intro != "" %}
+      <p class="lede">{{ so.intro }}</p>
+      {%- endif %}
+    </header>
+    {%- endif %}
+    {%- if table_text != "" %}
+    <div class="table-scroll">
+      <table class="combos">
+        <thead>
+          <tr>
+            <td></td>
+            {%- for col in p.solution_columns %}
+            <th scope="col">{{ so.columns[col] }}</th>
+            {%- endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {%- for c in p.combinations %}
+          {%- assign ct = so.items[c.id] %}
+          {%- assign row_text = ct.name | append: ct.text %}
+          {%- if row_text != "" %}
+          <tr>
+            <th scope="row">
+              {%- if ct.name and ct.name != "" %}
+              <span class="combos__name">{{ ct.name }}</span>
+              {%- endif %}
+              {%- if ct.text and ct.text != "" %}
+              <span class="combos__text">{{ ct.text }}</span>
+              {%- endif %}
+            </th>
+            {%- for col in p.solution_columns %}
+            <td>
+              {%- if c.includes contains col %}
+              <span class="dot dot--included"></span>
+              {%- if so.legend_included and so.legend_included != "" %}<span class="visually-hidden">{{ so.legend_included }}</span>{% endif %}
+              {%- else %}
+              <span class="dot dot--empty"></span>
+              {%- if so.legend_not_included and so.legend_not_included != "" %}<span class="visually-hidden">{{ so.legend_not_included }}</span>{% endif %}
+              {%- endif %}
+            </td>
+            {%- endfor %}
+          </tr>
+          {%- endif %}
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    {%- endif %}
+  </div>
+</section>

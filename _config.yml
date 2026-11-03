@@ -1,0 +1,39 @@
+# Site settings. Text lives in _data/i18n/, not here.
+
+title: TerraDataLab
+
+# GitHub Pages project site: https://<user>.github.io/<repo>/
+# When the custom domain is live: set url to it, baseurl to "", and add a CNAME file.
+url: ""
+baseurl: ""
+
+# First language is the default and is served at the site root.
+languages: [en, de, fr, it]
+default_lang: en
+
+# Language switcher (EN/DE/FR/IT) in the header. Set to true to show it again.
+show_language_switch: false
+
+markdown: kramdown
+theme: null   # no GitHub Pages default theme; all design is in assets/
+
+defaults:
+  - scope: { path: "" }
+    values: { lang: en }
+  - scope: { path: "de" }
+    values: { lang: de }
+  - scope: { path: "fr" }
+    values: { lang: fr }
+  - scope: { path: "it" }
+    values: { lang: it }
+
+# Project files that must not be published.
+exclude:
+  - docs/
+  - MEMORY.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .claude/
+  - screenshots/

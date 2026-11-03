@@ -1,0 +1,67 @@
+{%- comment -%}
+  Who we are: title + intro (2 columns) · row of values · people cards.
+  People ids/order, photos and LinkedIn URLs come from _data/platform.yml (people), text from t.about.people[id].
+  A card with an empty name is not shown; an empty photo shows a neutral placeholder.
+{%- endcomment -%}
+{%- assign ab = t.about -%}
+{%- assign values_text = ab.values | join: "" -%}
+{%- assign people_text = "" -%}
+{%- for person in p.people -%}{%- assign people_text = people_text | append: ab.people[person.id].name -%}{%- endfor -%}
+<section class="section" id="who-we-are"{% if ab.title and ab.title != "" %} aria-labelledby="who-we-are-title"{% endif %}>
+  <div class="wrap">
+    {%- assign top_text = ab.title | append: ab.intro %}
+    {%- if top_text != "" %}
+    <div class="split">
+      {%- if ab.title and ab.title != "" %}
+      <header class="section-head">
+        <h2 id="who-we-are-title">{{ ab.title }}</h2>
+      </header>
+      {%- endif %}
+      {%- if ab.intro and ab.intro != "" %}
+      <div class="prose lede split__body">
+        <p>{{ ab.intro }}</p>
+      </div>
+      {%- endif %}
+    </div>
+    {%- endif %}
+
+    {%- if values_text != "" %}
+    <ul class="values">
+      {%- for value in ab.values %}
+      {%- if value and value != "" %}
+      <li class="value"><span class="value__mark" aria-hidden="true"></span>{{ value }}</li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+
+    {%- if people_text != "" %}
+    <ul class="people">
+      {%- for person in p.people %}
+      {%- assign pt = ab.people[person.id] %}
+      {%- if pt.name and pt.name != "" %}
+      <li class="person">
+        <div class="person__photo media">
+          {%- if person.photo and person.photo != "" %}
+          <img src="{{ person.photo | prepend: '/assets/images/' | relative_url }}" alt="{{ pt.photo_alt | escape }}" loading="lazy">
+          {%- endif %}
+        </div>
+        <div class="person__text">
+          <h3 class="person__name">{{ pt.name }}</h3>
+          {%- if pt.role and pt.role != "" %}
+          <p class="person__role">{{ pt.role }}</p>
+          {%- endif %}
+          {%- if pt.bio and pt.bio != "" %}
+          <p class="person__bio">{{ pt.bio }}</p>
+          {%- endif %}
+          {%- if person.linkedin_url and person.linkedin_url != "" and pt.linkedin and pt.linkedin != "" %}
+          <a class="person__link" href="{{ person.linkedin_url }}" target="_blank" rel="noopener">{{ pt.linkedin }}</a>
+          {%- endif %}
+        </div>
+      </li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</section>

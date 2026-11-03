@@ -1,0 +1,11 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign p = site.data.platform -%}
+{% include sections/hero.html %}
+{% include sections/how-we-work.html %}
+{% include sections/solutions.html %}
+{% include sections/cta.html %}
+{% include sections/about.html %}
+{%- comment -%} Not on the page (MEMORY.md §5.3–5.4): sections/platform.html, approach.html, modules.html, combinations.html and assets/js/platform.js stay in the repo but are not included/loaded (cleanup candidates). {%- endcomment -%}

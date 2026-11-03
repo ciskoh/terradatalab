@@ -1,0 +1,146 @@
+{%- comment -%}
+  How we work: title + paragraphs (2 columns) · platform hub (viewer at the centre, modules around it) · numbered steps · e-mail button.
+  Module ids/order and the screenshot file come from _data/platform.yml; all text from t.how_we_work.
+  First 3 modules go left of the screenshot, the others right. Icons are simple outline shapes chosen by module id.
+{%- endcomment -%}
+{%- assign hw = t.how_we_work -%}
+{%- assign pf = hw.platform -%}
+<section class="section section--alt" id="how-we-work"{% if hw.title and hw.title != "" %} aria-labelledby="how-we-work-title"{% endif %}>
+  <div class="wrap">
+    {%- assign head_text = hw.eyebrow | append: hw.title %}
+    {%- assign top_text = head_text | append: hw.body %}
+    {%- if top_text != "" %}
+    <div class="split">
+      {%- if head_text != "" %}
+      <header class="section-head">
+        {%- if hw.eyebrow and hw.eyebrow != "" %}
+        <p class="eyebrow">{{ hw.eyebrow }}</p>
+        {%- endif %}
+        {%- if hw.title and hw.title != "" %}
+        <h2 id="how-we-work-title">{{ hw.title }}</h2>
+        {%- endif %}
+      </header>
+      {%- endif %}
+      {%- if hw.body and hw.body != "" %}
+      {%- comment %} paragraphs are separated by an empty line in the text file {% endcomment %}
+      {%- capture blank_line %}
+
+{% endcapture %}
+      {%- assign paras = hw.body | strip | split: blank_line %}
+      <div class="prose lede split__body">
+        {%- for para in paras %}
+        {%- assign para_text = para | strip %}
+        {%- if para_text != "" %}
+        <p>{{ para_text | escape }}</p>
+        {%- endif %}
+        {%- endfor %}
+      </div>
+      {%- endif %}
+    </div>
+    {%- endif %}
+
+    {%- comment %} ---- Platform hub ---- {% endcomment %}
+    {%- capture hub_left %}{% endcapture %}
+    {%- capture hub_right %}{% endcapture %}
+    {%- assign module_text = "" %}
+    {%- for id in p.modules %}
+    {%- assign mt = pf.modules[id] %}
+    {%- if mt.name and mt.name != "" %}
+    {%- assign module_text = module_text | append: mt.name %}
+    {%- capture item %}
+          <li class="hub__module">
+            <svg class="hub__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              {%- case id %}
+              {%- when "public_db" %}<rect x="5" y="5" width="14" height="14" rx="1.5"/>
+              {%- when "metrics" %}<path d="M12 3.5 20.5 12 12 20.5 3.5 12z"/>
+              {%- when "operations" %}<path d="M5 19C5 10.5 10.5 5 19 5c0 8.5-5.5 14-14 14z"/><path d="M5 19 13.5 10.5"/>
+              {%- when "dynamic_monitoring" %}<path d="M12 4.5 20.5 19.5h-17z"/>
+              {%- when "weather_scenarios" %}<path d="M12 3.5l7.5 4.25v8.5L12 20.5l-7.5-4.25v-8.5z"/>
+              {%- else %}<circle cx="12" cy="12" r="8"/>
+              {%- endcase %}
+            </svg>
+            <div class="hub__text">
+              <h4 class="hub__name">{{ mt.name }}</h4>
+              {%- if mt.text and mt.text != "" %}
+              <p>{{ mt.text }}</p>
+              {%- endif %}
+            </div>
+          </li>
+    {%- endcapture %}
+    {%- if forloop.index <= 3 %}
+    {%- assign hub_left = hub_left | append: item %}
+    {%- else %}
+    {%- assign hub_right = hub_right | append: item %}
+    {%- endif %}
+    {%- endif %}
+    {%- endfor %}
+    {%- assign hub_text = pf.title | append: pf.intro | append: pf.core.name | append: pf.core.text | append: module_text %}
+    {%- if hub_text != "" %}
+    <div class="platform-hub">
+      {%- assign hub_head = pf.title | append: pf.intro %}
+      {%- if hub_head != "" %}
+      <header class="section-head section-head--center platform-hub__head">
+        {%- if pf.title and pf.title != "" %}
+        <h3 class="platform-hub__title">{{ pf.title }}</h3>
+        {%- endif %}
+        {%- if pf.intro and pf.intro != "" %}
+        <p class="lede">{{ pf.intro }}</p>
+        {%- endif %}
+      </header>
+      {%- endif %}
+      <div class="hub">
+        <div class="hub__frame media">
+          {%- if p.viewer_screenshot and p.viewer_screenshot != "" %}
+          <img src="{{ p.viewer_screenshot | prepend: '/assets/images/' | relative_url }}" alt="{{ pf.screenshot_alt | escape }}" loading="lazy">
+          {%- endif %}
+        </div>
+        {%- assign core_text = pf.core.name | append: pf.core.text %}
+        {%- if core_text != "" %}
+        <div class="hub__core">
+          {%- if pf.core.name and pf.core.name != "" %}
+          <h4 class="hub__name">{{ pf.core.name }}</h4>
+          {%- endif %}
+          {%- if pf.core.text and pf.core.text != "" %}
+          <p>{{ pf.core.text }}</p>
+          {%- endif %}
+        </div>
+        {%- endif %}
+        {%- if hub_left != "" %}
+        <ul class="hub__modules hub__modules--left">{{ hub_left }}
+        </ul>
+        {%- endif %}
+        {%- if hub_right != "" %}
+        <ul class="hub__modules hub__modules--right">{{ hub_right }}
+        </ul>
+        {%- endif %}
+      </div>
+    </div>
+    {%- endif %}
+
+    {%- comment %} ---- Numbered steps ---- {% endcomment %}
+    {%- assign steps_text = "" %}
+    {%- for step in hw.steps %}{% assign steps_text = steps_text | append: step.title | append: step.text %}{% endfor %}
+    {%- if steps_text != "" %}
+    <ol class="steps">
+      {%- for step in hw.steps %}
+      {%- assign step_text = step.title | append: step.text %}
+      {%- if step_text != "" %}
+      <li class="step">
+        <span class="step__num" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
+        {%- if step.title and step.title != "" %}
+        <h3 class="step__title">{{ step.title }}</h3>
+        {%- endif %}
+        {%- if step.text and step.text != "" %}
+        <p>{{ step.text }}</p>
+        {%- endif %}
+      </li>
+      {%- endif %}
+      {%- endfor %}
+    </ol>
+    {%- endif %}
+
+    {%- if hw.cta and hw.cta != "" %}
+    <p class="actions how-we-work__cta"><a class="btn btn--primary" href="mailto:{{ p.contact_email }}">{{ hw.cta }}</a></p>
+    {%- endif %}
+  </div>
+</section>

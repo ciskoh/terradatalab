@@ -1,0 +1,66 @@
+<section class="section" id="combinations" aria-labelledby="combinations-title">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">{{ t.combinations.eyebrow }}</p>
+      <h2 id="combinations-title">{{ t.combinations.title }}</h2>
+      <p class="lede">{{ t.combinations.intro }}</p>
+    </header>
+
+    <div class="matrix-scroll">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <td></td>
+            {%- for m in p.modules %}
+            <th scope="col">{{ t.modules.items[m.id].short }}</th>
+            {%- endfor %}
+          </tr>
+        </thead>
+        {%- for c in p.combinations %}
+        {%- assign ct = t.combinations.items[c.id] %}
+        {%- assign is_open = false %}
+        {%- if c.id == p.default_open_combination %}{% assign is_open = true %}{% endif %}
+        <tbody class="combo" data-combination="{{ c.id }}" data-includes="{{ c.includes | join: ' ' }}">
+          <tr>
+            <th scope="row">
+              <button type="button" class="combo__toggle" aria-expanded="{{ is_open }}" aria-controls="combo-{{ c.id }}">
+                <span class="combo__sign" aria-hidden="true"></span>
+                <span class="combo__name">{{ ct.name }}</span>
+              </button>
+            </th>
+            {%- for m in p.modules %}
+            <td>
+              {%- if c.includes contains m.id %}
+              <span class="dot dot--included"></span><span class="visually-hidden">{{ t.combinations.legend_included }}</span>
+              {%- else %}
+              <span class="dot dot--optional"></span><span class="visually-hidden">{{ t.combinations.legend_optional }}</span>
+              {%- endif %}
+            </td>
+            {%- endfor %}
+          </tr>
+          <tr class="combo__detail" id="combo-{{ c.id }}"{% unless is_open %} hidden{% endunless %}>
+            <td colspan="{{ p.modules.size | plus: 1 }}">
+              <div class="combo__detail-inner">
+                <div>
+                  <p>{{ ct.text }}</p>
+                  <a href="mailto:{{ p.contact_email }}">{{ ct.link }}</a>
+                </div>
+                <div class="media">
+                  {%- if c.image != "" %}
+                  <img src="{{ c.image | prepend: '/assets/images/' | relative_url }}" alt="{{ ct.image_alt | escape }}" loading="lazy">
+                  {%- endif %}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        {%- endfor %}
+      </table>
+    </div>
+
+    <ul class="legend" aria-hidden="true">
+      <li><span class="dot dot--included"></span>{{ t.combinations.legend_included }}</li>
+      <li><span class="dot dot--optional"></span>{{ t.combinations.legend_optional }}</li>
+    </ul>
+  </div>
+</section>

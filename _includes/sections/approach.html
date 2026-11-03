@@ -1,0 +1,14 @@
+<section class="section" id="approach" aria-labelledby="approach-title">
+  <div class="wrap">
+    <h2 id="approach-title">{{ t.approach.title }}</h2>
+    <ol class="principles">
+      {%- for item in t.approach.items %}
+      <li class="principle">
+        <span class="principle__num" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,8 @@
+<nav class="lang-switch"{% if t.nav.language and t.nav.language != "" %} aria-label="{{ t.nav.language }}"{% endif %}>
+  {%- for lang in site.languages %}
+  {%- assign alt = site.pages | where: "ref", page.ref | where: "lang", lang | first %}
+  {%- if alt %}
+  <a href="{{ alt.url | relative_url }}" hreflang="{{ lang }}" lang="{{ lang }}"{% if lang == page.lang %} aria-current="page"{% endif %}>{{ lang | upcase }}</a>
+  {%- endif %}
+  {%- endfor %}
+</nav>

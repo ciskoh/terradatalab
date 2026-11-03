@@ -1,0 +1,12 @@
+# Build output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
+.bundle/
+Gemfile.lock
+
+# Private reference material and working notes
+docs/
+.claude/

@@ -1,0 +1,116 @@
+/* Design tokens: the ONLY place for colours, fonts and sizes.
+   Values taken from the graphics draft
+   docs/single page version/TerraDataLab One Page.dc.html
+   (Ubuntu, forest green #2D5F3F, navy #0A0E27, white + #F5F7FA bands, 1200px wrap). */
+
+/* ---- Self-hosted fonts (Ubuntu, latin subset, from @fontsource/ubuntu 5.1.0).
+        Licence: assets/fonts/UFL.txt (Ubuntu Font Licence 1.0). No Google Fonts call. ---- */
+@font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 300; font-display: swap; src: url("../fonts/ubuntu-latin-300-normal.woff2") format("woff2"); }
+@font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/ubuntu-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/ubuntu-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/ubuntu-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  /* Colours */
+  --color-bg: #ffffff;
+  --color-bg-alt: #F5F7FA;          /* alternating section background */
+  --color-text: #0A0E27;            /* navy */
+  --color-text-soft: #3b4150;       /* nav links, body copy on white */
+  --color-text-muted: #5a6070;      /* item descriptions */
+  --color-text-lede: #4a5060;       /* section intro paragraphs */
+  --color-line: #e1e5ea;            /* rules and borders */
+  --color-line-soft: #eef1f4;       /* header bottom border */
+  --color-line-alt: #dfe4ea;        /* rules on the alt background */
+  --color-accent: #2D5F3F;          /* buttons, numbers, eyebrows */
+  --color-accent-hover: #3d7a52;    /* button hover: lighter, as on UrbanDataLab */
+  --color-accent-contrast: #ffffff; /* text on the accent colour */
+  --color-band: #2D5F3F;            /* CTA band background */
+  --color-band-text: #ffffff;
+  --color-footer: #0A0E27;          /* footer background */
+  --color-footer-text: #ffffff;
+  --color-footer-strong: #ffffff;   /* footer logo */
+  --color-footer-title: #6fae84;    /* footer column titles: light green, 7.3:1 on the navy footer (WCAG AA) */
+  --color-footer-banner: #141a3a;   /* UrbanDataLab strip at the top of the footer */
+  --color-footer-line: rgba(255, 255, 255, .12);
+  --color-header-bg: rgba(255, 255, 255, .94);
+  --color-hero-shape: #f5f7fa;      /* slanted grey shape at the right of the hero */
+  --color-frame: #1d2233;           /* screenshot frame placeholder (dark neutral) */
+  --color-frame-line: rgba(255, 255, 255, .06);
+  --color-placeholder: #e4e8ed;     /* photo placeholder */
+  --color-connector: #c3cad3;       /* thin lines from the modules to the screenshot */
+  --color-dot-empty: #8a94a3;       /* outlined dot "not included" (3:1 on white) */
+  --color-focus: #2D5F3F;           /* keyboard focus outline */
+  --color-focus-inverse: #ffffff;   /* focus outline on green / navy */
+
+  /* Typography */
+  --font-display: "Ubuntu", system-ui, sans-serif;
+  --font-body: "Ubuntu", system-ui, sans-serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --fs-body: 16px;
+  --lh-body: 1.55;
+  --fs-small: 16px;                 /* footer base text and ©, as on UrbanDataLab */
+  --fs-footer-link: 18px;           /* footer column links (UrbanDataLab: 18px) */
+  --fs-footer-title: 18px;          /* footer column titles (UrbanDataLab: 18px) */
+  --fs-nav: 16px;
+  --fs-eyebrow: 12px;
+  --ls-eyebrow: .14em;
+  --fs-num: 13px;                   /* 01 / 02 / 03 */
+  --fs-brand: 18px;
+  --fs-brand-footer: 17px;
+  --fs-h1: clamp(32px, 5vw, 62px);
+  --lh-h1: 1.17;
+  --ls-h1: 0;
+  --fs-h2: clamp(30px, 3.4vw, 40px);        /* main section titles (Platform, Solutions) */
+  --lh-h2: 1.23;
+  --ls-h2: 0;
+  --fs-h2-band: clamp(24px, 2.6vw, 32px);   /* CTA band title */
+  --lh-h2-band: 1.23;
+  --ls-h2-band: 0;
+  --fs-h3: 21px;
+  --lh-h3: 1.3;
+  --fs-lede: 20px;
+  --lh-lede: 1.6;
+  --fs-hero-sub: 20px;                      /* hero subtitle (between lede and h3) */
+  --fs-offer: 21px;                         /* hero offer line */
+  --fs-item: 16px;                          /* item text (UrbanDataLab item descriptions: 16px) */
+  --fs-label: 13px;                         /* language switcher */
+  --fs-step-num: 56px;                      /* big light step numbers 01–03 (wireframe) */
+  --fs-h3-block: clamp(24px, 2.6vw, 32px);  /* sub-block title inside a section (platform hub) */
+  --fs-row-name: 20px;                      /* item names: Solutions table rows, platform modules (UrbanDataLab: 20px) */
+  --fs-value: 21px;                         /* Who we are: values row */
+
+  /* Layout */
+  --wrap-max: 1200px;
+  --gutter: 48px;
+  --gutter-mobile: 16px;
+  --section-space: 90px;
+  --section-space-mobile: 72px;
+  --hero-space-top: 140px;
+  --hero-space-bottom: 132px;
+  --band-space: 56px;
+  --header-pad: 20px;
+  --radius: 15px;                    /* buttons */
+  --radius-media: 18px;             /* images */
+  --btn-height: 60px;
+  --btn-height-small: 44px;
+  --btn-height-band: 60px;
+  --btn-border: 1.5px;
+  --rule-strong: 2px;               /* top rule of numbered items */
+  --hub-gap: 56px;                  /* space between the modules and the screenshot (connector length) */
+  --icon-size: 28px;                /* module outline icons */
+  --icon-stroke: 1.5;
+  --dot-size: 14px;                 /* Solutions table dots */
+  --photo-size: 168px;              /* person photo */
+  --value-mark: 14px;               /* parallelogram before each value */
+  --brand-mark: 16px;
+  --brand-mark-footer: 14px;
+  --measure-hero: 820px;
+  --measure-h2: 780px;
+  --measure-text: 640px;
+  --measure-band: 620px;
+  --shadow-media: 0 30px 60px -30px rgba(10, 14, 39, .35);
+}

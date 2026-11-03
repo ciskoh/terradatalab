@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if page.ref != "home" and page.title != "" and page.title %}{{ page.title }} | {% endif %}{{ t.meta.title | default: site.title }}</title>
+{%- if t.meta.description and t.meta.description != "" %}
+<meta name="description" content="{{ t.meta.description | escape }}">
+{%- endif %}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{%- for lang in site.languages %}
+{%- assign alt = site.pages | where: "ref", page.ref | where: "lang", lang | first %}
+{%- if alt %}
+<link rel="alternate" hreflang="{{ lang }}" href="{{ alt.url | absolute_url }}">
+{%- endif %}
+{%- endfor %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ t.meta.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ t.meta.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:locale" content="{{ page.lang }}">
+<link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-500-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">

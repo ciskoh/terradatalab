@@ -1,0 +1,18 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign home = site.pages | where: "ref", "home" | where: "lang", page.lang | first -%}
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+<head>
+{% include head.html %}
+</head>
+<body>
+{%- if t.nav.skip != "" and t.nav.skip %}
+<a class="skip-link" href="#main">{{ t.nav.skip }}</a>
+{%- endif %}
+{% include header.html %}
+<main id="main">
+{{ content }}
+</main>
+{% include footer.html %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+# Language-neutral facts about the site. Text for every item is in _data/i18n/<lang>.yml.
+
+contact_email: "m.jriva@urbandatalab.net"                    # used by every e-mail link (mailto)
+booking_url: "https://calendar.app.google/bSMCYqQJFt6VAV4Y6"  # booking page: Hero main button + green band button
+linkedin_url: "http://www.linkedin.com/in/matteojriva"        # footer LinkedIn link (personal profile for now)
+sister_url: "https://urbandatalab.ch"                         # sister company, linked in the footer strip
+
+# How we work › platform block. Screenshot of the Core Data Viewer (file in assets/images/, empty = placeholder frame)
+viewer_screenshot: ""
+# Modules around the viewer, in display order: first 3 on the left, last 3 on the right.
+# ids = keys of how_we_work.platform.modules in the text files.
+modules: [satellite, public_db, metrics, operations, dynamic_monitoring, weather_scenarios]
+
+# Solutions › table. Columns in display order (ids = keys of solutions.columns in the text files).
+solution_columns: [core, satellite, public_db, metrics, operations]
+# Rows, in display order (ids = keys of solutions.items in the text files).
+# "includes" = columns marked as part of the combination.
+combinations:
+  - id: see_field
+    includes: [core]
+  - id: baseline
+    includes: [core, satellite, public_db]
+  - id: land_evolution
+    includes: [core, satellite, metrics]
+  - id: operations
+    includes: [core, satellite, operations]
+  - id: audit
+    includes: [core, metrics, operations]
+
+# Who we are › people cards, in display order (ids = keys of about.people in the text files).
+# photo: file name in assets/images/ (empty = placeholder). A card with an empty name is not shown.
+# linkedin_url: this person's LinkedIn profile (empty = no link on the card).
+people:
+  - id: matteo
+    photo: ""
+    linkedin_url: "http://www.linkedin.com/in/matteojriva"
+  - id: person_2
+    photo: ""
+    linkedin_url: ""

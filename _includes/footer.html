@@ -1,0 +1,80 @@
+{%- assign imprint = site.pages | where: "ref", "imprint" | where: "lang", page.lang | first -%}
+{%- assign privacy = site.pages | where: "ref", "privacy-policy" | where: "lang", page.lang | first -%}
+{%- assign p = site.data.platform -%}
+{%- assign f = t.footer -%}
+<footer class="site-footer">
+  {%- assign banner_text = f.banner | append: f.banner_link %}
+  {%- if banner_text != "" %}
+  <div class="footer-banner">
+    <p class="wrap footer-banner__inner">
+      {%- if f.banner and f.banner != "" %}
+      <span>{{ f.banner }}</span>
+      {%- endif %}
+      {%- if f.banner_link and f.banner_link != "" and p.sister_url and p.sister_url != "" %}
+      <a href="{{ p.sister_url }}" target="_blank" rel="noopener"><svg class="footer-banner__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 8h11M9 4l4 4-4 4"/></svg>{{ f.banner_link }}</a>
+      {%- endif %}
+    </p>
+  </div>
+  {%- endif %}
+  <div class="wrap site-footer__grid">
+    <div class="site-footer__col">
+      <a class="brand brand--inverse" href="{{ home.url | relative_url }}"><span class="brand__mark" aria-hidden="true"></span>{{ site.title }}</a>
+      {%- if f.copyright and f.copyright != "" %}
+      <p class="site-footer__copy">{{ f.copyright }}</p>
+      {%- endif %}
+    </div>
+
+    {%- assign pages_text = t.nav.how_we_work | append: t.nav.solutions | append: t.nav.about %}
+    {%- if pages_text != "" %}
+    <nav class="site-footer__col"{% if f.pages_label and f.pages_label != "" %} aria-labelledby="footer-pages"{% endif %}>
+      {%- if f.pages_label and f.pages_label != "" %}
+      <h2 class="site-footer__title" id="footer-pages">{{ f.pages_label }}</h2>
+      {%- endif %}
+      <ul class="site-footer__list">
+        {%- if t.nav.how_we_work and t.nav.how_we_work != "" %}
+        <li><a href="{{ home.url | relative_url }}#how-we-work">{{ t.nav.how_we_work }}</a></li>
+        {%- endif %}
+        {%- if t.nav.solutions and t.nav.solutions != "" %}
+        <li><a href="{{ home.url | relative_url }}#solutions">{{ t.nav.solutions }}</a></li>
+        {%- endif %}
+        {%- if t.nav.about and t.nav.about != "" %}
+        <li><a href="{{ home.url | relative_url }}#who-we-are">{{ t.nav.about }}</a></li>
+        {%- endif %}
+      </ul>
+    </nav>
+    {%- endif %}
+
+    {%- assign legal_text = f.privacy | append: f.imprint %}
+    {%- if legal_text != "" %}
+    <nav class="site-footer__col"{% if f.legal_label and f.legal_label != "" %} aria-labelledby="footer-legal"{% endif %}>
+      {%- if f.legal_label and f.legal_label != "" %}
+      <h2 class="site-footer__title" id="footer-legal">{{ f.legal_label }}</h2>
+      {%- endif %}
+      <ul class="site-footer__list">
+        {%- if privacy and f.privacy and f.privacy != "" %}
+        <li><a href="{{ privacy.url | relative_url }}">{{ f.privacy }}</a></li>
+        {%- endif %}
+        {%- if imprint and f.imprint and f.imprint != "" %}
+        <li><a href="{{ imprint.url | relative_url }}">{{ f.imprint }}</a></li>
+        {%- endif %}
+      </ul>
+    </nav>
+    {%- endif %}
+
+    {%- assign show_linkedin = false %}
+    {%- if p.linkedin_url and p.linkedin_url != "" and f.linkedin and f.linkedin != "" %}{% assign show_linkedin = true %}{% endif %}
+    <div class="site-footer__col">
+      {%- if f.contact_label and f.contact_label != "" %}
+      <h2 class="site-footer__title">{{ f.contact_label }}</h2>
+      {%- endif %}
+      <ul class="site-footer__list">
+        {%- if p.contact_email and p.contact_email != "" %}
+        <li><a href="mailto:{{ p.contact_email }}">{{ p.contact_email }}</a></li>
+        {%- endif %}
+        {%- if show_linkedin %}
+        <li><a href="{{ p.linkedin_url }}" target="_blank" rel="noopener">{{ f.linkedin }}</a></li>
+        {%- endif %}
+      </ul>
+    </div>
+  </div>
+</footer>

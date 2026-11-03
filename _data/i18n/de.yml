@@ -1,0 +1,140 @@
+# TerraDataLab: ALL WEBSITE TEXT, German
+#
+# How to edit:
+#   - Change only the text between the quotes. Do not rename the keys (the words before ":").
+#   - Every language file (en.yml, de.yml, fr.yml, it.yml) has exactly the same keys.
+#   - For a long text spanning several lines use:   text: |
+#                                                     First line…
+#     Leave an empty line between paragraphs.
+#   - A list item starts with "- " on its own line.
+#   - Section order follows the page from top to bottom.
+#   - An empty text ("") is simply not shown on the page.
+
+meta:
+  title: ""                 # browser tab / search result title (empty: "TerraDataLab")
+  description: ""           # search result snippet (~155 characters)
+
+nav:
+  how_we_work: ""                    # header link to the How we work section
+  solutions: ""                      # header link to the Solutions section
+  about: ""                          # header link to the Who we are section
+  cta: ""                            # header button (e-mail)
+  language: ""              # screen-reader label for the language switcher
+  skip: ""                  # "Skip to content" link for keyboard users
+
+hero:                       # first block of the page
+  eyebrow: ""               # small line above the headline (not used for now)
+  title: ""                 # headline
+  subtitle: ""              # text below the headline
+  offer: ""                 # short highlighted line ("the offer")
+  cta_primary: ""                           # main button: opens the booking page (new tab)
+  cta_secondary: ""                         # second button: jumps to How we work
+
+how_we_work:                # "How we work" section (header link "How we work")
+  eyebrow: ""               # small line above the headline (not used for now)
+  title: ""                 # headline, left column
+  body: ""
+  platform:                 # block "viewer at the centre + modules around it"
+    title: ""               # centred headline of the block
+    intro: ""               # text below the block headline
+    screenshot_alt: ""      # description of the screenshot for screen readers
+    core:                   # caption under the screenshot
+      name: ""
+      text: ""
+    modules:                # items around the screenshot; ids must match _data/platform.yml (modules)
+      satellite:
+        name: ""
+        text: ""
+      public_db:
+        name: ""
+        text: ""
+      metrics:
+        name: ""
+        text: ""
+      operations:
+        name: ""
+        text: ""
+      dynamic_monitoring:
+        name: ""
+        text: ""
+      weather_scenarios:
+        name: ""
+        text: ""
+  steps:                    # numbered steps, 01–03 automatically
+    - title: ""
+      text: ""
+    - title: ""
+      text: ""
+    - title: ""
+      text: ""
+  cta: ""                   # button below the steps (e-mail)
+
+solutions:                  # "Solutions" section: table of combinations
+  eyebrow: ""               # small line above the headline (not used for now)
+  title: ""                                   # headline
+  intro: ""                                   # text below the headline
+  legend_included: ""       # screen-reader text for a filled dot ("included")
+  legend_not_included: ""   # screen-reader text for an empty dot
+  columns:                  # table column headers; ids must match _data/platform.yml (solution_columns)
+    core: ""
+    satellite: ""
+    public_db: ""
+    metrics: ""
+    operations: ""
+  items:                    # table rows (name + short text); ids must match _data/platform.yml (combinations)
+    see_field:
+      name: ""
+      text: ""
+    baseline:
+      name: ""
+      text: ""
+    land_evolution:
+      name: ""
+      text: ""
+    operations:
+      name: ""
+      text: ""
+    audit:
+      name: ""
+      text: ""
+
+cta:                        # green band near the bottom
+  title: ""                                    # text in the band
+  button: ""                # button: opens the booking page (new tab)
+
+about:                      # "Who we are" section, after the green band
+  title: ""                                  # headline
+  intro: ""                 # text below the headline
+  values:                   # row of three short values, one line each
+    - ""
+    - ""
+    - ""
+  people:                   # people cards; ids must match _data/platform.yml (people); bios may use "I"
+    matteo:
+      name: ""
+      role: ""
+      bio: ""
+      photo_alt: ""         # description of the photo for screen readers
+      linkedin: ""          # link text; the URL is linkedin_url of this person in _data/platform.yml
+    person_2:
+      name: ""              # empty = card not shown
+      role: ""
+      bio: ""
+      photo_alt: ""         # description of the photo for screen readers
+      linkedin: ""          # link text; the URL is linkedin_url of this person in _data/platform.yml
+
+footer:                     # bottom of the page
+  banner: ""                                   # top strip of the footer
+  banner_link: ""                              # link in the top strip (opens urbandatalab.ch)
+  pages_label: ""           # title of the column with the section links
+  legal_label: ""           # title of the column with Privacy / Imprint
+  contact_label: ""         # title of the column with e-mail and LinkedIn
+  linkedin: ""              # LinkedIn link text (URL: linkedin_url in _data/platform.yml)
+  privacy: ""               # link to the privacy page
+  imprint: ""               # Imprint link hidden for now (page kept, unlinked)
+  copyright: ""                      # copyright line under the logo
+
+not_found:                  # 404 page
+  title: ""
+  text: ""
+  back: ""
