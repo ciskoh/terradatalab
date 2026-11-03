@@ -3,10 +3,21 @@
 contact_email: "m.jriva@urbandatalab.net"                    # used by every e-mail link (mailto)
 booking_url: "https://calendar.app.google/bSMCYqQJFt6VAV4Y6"  # booking page: Hero main button + green band button
 linkedin_url: "http://www.linkedin.com/in/matteojriva"        # footer LinkedIn link (personal profile for now)
-sister_url: "https://urbandatalab.ch"                         # sister company, linked in the footer strip
+sister_url: "https://urbandatalab.ch"                         # sister company, linked by the UrbanDataLab banner (under the header and above the footer, home page only)
 
-# How we work › platform block. Screenshot of the Core Data Viewer (file in assets/images/, empty = placeholder frame)
-viewer_screenshot: ""
+# Site-wide images: files in assets/images/, generated from the master image001.png (which stays untouched).
+favicon: "favicon-32.png"                  # browser-tab icon, 32×32
+favicon_large: "favicon-192.png"           # larger icon, 192×192 (Android)
+apple_touch_icon: "apple-touch-icon.png"   # iPhone/iPad home-screen icon, 180×180
+share_image: "share.jpg"                   # share image 1200×630 for link previews
+
+# Hero › image on the right: web copy of image001.png (file in assets/images/, empty = no image)
+hero_image: "hero-tree.png"
+
+# How we work › platform block. Core Data Viewer video in the centre of the platform hub (file in assets/images/)
+viewer_video: "Screencast002.webm"
+# Poster = still image shown before/instead of the video: light copy of screencastPoster.png (file in assets/images/)
+viewer_poster: "screencast-poster.jpg"
 # Modules around the viewer, in display order: first 3 on the left, last 3 on the right.
 # ids = keys of how_we_work.platform.modules in the text files.
 modules: [satellite, public_db, metrics, operations, dynamic_monitoring, weather_scenarios]
@@ -28,12 +39,12 @@ combinations:
     includes: [core, metrics, operations]
 
 # Who we are › people cards, in display order (ids = keys of about.people in the text files).
-# photo: file name in assets/images/ (empty = placeholder). A card with an empty name is not shown.
+# photo: file name in assets/images/ (empty = placeholder); photos are round crops of matteo001.png / patrick001.png (masters untouched). A card with an empty name is not shown.
 # linkedin_url: this person's LinkedIn profile (empty = no link on the card).
 people:
   - id: matteo
-    photo: ""
+    photo: "matteo.png"
     linkedin_url: "http://www.linkedin.com/in/matteojriva"
-  - id: person_2
-    photo: ""
-    linkedin_url: ""
+  - id: patrick
+    photo: "patrick.png"
+    linkedin_url: "https://www.linkedin.com/in/patrick-m-schirmer/"

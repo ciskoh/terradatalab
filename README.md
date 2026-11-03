@@ -22,7 +22,7 @@ git clone https://github.com/ciskoh/terradatalab.git
 | Layout and section styles | `assets/css/main.css` |
 | Page skeleton | `_layouts/` |
 | One template per section (no text inside) | `_includes/sections/` |
-| Module toggles + combinations table behaviour | `assets/js/platform.js` |
+| Core Data Viewer video (plays when in view) | `assets/js/viewer-video.js` |
 | Images / fonts | `assets/images/`, `assets/fonts/` |
 | Site settings (URL, languages, excluded files) | `_config.yml` |
 

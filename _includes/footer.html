@@ -3,19 +3,6 @@
 {%- assign p = site.data.platform -%}
 {%- assign f = t.footer -%}
 <footer class="site-footer">
-  {%- assign banner_text = f.banner | append: f.banner_link %}
-  {%- if banner_text != "" %}
-  <div class="footer-banner">
-    <p class="wrap footer-banner__inner">
-      {%- if f.banner and f.banner != "" %}
-      <span>{{ f.banner }}</span>
-      {%- endif %}
-      {%- if f.banner_link and f.banner_link != "" and p.sister_url and p.sister_url != "" %}
-      <a href="{{ p.sister_url }}" target="_blank" rel="noopener"><svg class="footer-banner__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 8h11M9 4l4 4-4 4"/></svg>{{ f.banner_link }}</a>
-      {%- endif %}
-    </p>
-  </div>
-  {%- endif %}
   <div class="wrap site-footer__grid">
     <div class="site-footer__col">
       <a class="brand brand--inverse" href="{{ home.url | relative_url }}"><span class="brand__mark" aria-hidden="true"></span>{{ site.title }}</a>

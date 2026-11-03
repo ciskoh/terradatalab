@@ -17,6 +17,10 @@
 | 2026-11-02 | Matteo, section review | **General coherence rule: the site always speaks as "we", never "I"** (applies to all sections and languages; adapt any "I" in source copy). |
 | 2026-11-03 | Matteo, section review | **Exception to the "we" rule:** personal bios in "Who we are" may use "I", and only there. |
 | 2026-11-02 | Matteo, section review | **No eyebrows anywhere** (small labels above titles dropped in every section, as on urbandatalab.ch). **Contact e-mail:** m.jriva@urbandatalab.net (`contact_email` in `_data/platform.yml`) for all mailto buttons. |
+| 2026-11-03 | Matteo, review #2 (§6) | **Site-wide:** tab title "TerraDataLab - data solutions for sustainability"; search snippet = hero subtitle; favicon + share image from `image001.png` (share image on white). |
+| 2026-11-03 | Matteo, review #2 (§6) | **UrbanDataLab banner** (UDL blue #1c3f4a, "Looking for other use cases? Visit UrbanDataLab →"), home page only, under the header AND above the footer; the footer strip "Part of the UrbanDataLab family" is dropped. Spelling always **"UrbanDataLab"**. Phone header stays two rows (no burger menu). |
+| 2026-11-03 | Matteo, review #2 (§6) | **Hero:** title "Trust your work. Give your project the tools to prove it."; tree image (`image001.png`) on the right. **How we work:** order title → platform hub (Core Data Viewer **video** `Screencast002.webm` + poster) → steps → button → paragraphs; Dynamic Monitoring one-liner "Compare your project area with reference sites, dynamically." |
+| 2026-11-03 | Matteo, review #2 (§6) | **Solutions:** full module names in the table; on phones one card per combination with green module pills. **Who we are:** "Our values" heading; round b/w photos; second person **Patrick Schirmer** (Product & Platform Manager). **Legal:** imprint = Matteo's private address (no company), linked in the footer; Privacy link hidden until text exists; 404 texts set. |
 
 Notes on UrbanDataLab (checked 2026-11-02): built with Tilda (a hosted builder), English only, flat URLs: `/platform`, `/solutions`, `/resources`, `/imprint`, `/privacy-policy`, `/terms-and-conditions`.
 → We reuse its URL names and page pattern, not its technology.
@@ -201,7 +205,7 @@ Already compatible: Ubuntu, white page + very light alt bands, 1200px width, lef
 ## 5. Current task: section-by-section review with Matteo (started 2026-11-02)
 Order: 1 Header · 2 Hero · 3 Platform · 4 Solutions · 5 CTA band · 6 Footer, then the deferred items below.
 
-**RESUME POINT (updated 2026-11-03):** On "resume review": **review complete and IMPLEMENTED (2026-11-03, §5.8)**. Open: style items S1–S5 (§5.8), cleanup of unused files, assets from Matteo (viewer screenshot, photos, logo), §5.x deferred items (Solutions rework, second banner, hero angles) (sections 1–4 + Who we are agreed): show its current content (eyebrow already dropped per §1; 3 cards: Field Traceability, Dynamic Monitoring, Weather Scenarios, each with name / short / "What it does" / "Key benefits"), and raise the parked wireframe items "Any methodology" + "Integrated" (§5.3). Then 5 CTA band, 6 Footer, then §5.x deferred items (Who we are section + nav link, UDL banner, hero angles trial). Rules to apply throughout: always "we", no eyebrows, mailto = m.jriva@urbandatalab.net, booking link on the hero primary button and the CTA band button (§5.5).
+**RESUME POINT (updated 2026-11-03):** Reviews #1 (§5) and #2 (§6) complete, IMPLEMENTED and committed; push by Matteo pending (§6.12 follow-up). Open for Matteo: privacy text, logo (header + footer, §3.8 F), hero angles trial (§5.x), DE/FR/IT translations.
 Workflow per section: Matteo states changes → clarifying questions → plan here → approval → implement → log in §1.
 
 ### 5.1 Header: AGREED, NOT IMPLEMENTED (Matteo: record only, do not act yet; move on to the next section)
@@ -314,7 +318,192 @@ Per CLAUDE.md: copywriter agent (text files `_data/i18n/*.yml` + `_data/platform
 ### 5.x Deferred to the end of the review
 - **Hero angles trial (agreed in principle 2026-11-02):** three angles (1 data engineering, 2 scientific support, 3 auditable data / trust). Plan: one landing page per angle (e.g. `/data/`, `/science/`, `/trust/`), same page with a different Hero; hero text variants in en.yml under `hero` with identical fields; each page names its variant in front matter; variants get a canonical tag pointing to `/`. Traffic is targeted by audience (LinkedIn, e-mails, contacts), not randomly split (too little traffic; no server on GitHub Pages). Measurement: angle tag in the e-mail subject of each CTA (a Google booking link cannot carry a tag, so booked calls are only attributable via analytics or by asking), optional cookieless analytics (GoatCounter / Plausible), external service, needs Matteo's OK + privacy-policy mention. Needs Matteo's text for angles 2 and 3. For now only angle 1 (data management) is live.
 - **"Who we are" section** (+ its nav link): content not defined yet; Matteo will decide later.
-- **Banner linking to UrbanDataLab** (urbandatalab.ch): Matteo will specify its place and text later.
+- **Banner linking to UrbanDataLab** (urbandatalab.ch): specified by Matteo in review #2 → §6.4 (under the header).
+
+## 6. Current task: review #2, section by section (started 2026-11-03)
+Matteo: "start review #2 … let's go section by section. This time, for every section mention the assets (images) that are needed."
+Workflow per section (as §5): show current content + assets → Matteo states changes → clarifying questions → plan here → approval → implement → log in §1. Rules still valid: always "we" (bios may use "I"), no eyebrows, mailto = m.jriva@urbandatalab.net, booking link on Hero primary + CTA band. Open items from review #1 to raise in the matching section: S1–S5 (§5.8), unused files cleanup, §5.x deferred items (hero angles, second UDL banner).
+Order: 0 Site-wide (tab title, search snippet, favicon, share image) · 1 Header · 2 Hero · 3 How we work (text · platform hub · steps) · 4 Solutions · 5 CTA band · 6 Who we are · 7 Footer · 8 Legal pages + 404.
+
+### 6.1 Asset inventory (what each section needs; status 2026-11-03)
+All images go in `assets/images/`; file names are set in `_data/platform.yml`, never in the text files. Nothing is in `assets/images/` yet.
+| Section | Asset | Now on the site | Needed? | Suggested format |
+|---|---|---|---|---|
+| 0 Site-wide | Favicon (browser tab icon) | none | yes | SVG, or PNG 512×512 |
+| 0 Site-wide | Share image (preview on LinkedIn, e-mail, chats) | none | recommended | PNG/JPG 1200×630 |
+| 1 Header | Logo | CSS green parallelogram + "TerraDataLab" in text | yes, if a real logo exists | SVG (colour version) |
+| 2 Hero | Hero image/illustration | none (text only) | to decide | JPG/WebP ≥2000px wide |
+| 3 How we work | Core Data Viewer screenshot | dark placeholder frame | yes (Matteo, §5.3b E/F3) | PNG/WebP ≥1600px wide |
+| 3 How we work | 6 module icons | CSS shapes (circle, square, diamond, leaf, triangle, hexagon) | optional | SVG line icons, one colour |
+| 3 How we work | Step icons | none (numbers 01–03) | no | – |
+| 4 Solutions | Pictures per combination | none (dropped for now, §5.4) | after the rework | – |
+| 5 CTA band | – | none | no | – |
+| 6 Who we are | Portrait Matteo | placeholder square | yes (original of the brochure photo, §5.7) | JPG, square, ≥600×600 |
+| 6 Who we are | Portrait person 2 | card hidden | only if a 2nd person is added | JPG, square, ≥600×600 |
+| 7 Footer | Logo, light version for the navy footer | CSS mark + wordmark | yes, if a real logo exists | SVG (white/inverse) |
+| 7 Footer | UrbanDataLab logo for the strip | text only | optional | SVG |
+
+### 6.3 Section 0, Site-wide: AGREED, IMPLEMENTED 2026-11-03 (§6.12)
+Matteo's decisions:
+1. **Tab title:** "TerraDataLab - data solutions for sustainability" (verbatim) → `en.yml meta.title`. Sub-pages show "Privacy | TerraDataLab - data solutions for sustainability" (existing head.html logic).
+2. **Search snippet:** the hero subtitle, verbatim → `en.yml meta.description` (also used as the share-preview text, og:description).
+3. **Favicon:** from `assets/images/image001.png` (Matteo-provided: 764×706 RGBA PNG, 2.1 MB, transparent background; tree half photo / half low-poly mesh).
+4. **Share image:** also from `image001.png`.
+Plan:
+- `image001.png` stays the untouched master. Derived files are generated from it (too heavy to serve directly: 2.1 MB, not square, not 1200×630): `favicon-32.png` (32×32, transparent), `favicon-192.png` (192×192, transparent, Android), `apple-touch-icon.png` (180×180 on white; iOS shows transparency as black), `share.jpg` (1200×630, tree centred on white, ~150 KB). Previews checked in the scratchpad: the tree reads at 32/48 px, and at 16 px only as a green blob (acceptable).
+- File names go in `_data/platform.yml` (`favicon`, `favicon_large`, `apple_touch_icon`, `share_image`); `head.html` adds the icon links + `og:image` (absolute URL, 1200×630) + `twitter:card summary_large_image`.
+- The share image has no text on it (no generated wording).
+- `og:image` must be an absolute URL: `_config.yml url` is empty, but the GitHub Pages build (actions/jekyll-build-pages) fills it in (https://ciskoh.github.io); locally the URL stays relative. No config change needed until the custom domain.
+- **Share-image background: white** (Matteo: "ok"; matches the page and hides a few light specks left from the cut-out at the top left).
+- Note for section 2: image001.png is also a hero-image candidate (raise in the Hero review).
+
+### 6.4 Section 1, Header: AGREED, IMPLEMENTED 2026-11-03 (§6.12)
+Matteo's decisions:
+1. **Logo: unchanged for now** (CSS parallelogram + "TerraDataLab"); real logo later (§3.8 F stays open). image001.png is NOT used as header logo (too detailed at 16–40 px).
+2. **Nav links + "Let's talk" button: unchanged.**
+3. **Phone header: two rows kept** (no burger menu; closes S4 / §3.8 D).
+4. **NEW: UrbanDataLab banner directly under the header** (= the "second banner" of §5.x). Matteo's source text: "looking for other use cases? Visit Urban DataLab. Your Data Expert for Smarter Location Decisions" (rewording allowed).
+   - **Wording (option C):** "Looking for other use cases?" + link "Visit UrbanDataLab →". Same text on desktop and phone.
+   - **Spelling: "UrbanDataLab"** everywhere (not "Urban DataLab").
+   - **Background: UDL blue #1c3f4a** (UDL's dominant dark colour, checked on urbandatalab.ch 2026-11-03), white text. New token `--color-udl`.
+   - **Home page only** (not on Privacy / Imprint / 404).
+   - ~~Footer strip kept~~ → dropped, see §6.10.
+Implementation plan: new include `_includes/udl-banner.html`, included right after the header only when `page.ref == "home"`; thin full-width strip (~40 px), centred text, link to `sister_url` (platform.yml) in a new tab; scrolls away (header stays sticky); not dismissible. Text in en.yml under new key `udl_banner` (`text`, `link`), empty in de/fr/it; empty = banner hidden.
+Images: none. Optional later: white UDL logo (SVG) at the left of the banner.
+
+### 6.5 Section 2, Hero: AGREED, IMPLEMENTED 2026-11-03 (§6.12)
+Matteo's decisions:
+1. **Hero image: option B**: `image001.png` on the right, replacing the grey slanted shape (`hero__shape`). Web copy generated from the master (≈200–300 KB, e.g. `hero-tree.webp` or `.png` with transparency, ~1000 px wide); file name in platform.yml (`hero_image`); alt text in en.yml `hero.image_alt` (empty for now = decorative). Phone: image below the buttons, smaller.
+2. **Subtitle and both buttons: unchanged.**
+3. **Title: too wordy.** Matteo's base: "Trust what you do. Give your project the tools that prove it". 5 options requested (sent in chat):
+   1. "Trust what you do. Give your project the tools that prove it." (Matteo's base, verbatim + full stop)
+   2. "Trust what you do. Get the tools that prove it."
+   3. "Trust what you do. Prove it with the right tools."
+   4. "Trust your work. Give your project the tools to prove it."
+   5. "Trust what you do. We build the tools that prove it."
+   **→ Chosen: option 4, "Trust your work. Give your project the tools to prove it."** → `en.yml hero.title`.
+4. **Hero angles trial (§5.x): stays in memory, not now.**
+Images: image001.png (provided) → hero web copy.
+
+### 6.6 Section 3, How we work: AGREED, IMPLEMENTED 2026-11-03 (§6.12)
+Matteo's decisions:
+1. **Text unchanged, order changed:** platform block first (with the video in place of the screenshot) → steps 01–03 → text (title "Built with you. Built for your project." + 3 paragraphs). To confirm: where the e-mail button goes (end of section?), and that the section now opens with the platform title "Start with the core. Grow from there." (anchor #how-we-work and nav label unchanged).
+2. **Dynamic Monitoring Tool one-liner** → based on "Compare your project area with reference sites dynamically" (reword allowed). Options sent: (a) "Compare your project area with reference sites, dynamically." (b) "Compare your project area with reference sites over time." (c) "Track your project area against reference sites as conditions change." Recommended (b) ("dynamic" is already in the module name).
+3. **Core Data Viewer: video instead of screenshot**: `assets/images/coreDataViewer.webm` (Matteo-provided): 1589×744 (≈2.14:1, wide), 32 s, 3.4 MB, VP8 video, no audio track. Works in browsers as `<video autoplay muted loop playsinline>` (no controls; file name in platform.yml, replacing `viewer_screenshot`). Notes: (i) the hub's centre column is ~470 px wide → the wide video would be ~220 px tall, details unreadable → layout question (full-width video above the modules vs keep the hub); (ii) older iPhones/iPads may not play WebM → an MP4 copy is advisable (cannot convert here: no ffmpeg in the project env, and installing it would touch files outside the project folder); (iii) a poster image (still frame) is needed for browsers that don't play it and for visitors with "reduce motion" (video then does not autoplay); (iv) 3.4 MB: load lazily (`preload="metadata"`).
+4. **Module icons: unchanged** (outline shapes).
+5. **Steps + button text: unchanged.**
+Matteo's answers, round 2 (2026-11-03):
+- **Layout A: keep the hub** (video in the centre column, 3 modules each side).
+- **New video: `assets/images/Screencast002.webm`**: 1331×743 (≈16:9), 35.8 s, 6.0 MB, VP8, no audio. Frame aspect changes 16:10 → the video's ratio (~470×262 px on desktop).
+- **Poster: `assets/images/screencastPoster.png`**: 1331×743, 628 KB (dashboard "Carbon NBS Methodology Demonstrator"). Plan: serve a lighter copy (JPG/WebP ~100–150 KB), master untouched.
+- **No MP4**: browsers that cannot play WebM (older iPhones/iPads) show the poster. Accepted.
+- Plan: `<video autoplay muted loop playsinline preload="none" poster=…>`; 6 MB is heavy → a few lines of JS start the video only when it scrolls into view; with "reduce motion" it stays on the poster. File names in platform.yml (`viewer_video`, `viewer_poster`, replacing `viewer_screenshot`).
+- `coreDataViewer.webm` (first video) is no longer used → cleanup candidate (not deleted; Matteo decides).
+- Asked: is the data in the video/poster (project "AgriCarbon NBS Switzerland", field ids) OK to show publicly?
+Still open from round 1: button position (end of section?) + section opening with the platform title; Dynamic Monitoring one-liner (a/b/c).
+Matteo's answers, round 3 (2026-11-03):
+- **Video/poster data OK to show publicly** (Matteo: "Yes ok").
+- **Button: stays right after the steps** ("as it is").
+- **"Built with you. Built for your project." stays the main section title** (top of the section); "Start with the core. Grow from there." stays the platform-block title below it.
+- **Dynamic Monitoring Tool one-liner: option (a) "Compare your project area with reference sites, dynamically."** → en.yml `how_we_work.platform.modules.dynamic_monitoring.text`.
+**Final order (Matteo chose option A, 2026-11-03):** main title "Built with you…" → platform block (title + intro + hub with video) → steps 01–03 → e-mail button → the 3 paragraphs (full width, at the end).
+Images/video: Screencast002.webm + screencastPoster.png (provided).
+
+### 6.7 Section 4, Solutions: AGREED, IMPLEMENTED 2026-11-03 (§6.12)
+Matteo's decisions:
+1. **Content unchanged** (title, intro, 5 rows; full rework later).
+2. **Column headers use the same module names as the hub:** Core Data Viewer · Satellite Hook · Public Databases · Metric Calculator · Operations Hook (en.yml `solutions.columns`: satellite, public_db, metrics change).
+3. **No icons in the column headers** ("keep it clean").
+4. Phone layout (S1): Matteo asked for a draft of the card option → two mock-ups at 390 px shown in chat (session scratchpad `cards/`): **A** = one card per combination, its modules as small green pills (no extra text); **B** = same, modules as a "Modules: … · …" line (needs a new label word). **→ Matteo chose A (cards with green pills) for phones (≤640 px); desktop/tablet keep the table.** Closes S1. Pills are built from the same platform.yml `includes` + en.yml column names (no new text).
+Images: none.
+
+### 6.8 Section 5, CTA band: AGREED, NO CHANGES (2026-11-03)
+Matteo: "keep it all as is". Title "Ready to talk about your project?" (final; wireframe alternative dropped) · button "Get in touch" → booking link · solid green band, no background image · position after Solutions.
+Images: none.
+
+### 6.9 Section 6, Who we are: AGREED, IMPLEMENTED 2026-11-03 (§6.12)
+Matteo's decisions:
+1. **New heading "Our values" above the values row** (verbatim) → new key `about.values_title` (all 4 language files; empty = hidden). Smaller heading (h3) than the section title.
+2. **Person 1 photo: `assets/images/matteo001.png`** ("to be reframed"). File: 1024×768 RGBA canvas, the photo is a ready-cut black-and-white circle of only ~208×206 px in the top-left corner (rest transparent).
+3. **Person 2 = Patrick Schirmer.** Matteo's text (verbatim): "Dr. Sc. ETH Patrick Schirmer is the founder and platform manager of UDL. He is an architect and urban data scientist with a PhD in agent-based urban simulation (ETH Zurich, 2015). Before founding UDL, he gained several years of experience  as planner on large development projects in Europe and Russia (KCAP) and he developed datahubs and models  for the Swiss real estate market with FPRE (2015-2018)."
+4. **Person 2 photo: `assets/images/patrick001.png`**: 1280×960 canvas, b/w circle of only ~141×135 px top-left (rest transparent).
+Plan / proposals (asked in chat):
+- Reframe: crop each circle out of its canvas into its own small file (e.g. `matteo.png`, `patrick.png`), masters untouched; names in platform.yml `people[].photo`.
+- Photos are already round + b/w → show both **round** (currently square placeholder 168 px).
+- Size: Patrick's photo (141 px) is smaller than the 168 px display → blurry, esp. on high-res screens; Matteo's (208 px) is OK at normal resolution, soft on high-res. Options: larger originals, or display at ~140 px.
+- Card fields for Patrick: name / role / bio / LinkedIn; text options sent (full vs shortened bio, "UDL" → "UrbanDataLab", role line), LinkedIn URL asked.
+- urbandatalab.ch/about has no team portraits (checked 2026-11-03), so no style reference there; UDL uses 18 px image radius.
+Matteo's answers, round 2 (2026-11-03):
+- **Photos: "keep them as is"**: use the provided files, no larger originals; display size stays 168 px. The circles are cropped out of the canvases (masters untouched), so the photos show round (transparent corners; the square placeholder background is not shown behind a photo). Accepted: Patrick's photo is upscaled (141 → 168 px) and looks soft.
+- **Patrick, role: "Product & Platform Manager"** (Matteo wrote "Product& platform Manager"; spacing/capitals normalised to match Matteo's role line).
+- **Patrick, bio: option B**: "Architect and urban data scientist. PhD in agent-based urban simulation (ETH Zurich, 2015). Planner on large development projects in Europe and Russia (KCAP); data hubs and models for the Swiss real estate market (FPRE, 2015–2018)."
+- **Patrick, name: "Patrick Schirmer"** (proposed, not objected; no titles in names).
+- **Patrick, LinkedIn: https://www.linkedin.com/in/patrick-m-schirmer/** → platform.yml `people[person_2].linkedin_url`; link text "LinkedIn".
+- Implementation: en.yml `about.people.person_2` filled (id could be renamed `patrick`), `about.values_title: "Our values"`; platform.yml photos `matteo.png` / `patrick.png` (crops).
+Images: matteo001.png + patrick001.png (provided, low resolution, used as is).
+
+### 6.10 Section 7, Footer: AGREED, IMPLEMENTED 2026-11-03 (§6.12)
+Matteo: "Repeat the banner for UDL before the Footer. Rest stays as it is."
+- **UDL banner repeated just above the footer** (after Who we are): same include, text ("Looking for other use cases?" + "Visit UrbanDataLab →"), UDL blue #1c3f4a and link as the banner under the header (§6.4); home page only (like §6.4, to confirm).
+- Footer otherwise unchanged: 4 columns (logo + ©, Pages, Legal: Privacy, Contact: e-mail + Matteo's LinkedIn) · Imprint hidden · no UDL logo (text only).
+- **Footer strip "Part of the UrbanDataLab family. → Visit urbandatalab.ch" is DROPPED** (Matteo 2026-11-03; supersedes §6.4 "footer strip is kept"): the blue banner above the footer replaces it. Keys `footer.banner` / `banner_link` removed from all 4 text files, strip markup/CSS removed.
+Images: none (logos later, §3.8 F / S3).
+
+### 6.11 Section 8, Legal pages + 404: AGREED, IMPLEMENTED 2026-11-03 (§6.12)
+**Imprint (Matteo: "Create an imprint similar to https://urbandatalab.ch/imprint but only use my data, no company").** UDL's imprint (checked 2026-11-03) = title "Imprint" → heading "Official address" + company, street, postcode/town, country, e-mail → "Commercial Register Entry" (company name, UID, registry office) → "VAT Number". TDL version keeps only the address block (no company → no register entry, no VAT):
+```
+Imprint
+Official address
+Matteo Jucker Riva
+Delsbergerallee 11
+4053 Basel
+Switzerland
+m.jriva@urbandatalab.net
+```
+(Matteo wrote "delsbergerallee": capitalised. E-mail = the site contact address, taken from platform.yml `contact_email`.)
+Plan: `imprint.md` front matter `title: "Imprint"`, body = heading + address as lines, e-mail as mailto link via Liquid (`site.data.platform.contact_email`). Footer link un-hidden: en.yml `footer.imprint: "Imprint"` (Legal column: Privacy · Imprint). DE/FR/IT imprint pages stay empty (not linked while the switcher is hidden). Matteo's answers (2026-11-03):
+- **Imprint: footer link shown, e-mail line kept** (as drafted above).
+- **Privacy: link hidden** until Matteo provides the text (en.yml `footer.privacy: ""`; page stays in the repo, unlinked). Legal column then shows only "Imprint".
+- **404: Matteo: "you do it".** Proposed (en.yml `not_found`): title "Page not found." · text "The page you are looking for does not exist or has moved." · back "Back to the home page". Shown in chat; implemented unless Matteo objects.
+Images: none.
+
+### 6.12 Implementation plan for review #2: IMPLEMENTED 2026-11-03 (Matteo: "yes go on")
+Review #2 complete (all sections agreed 2026-11-03). Same procedure as §5.8 (CLAUDE.md): **copywriter agent** (text: `_data/i18n/*.yml` same keys in all 4 files, de/fr/it empty; `_data/platform.yml`; `imprint.md`) → **web-designer agent** (templates, CSS, image derivatives, small JS) → **style-revisor agent** vs urbandatalab.ch (simple fixes applied, large ones logged for Matteo) → build check → screenshots in `screenshots/` → log in §1.
+Work list:
+- §6.3 Site-wide: meta.title, meta.description; favicon-32/-192, apple-touch-icon, share.jpg from image001.png; head.html icon + og:image + twitter tags.
+- §6.4 Header: UDL banner include (home only, under the header, #1c3f4a, "Looking for other use cases?" + "Visit UrbanDataLab →").
+- §6.5 Hero: title option 4; hero image (web copy of image001.png) replacing the grey shape; phone below the buttons.
+- §6.6 How we work: new order (title → platform hub with video → steps → button → paragraphs); Dynamic Monitoring one-liner (a); video Screencast002.webm + poster (light JPG copy), lazy start when in view, poster for reduce-motion.
+- §6.7 Solutions: full module names in the column headers; phone cards with green pills (≤640 px).
+- §6.9 Who we are: "Our values" heading; Matteo + Patrick photos (circle crops, round, 168 px); Patrick card (name, role, bio B, LinkedIn).
+- §6.10 Footer: UDL banner repeated above the footer (home only); footer strip removed.
+- §6.11 Legal: imprint page + footer link; privacy link hidden; 404 texts.
+Not touched: unused files (cleanup candidates from §5.8 + `coreDataViewer.webm`), hero angles trial, logo.
+**Outcome (2026-11-03): IMPLEMENTED.** Build OK; en/de/fr/it build; 4 text files have identical keys.
+- Copywriter: en/de/fr/it.yml (new `udl_banner`, `hero.image_alt`, `about.values_title`; renamed `screenshot_alt`→`video_alt`, `person_2`→`patrick`; removed `footer.banner`/`banner_link`), platform.yml (icons, share image, hero_image, viewer_video/viewer_poster, people photos, Patrick LinkedIn), imprint.md.
+- Web designer: head.html (icons, og:image, twitter card, video script on home only), new `_includes/udl-banner.html` (in default.html after the header + before the footer, home only), footer strip removed, hero (text 3 : image 2; phone image below buttons ≤320 px), how-we-work (new order, video + poster, paragraphs in 2 columns at the end, main title centred), solutions (phone cards + pills ≤640 px, table hidden there), about ("Our values" h3, round photos), new `assets/js/viewer-video.js` (plays when in view, poster with reduced motion / no JS). Generated images (masters untouched): favicon-32.png 3 KB, favicon-192.png 65 KB, apple-touch-icon.png 48 KB, share.jpg 122 KB, hero-tree.png 231 KB (763×700, native size, no upscaling), screencast-poster.jpg 101 KB, matteo.png 208×208, patrick.png 141×141.
+- Style-revisor (vs urbandatalab.ch) simple fixes APPLIED: `--fs-udl` 15→16 px (UDL smallest text 16 px); hero image corner radius 18 px (UDL image radius); legal/404 page text 16→20 px (UDL imprint text 20 px). Backup of the CSS before the fixes in the session scratchpad.
+- L3 fixed by Claude: Patrick's master is slightly oval (141×135) → photo looked smaller/lower; both crops regenerated as full circles (resized to square, 4% / 1% vertical stretch). The screenshots below were taken before this fix.
+- **LARGE items for Matteo (NOT implemented):** **L1** short pages (imprint, 404) leave white space under the footer on tall screens → recommend footer pinned to the window bottom (body flex column, `main {flex:1}`; affects every page). **L2** imprint title: UDL 42 px bold centred vs ours 40 px regular left like all titles → recommend keep ours.
+- Video: the visual check showed the video does autoplay in Firefox; screenshots taken with reduced motion (poster).
+- Still untouched: hero angles trial, logo, privacy text.
+**Follow-up (2026-11-03, Matteo: "Act on L1 and L2, cleanup including dropping that unused video, commit and push"):**
+- L1 DONE: body = flex column (min-height 100vh/100dvh), `main { flex: 1 0 auto }` → footer at the window bottom on short pages.
+- L2 DONE (light version): legal/404 page title centred (`.wrap--narrow.prose h1`), weight kept at 400 like all titles; content stays left-aligned.
+- Cleanup DONE: deleted `_includes/sections/platform.html`, `approach.html`, `modules.html`, `combinations.html`, `assets/js/platform.js`, the parked CSS block + its media-query rules, token `--fs-num`, the onepage.html comment about parked files, and `assets/images/coreDataViewer.webm`. README file table updated (viewer-video.js).
+- Screenshots retaken (home 1280/390, imprint 1280), incl. Patrick's re-crop. Committed to main (8644062-amended). Push FAILED from Claude's shell (no GitHub credentials, no gh CLI): Matteo pushes it; GitHub Actions then deploys to https://ciskoh.github.io/terradatalab/.
+
+### 6.2 Section status
+- 0 Site-wide: AGREED, IMPLEMENTED (§6.3)
+- 1 Header (+ UDL banner): AGREED, IMPLEMENTED (§6.4)
+- 2 Hero: AGREED, IMPLEMENTED (§6.5)
+- 3 How we work: AGREED, IMPLEMENTED (§6.6)
+- 4 Solutions: AGREED, IMPLEMENTED (§6.7)
+- 5 CTA band: AGREED, NO CHANGES (§6.8)
+- 6 Who we are: AGREED, IMPLEMENTED (§6.9)
+- 7 Footer: AGREED, IMPLEMENTED (§6.10)
+- 8 Legal + 404: AGREED, IMPLEMENTED (§6.11)
+- Implementation of all agreed sections: IMPLEMENTED 2026-11-03 (§6.12), incl. L1, L2 and cleanup
 
 ---
 
@@ -324,3 +513,4 @@ Per CLAUDE.md: copywriter agent (text files `_data/i18n/*.yml` + `_data/platform
 | 2026-11-02 | `screenshots/2026-11-02_home_1280px.png`, `screenshots/2026-11-02_home_390px.png` | **First full English draft** (task §3), before the style review: Hero → Platform → Solutions (3 tools) → CTA band → footer in the draft look (Ubuntu, #2D5F3F). Headless Firefox, local build. (An earlier in-progress snapshot was deleted at Matteo's request.) |
 | 2026-11-02 | `screenshots/2026-11-02_home_1280px_after-style-review.png`, `screenshots/2026-11-02_home_390px_after-style-review.png` | Same draft **after the simple style fixes** of §3.8 (lighter titles, rounder/taller buttons, tighter spacing, slim CTA band, white footer text). |
 | 2026-11-03 | `screenshots/2026-11-03_home_1280px_after-section-review.png`, `screenshots/2026-11-03_home_390px_after-section-review.png` | **After the section-by-section review (§5)**, incl. the style-revisor's simple fixes: Hero (new copy, booking button) → How we work (paragraphs, platform hub with screenshot placeholder, steps) → Solutions table → green band "Get in touch" → Who we are (photo placeholder) → footer with UDL strip + 4 columns. Headless Firefox, local build. |
+| 2026-11-03 | `screenshots/2026-11-03_home_1280px_after-review2.png`, `screenshots/2026-11-03_home_390px_after-review2.png`, `screenshots/2026-11-03_imprint_1280px_after-review2.png` | **After review #2 (§6)** incl. the style-revisor's simple fixes: UDL banner under the header → hero with tree → How we work (title, hub with video poster, steps, button, paragraphs) → Solutions (table; phone cards with pills) → green band → Who we are (Our values, Matteo + Patrick round photos) → UDL banner → footer (Imprint only). Imprint page. Headless Firefox, reduced motion. Retaken after L1/L2, cleanup and Patrick's re-crop. |

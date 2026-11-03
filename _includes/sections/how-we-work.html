@@ -1,42 +1,24 @@
 {%- comment -%}
-  How we work: title + paragraphs (2 columns) · platform hub (viewer at the centre, modules around it) · numbered steps · e-mail button.
-  Module ids/order and the screenshot file come from _data/platform.yml; all text from t.how_we_work.
-  First 3 modules go left of the screenshot, the others right. Icons are simple outline shapes chosen by module id.
+  How we work (order agreed in MEMORY.md §6.6): title · platform hub (video of the viewer at the centre, modules around it)
+  · numbered steps · e-mail button · paragraphs (full width, at the end).
+  Module ids/order and the video/poster files come from _data/platform.yml; all text from t.how_we_work.
+  First 3 modules go left of the video, the others right. Icons are simple outline shapes chosen by module id.
+  The video starts only when scrolled into view (assets/js/viewer-video.js); without JS or with "reduce motion" the poster shows.
 {%- endcomment -%}
 {%- assign hw = t.how_we_work -%}
 {%- assign pf = hw.platform -%}
 <section class="section section--alt" id="how-we-work"{% if hw.title and hw.title != "" %} aria-labelledby="how-we-work-title"{% endif %}>
   <div class="wrap">
     {%- assign head_text = hw.eyebrow | append: hw.title %}
-    {%- assign top_text = head_text | append: hw.body %}
-    {%- if top_text != "" %}
-    <div class="split">
-      {%- if head_text != "" %}
-      <header class="section-head">
-        {%- if hw.eyebrow and hw.eyebrow != "" %}
-        <p class="eyebrow">{{ hw.eyebrow }}</p>
-        {%- endif %}
-        {%- if hw.title and hw.title != "" %}
-        <h2 id="how-we-work-title">{{ hw.title }}</h2>
-        {%- endif %}
-      </header>
+    {%- if head_text != "" %}
+    <header class="section-head section-head--center how-we-work__head">
+      {%- if hw.eyebrow and hw.eyebrow != "" %}
+      <p class="eyebrow">{{ hw.eyebrow }}</p>
       {%- endif %}
-      {%- if hw.body and hw.body != "" %}
-      {%- comment %} paragraphs are separated by an empty line in the text file {% endcomment %}
-      {%- capture blank_line %}
-
-{% endcapture %}
-      {%- assign paras = hw.body | strip | split: blank_line %}
-      <div class="prose lede split__body">
-        {%- for para in paras %}
-        {%- assign para_text = para | strip %}
-        {%- if para_text != "" %}
-        <p>{{ para_text | escape }}</p>
-        {%- endif %}
-        {%- endfor %}
-      </div>
+      {%- if hw.title and hw.title != "" %}
+      <h2 id="how-we-work-title">{{ hw.title }}</h2>
       {%- endif %}
-    </div>
+    </header>
     {%- endif %}
 
     {%- comment %} ---- Platform hub ---- {% endcomment %}
@@ -90,8 +72,14 @@
       {%- endif %}
       <div class="hub">
         <div class="hub__frame media">
-          {%- if p.viewer_screenshot and p.viewer_screenshot != "" %}
-          <img src="{{ p.viewer_screenshot | prepend: '/assets/images/' | relative_url }}" alt="{{ pf.screenshot_alt | escape }}" loading="lazy">
+          {%- if p.viewer_video and p.viewer_video != "" %}
+          <video class="hub__video" muted loop playsinline preload="none"
+            {%- if p.viewer_poster and p.viewer_poster != "" %} poster="{{ p.viewer_poster | prepend: '/assets/images/' | relative_url }}"{% endif %}
+            {%- if pf.video_alt and pf.video_alt != "" %} aria-label="{{ pf.video_alt | escape }}"{% else %} aria-hidden="true"{% endif %}>
+            <source src="{{ p.viewer_video | prepend: '/assets/images/' | relative_url }}" type="video/webm">
+          </video>
+          {%- elsif p.viewer_poster and p.viewer_poster != "" %}
+          <img src="{{ p.viewer_poster | prepend: '/assets/images/' | relative_url }}" alt="{{ pf.video_alt | escape }}" loading="lazy">
           {%- endif %}
         </div>
         {%- assign core_text = pf.core.name | append: pf.core.text %}
@@ -141,6 +129,22 @@
 
     {%- if hw.cta and hw.cta != "" %}
     <p class="actions how-we-work__cta"><a class="btn btn--primary" href="mailto:{{ p.contact_email }}">{{ hw.cta }}</a></p>
+    {%- endif %}
+
+    {%- comment %} ---- Paragraphs (separated by an empty line in the text file) ---- {% endcomment %}
+    {%- if hw.body and hw.body != "" %}
+    {%- capture blank_line %}
+
+{% endcapture %}
+    {%- assign paras = hw.body | strip | split: blank_line %}
+    <div class="prose how-we-work__body">
+      {%- for para in paras %}
+      {%- assign para_text = para | strip %}
+      {%- if para_text != "" %}
+      <p>{{ para_text | escape }}</p>
+      {%- endif %}
+      {%- endfor %}
+    </div>
     {%- endif %}
   </div>
 </section>

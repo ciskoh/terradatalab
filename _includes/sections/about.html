@@ -1,7 +1,7 @@
 {%- comment -%}
-  Who we are: title + intro (2 columns) · row of values · people cards.
+  Who we are: title + intro (2 columns) · "Our values" heading + row of values · people cards.
   People ids/order, photos and LinkedIn URLs come from _data/platform.yml (people), text from t.about.people[id].
-  A card with an empty name is not shown; an empty photo shows a neutral placeholder.
+  A card with an empty name is not shown; an empty photo shows a neutral square placeholder, a photo shows round.
 {%- endcomment -%}
 {%- assign ab = t.about -%}
 {%- assign values_text = ab.values | join: "" -%}
@@ -26,6 +26,9 @@
     {%- endif %}
 
     {%- if values_text != "" %}
+    {%- if ab.values_title and ab.values_title != "" %}
+    <h3 class="values__title">{{ ab.values_title }}</h3>
+    {%- endif %}
     <ul class="values">
       {%- for value in ab.values %}
       {%- if value and value != "" %}
@@ -41,8 +44,10 @@
       {%- assign pt = ab.people[person.id] %}
       {%- if pt.name and pt.name != "" %}
       <li class="person">
-        <div class="person__photo media">
-          {%- if person.photo and person.photo != "" %}
+        {%- assign has_photo = false %}
+        {%- if person.photo and person.photo != "" %}{% assign has_photo = true %}{% endif %}
+        <div class="person__photo media{% if has_photo %} person__photo--round{% endif %}">
+          {%- if has_photo %}
           <img src="{{ person.photo | prepend: '/assets/images/' | relative_url }}" alt="{{ pt.photo_alt | escape }}" loading="lazy">
           {%- endif %}
         </div>

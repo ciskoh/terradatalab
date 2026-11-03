@@ -12,7 +12,7 @@
 
 meta:
   title: ""                 # browser tab / search result title (empty: "TerraDataLab")
-  description: ""           # search result snippet (~155 characters)
+  description: ""           # search result snippet + share-preview text (same text as hero.subtitle)
 
 nav:
   how_we_work: ""                    # header link to the How we work section
@@ -22,6 +22,10 @@ nav:
   language: ""              # screen-reader label for the language switcher
   skip: ""                  # "Skip to content" link for keyboard users
 
+udl_banner:                 # blue UrbanDataLab banner, home page only: under the header and again above the footer (empty = hidden)
+  text: ""                  # text of the banner
+  link: ""                  # link to urbandatalab.ch (sister_url in _data/platform.yml); the arrow is added by the design
+
 hero:                       # first block of the page
   eyebrow: ""               # small line above the headline (not used for now)
   title: ""                 # headline
@@ -29,19 +33,20 @@ hero:                       # first block of the page
   offer: ""                 # short highlighted line ("the offer")
   cta_primary: ""                           # main button: opens the booking page (new tab)
   cta_secondary: ""                         # second button: jumps to How we work
+  image_alt: ""             # description of the hero image for screen readers (empty = decorative)
 
 how_we_work:                # "How we work" section (header link "How we work")
+                            # display order: title → platform block → steps → button (cta) → paragraphs (body)
   eyebrow: ""               # small line above the headline (not used for now)
-  title: ""                 # headline, left column
-  body: ""
+  title: ""                 # main headline at the top of the section
   platform:                 # block "viewer at the centre + modules around it"
     title: ""               # centred headline of the block
     intro: ""               # text below the block headline
-    screenshot_alt: ""      # description of the screenshot for screen readers
-    core:                   # caption under the screenshot
+    video_alt: ""           # description of the Core Data Viewer video for screen readers
+    core:                   # caption under the video
       name: ""
       text: ""
-    modules:                # items around the screenshot; ids must match _data/platform.yml (modules)
+    modules:                # items around the video; ids must match _data/platform.yml (modules)
       satellite:
         name: ""
         text: ""
@@ -68,6 +73,7 @@ how_we_work:                # "How we work" section (header link "How we work")
     - title: ""
       text: ""
   cta: ""                   # button below the steps (e-mail)
+  body: ""                  # paragraphs at the end of the section, full width
 
 solutions:                  # "Solutions" section: table of combinations
   eyebrow: ""               # small line above the headline (not used for now)
@@ -75,7 +81,7 @@ solutions:                  # "Solutions" section: table of combinations
   intro: ""                                   # text below the headline
   legend_included: ""       # screen-reader text for a filled dot ("included")
   legend_not_included: ""   # screen-reader text for an empty dot
-  columns:                  # table column headers; ids must match _data/platform.yml (solution_columns)
+  columns:                  # table column headers; ids must match _data/platform.yml (solution_columns); on phones the same names appear as small labels on each card
     core: ""
     satellite: ""
     public_db: ""
@@ -105,6 +111,7 @@ cta:                        # green band near the bottom
 about:                      # "Who we are" section, after the green band
   title: ""                                  # headline
   intro: ""                 # text below the headline
+  values_title: ""          # heading above the values row (empty = hidden)
   values:                   # row of three short values, one line each
     - ""
     - ""
@@ -116,7 +123,7 @@ about:                      # "Who we are" section, after the green band
       bio: ""
       photo_alt: ""         # description of the photo for screen readers
       linkedin: ""          # link text; the URL is linkedin_url of this person in _data/platform.yml
-    person_2:
+    patrick:
       name: ""              # empty = card not shown
       role: ""
       bio: ""
@@ -124,17 +131,15 @@ about:                      # "Who we are" section, after the green band
       linkedin: ""          # link text; the URL is linkedin_url of this person in _data/platform.yml
 
 footer:                     # bottom of the page
-  banner: ""                                   # top strip of the footer
-  banner_link: ""                              # link in the top strip (opens urbandatalab.ch)
   pages_label: ""           # title of the column with the section links
-  legal_label: ""           # title of the column with Privacy / Imprint
+  legal_label: ""           # title of the column with the legal links (Imprint; Privacy while hidden: not shown)
   contact_label: ""         # title of the column with e-mail and LinkedIn
   linkedin: ""              # LinkedIn link text (URL: linkedin_url in _data/platform.yml)
-  privacy: ""               # link to the privacy page
-  imprint: ""               # Imprint link hidden for now (page kept, unlinked)
+  privacy: ""               # Privacy link hidden until the text exists (page kept, unlinked)
+  imprint: ""               # link to the imprint page
   copyright: ""                      # copyright line under the logo
 
 not_found:                  # 404 page
-  title: ""
-  text: ""
-  back: ""
+  title: ""                 # headline
+  text: ""                  # text below the headline
+  back: ""                  # link back to the home page

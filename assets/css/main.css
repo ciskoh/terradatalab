@@ -6,6 +6,7 @@
 html { scroll-padding-top: 6rem; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
+  display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; /* footer stays at the bottom on short pages (legal, 404) */
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -109,18 +110,28 @@ img { max-width: 100%; height: auto; display: block; }
 .lang-switch a:hover { color: var(--color-accent); }
 .lang-switch a[aria-current="page"] { color: var(--color-text); font-weight: var(--fw-medium); }
 
-/* ---- Hero ---- */
-.hero { position: relative; overflow: hidden; }
-.hero__shape {
-  position: absolute; right: 0; top: 0; width: 34%; height: 100%;
-  background: var(--color-hero-shape);
-  clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%);
+/* ---- UrbanDataLab banner (home page only: under the header and above the footer; scrolls with the page) ---- */
+.udl-banner { background: var(--color-udl); color: var(--color-udl-text); font-size: var(--fs-udl); line-height: 1.3; }
+.udl-banner__inner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 12px;
+  min-height: var(--udl-banner-height); margin-top: 0; margin-bottom: 0; padding-top: 8px; padding-bottom: 8px; text-align: center;
 }
+.udl-banner a { display: inline-flex; align-items: center; gap: 6px; color: var(--color-udl-text); font-weight: var(--fw-medium); text-decoration: none; }
+.udl-banner a:hover { color: var(--color-udl-text); text-decoration: underline; }
+.udl-banner :focus-visible { outline-color: var(--color-focus-inverse); }
+.udl-banner__arrow { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- Hero: text left, tree image right ---- */
+.hero { position: relative; overflow: hidden; }
 .hero__inner {
   position: relative;
-  display: flex; flex-direction: column; gap: 28px;
   padding-top: var(--hero-space-top); padding-bottom: var(--hero-space-bottom);
 }
+.hero__inner--image {
+  display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 48px; align-items: center;
+}
+.hero__text { display: flex; flex-direction: column; gap: 28px; }
+.hero__image { width: 100%; max-width: var(--hero-image-max); justify-self: end; border-radius: var(--radius-media); } /* 18px image radius, as on UrbanDataLab */
 .hero__title {
   font-size: var(--fs-h1); line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
   max-width: var(--measure-hero); text-wrap: balance;
@@ -135,9 +146,10 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero .actions { margin-top: 8px; }
 
-/* ---- How we work ---- */
-/* platform hub: modules left and right, screenshot of the Core Data Viewer in the centre */
-.platform-hub { margin-top: var(--section-space); }
+/* ---- How we work: title · platform hub · steps · button · paragraphs ---- */
+/* platform hub: modules left and right, video of the Core Data Viewer in the centre */
+.platform-hub { margin-top: 56px; }
+.platform-hub:first-child { margin-top: 0; }
 .platform-hub__head { margin-bottom: 56px; }
 .platform-hub__title {
   font-size: var(--fs-h3-block); line-height: var(--lh-h2-band);
@@ -152,17 +164,17 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hub__frame {
   grid-area: frame; position: relative; align-self: center;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: var(--video-ratio);
   background: var(--color-frame);
   box-shadow: var(--shadow-media);
 }
-.hub__frame:empty {   /* placeholder until the real screenshot exists: faint dashboard grid */
+.hub__frame:empty {   /* placeholder when no video/poster is set: faint dashboard grid */
   background-image:
     linear-gradient(var(--color-frame-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-frame-line) 1px, transparent 1px);
   background-size: 100% 25%, 20% 100%;
 }
-.hub__frame img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.hub__frame img, .hub__video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
 .hub__core { grid-area: core; text-align: center; max-width: var(--measure-text); justify-self: center; }
 .hub__modules {
   list-style: none; margin: 0; padding: 0;
@@ -200,6 +212,14 @@ img { max-width: 100%; height: auto; display: block; }
 .step__title { font-size: var(--fs-h3); line-height: var(--lh-h3); }
 .step p { font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-muted); }
 .how-we-work__cta { margin-top: 56px; }
+/* paragraphs at the end: full width in two text columns (readable line length) */
+.how-we-work__body {
+  margin-top: var(--section-space); padding-top: 56px; border-top: 1px solid var(--color-line-alt);
+  columns: 2; column-gap: 64px;
+  font-size: var(--fs-lede); line-height: var(--lh-lede); color: var(--color-text-lede);
+}
+.how-we-work__body p { break-inside: avoid; margin-bottom: 1em; }
+.how-we-work__body p + p { margin-top: 0; }
 
 /* ---- Solutions: static table of combinations ---- */
 .solutions__head { margin-bottom: 48px; }
@@ -219,6 +239,18 @@ img { max-width: 100%; height: auto; display: block; }
 .dot { display: inline-block; width: var(--dot-size); height: var(--dot-size); border-radius: 50%; vertical-align: middle; }
 .dot--included { background: var(--color-accent); }
 .dot--empty { border: var(--btn-border) solid var(--color-dot-empty); }
+/* phone version of the table: one card per combination, modules as pills (shown ≤640px only) */
+.combo-cards { display: none; list-style: none; margin: 0; padding: 0; }
+.combo-card { padding: 24px 0; border-top: 1px solid var(--color-line); }
+.combo-card:last-child { border-bottom: 1px solid var(--color-line); }
+.combo-card__name { font-size: var(--fs-row-name); font-weight: var(--fw-medium); line-height: var(--lh-h3); }
+.combo-card__text { margin-top: 4px; font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-muted); }
+.pills { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  padding: 5px 12px; border-radius: var(--radius-pill);
+  background: var(--color-pill); color: var(--color-accent);
+  font-size: var(--fs-pill); font-weight: var(--fw-medium); line-height: 1.3;
+}
 
 /* ---- CTA band ---- */
 .cta-band { background: var(--color-band); color: var(--color-band-text); }
@@ -232,11 +264,13 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ---- Who we are ---- */
+.values__title { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-line); font-size: var(--fs-h3); line-height: var(--lh-h3); }
 .values {
   list-style: none; margin: 64px 0 0; padding: 32px 0 0;
   border-top: 1px solid var(--color-line);
   display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 32px 48px;
 }
+.values__title + .values { margin-top: 24px; padding-top: 0; border-top: 0; }
 .value { display: flex; align-items: baseline; gap: 14px; font-size: var(--fs-value); line-height: var(--lh-h3); }
 .value__mark {   /* brand parallelogram */
   flex: none; width: var(--value-mark); height: var(--value-mark);
@@ -250,25 +284,18 @@ img { max-width: 100%; height: auto; display: block; }
 .person { display: grid; grid-template-columns: var(--photo-size) minmax(0, 1fr); gap: 28px; align-items: start; }
 .person__photo { aspect-ratio: 1; background: var(--color-placeholder); }
 .person__photo img { width: 100%; height: 100%; object-fit: cover; }
+.person__photo--round { border-radius: 50%; background: none; }   /* real photo: round, no placeholder grey behind the transparent corners */
 .person__text { display: flex; flex-direction: column; gap: 8px; }
 .person__name { font-size: var(--fs-h3); line-height: var(--lh-h3); }
 .person__role { font-size: var(--fs-item); font-weight: var(--fw-medium); color: var(--color-accent); }
 .person__bio { font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-muted); }
 .person__link { margin-top: 4px; font-size: var(--fs-item); font-weight: var(--fw-medium); }
 
-/* ---- Footer: UrbanDataLab strip, then 4 columns (as on urbandatalab.ch) ---- */
+/* ---- Footer: 4 columns (as on urbandatalab.ch); the UrbanDataLab banner sits just above it on the home page ---- */
 .site-footer { background: var(--color-footer); color: var(--color-footer-text); font-size: var(--fs-small); }
 .site-footer a { color: var(--color-footer-text); text-decoration: none; }
 .site-footer a:hover { color: var(--color-accent-contrast); text-decoration: underline; }
 .site-footer :focus-visible { outline-color: var(--color-focus-inverse); }
-.footer-banner { background: var(--color-footer-banner); border-bottom: 1px solid var(--color-footer-line); }
-.footer-banner__inner {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px;
-  margin-top: 0; margin-bottom: 0; padding-top: 18px; padding-bottom: 18px;
-}
-.footer-banner a { display: inline-flex; align-items: center; gap: 8px; font-weight: var(--fw-medium); color: var(--color-footer-title); }
-.footer-banner a:hover { color: var(--color-footer-title); }
-.footer-banner__arrow { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .site-footer__grid {
   display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 40px;
   padding-top: var(--gutter); padding-bottom: var(--gutter);
@@ -283,47 +310,18 @@ img { max-width: 100%; height: auto; display: block; }
 .site-footer .brand--inverse, .site-footer .brand--inverse:hover { color: var(--color-footer-strong); text-decoration: none; }
 .brand--inverse .brand__mark { width: var(--brand-mark-footer); height: var(--brand-mark-footer); background: var(--color-footer-strong); }
 
+main { flex: 1 0 auto; }   /* fills the space between header and footer (see body) */
+
 /* ---- Legal pages / 404 ---- */
 .prose h1 { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: var(--ls-h2); margin-bottom: 32px; }
 .prose h2 { font-size: var(--fs-h3); margin: 2em 0 .5em; }
-
-/* ---- Parked sections (platform, approach, modules, combinations; not on the page, see MEMORY.md §5.3–5.4) ---- */
-.platform { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 64px; align-items: start; }
-.platform__body { display: flex; flex-direction: column; gap: 36px; max-width: var(--measure-text); }
-.principles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; }
-.principle__num {}
-.steps-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
-.step__num {}
-.modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 4rem; align-items: center; }
-.module-list { list-style: none; margin: 0; padding: 0; }
-.module-toggle { display: flex; align-items: center; gap: 1.25rem; width: 100%; padding: 1.25rem 0; background: none; border: 0; border-top: 1px solid var(--color-line); color: inherit; font: inherit; text-align: left; cursor: pointer; }
-.module-toggle[aria-pressed="false"] { opacity: .45; }
-.module-toggle:disabled { cursor: default; }
-.module-toggle__text { flex: 1; display: flex; flex-direction: column; }
-.switch { position: relative; flex: none; width: 44px; height: 26px; border-radius: 13px; background: var(--color-line); }
-.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--color-bg); transition: left .2s; }
-.module-toggle[aria-pressed="true"] .switch { background: var(--color-accent); }
-.module-toggle[aria-pressed="true"] .switch::after { left: 21px; }
-.module-preview { margin: 0; }
-.benefits { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; }
-.matrix-scroll { overflow-x: auto; }
-.matrix { width: 100%; min-width: 720px; border-collapse: collapse; }
-.matrix td, .matrix th { border-top: 1px solid var(--color-line); text-align: center; }
-.matrix thead td, .matrix thead th { border-top: 0; }
-.matrix tbody th { text-align: left; }
-.combo__toggle { display: flex; align-items: center; gap: .75rem; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; }
-.combo__sign::before { content: "+"; }
-.combo__toggle[aria-expanded="true"] .combo__sign::before { content: "\2212"; }
-.combo__detail td { border-top: 0; text-align: left; }
-.combo__detail-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 3.5rem; align-items: center; }
-.dot--optional { border: 1.5px solid var(--color-line); }
-.legend { list-style: none; padding: 0; display: flex; gap: 1.5rem; }
+.wrap--narrow.prose h1 { text-align: center; } /* legal pages + 404: centred title, as on urbandatalab.ch/imprint */
+.wrap--narrow.prose p { font-size: var(--fs-lede); line-height: var(--lh-body); } /* legal pages + 404: text 20px, as on urbandatalab.ch/imprint (t-text_md) */
 
 /* ---- Medium screens ---- */
 @media (max-width: 960px) {
-  .split, .platform { grid-template-columns: 1fr; gap: 32px; }
-  .hero__shape { width: 40%; }
-  .steps-layout, .combo__detail-inner { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; gap: 32px; }
+  .how-we-work__body { columns: 1; }
   /* hub: screenshot + caption on top, modules below in two columns, no connectors */
   .hub { grid-template-columns: 1fr 1fr; grid-template-areas: "frame frame" "core core" "left right"; row-gap: 32px; column-gap: 40px; }
   .hub__modules { justify-content: flex-start; }
@@ -344,20 +342,25 @@ img { max-width: 100%; height: auto; display: block; }
   .site-header .lang-switch { grid-column: 1 / -1; }
   .site-nav { grid-area: nav; gap: 20px; }
   .site-header .btn { grid-area: cta; justify-self: end; }
-  .hero__shape { width: 50%; opacity: .7; }
-  .hero__inner { gap: 22px; }
+  .hero__inner--image { grid-template-columns: 1fr; gap: 40px; }   /* tree below the buttons, smaller */
+  .hero__text { gap: 22px; }
+  .hero__image { max-width: var(--hero-image-max-mobile); justify-self: start; }
   .actions .btn { flex: 1 1 100%; }
   .cta-band .btn { width: 100%; }
-  .platform-hub__head { margin-bottom: 40px; text-align: left; align-items: flex-start; } /* left, like the screenshot caption and modules below */
+  .how-we-work__head, .platform-hub__head { text-align: left; align-items: flex-start; } /* left, like the video caption and modules below */
+  .platform-hub { margin-top: 40px; }
+  .platform-hub__head { margin-bottom: 40px; }
   .hub { grid-template-columns: 1fr; grid-template-areas: "frame" "core" "left" "right"; row-gap: 24px; }
   .hub__core { text-align: left; justify-self: start; }
   .steps { gap: 36px; padding-top: 40px; }
   .how-we-work__cta { margin-top: 40px; }
+  .how-we-work__body { padding-top: 40px; }
   .solutions__head { margin-bottom: 32px; }
-  /* table scrolls inside its wrapper; names stay visible */
-  .combos { min-width: 600px; }
-  .combos tbody th { width: auto; min-width: 190px; position: sticky; left: 0; z-index: 1; background: var(--color-bg); padding-right: 16px; }
-  .values { margin-top: 48px; }
+  /* table replaced by cards with module pills (display:none, so it is not read twice) */
+  .table-scroll { display: none; }
+  .combo-cards { display: block; }
+  .values, .values__title { margin-top: 48px; }
+  .values__title + .values { margin-top: 20px; }
   .people { margin-top: 48px; gap: 40px; }
   .person { grid-template-columns: 1fr; gap: 20px; }
   .person__photo { width: var(--photo-size); }

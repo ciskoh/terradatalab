@@ -1,6 +1,8 @@
 {%- comment -%}
   Solutions: static table of combinations (no JS). Columns and rows come from _data/platform.yml
   (solution_columns, combinations), text from t.solutions. Filled dot = included, outlined dot = not included.
+  Phones (≤640px, MEMORY.md §6.7): the table is hidden and the same data shows as one card per combination,
+  its modules as green pills (column names). Only one of the two is displayed, so screen readers read it once.
 {%- endcomment -%}
 {%- assign so = t.solutions -%}
 {%- assign table_text = "" -%}
@@ -63,6 +65,30 @@
         </tbody>
       </table>
     </div>
+
+    <ul class="combo-cards">
+      {%- for c in p.combinations %}
+      {%- assign ct = so.items[c.id] %}
+      {%- assign row_text = ct.name | append: ct.text %}
+      {%- if row_text != "" %}
+      <li class="combo-card">
+        {%- if ct.name and ct.name != "" %}
+        <h3 class="combo-card__name">{{ ct.name }}</h3>
+        {%- endif %}
+        {%- if ct.text and ct.text != "" %}
+        <p class="combo-card__text">{{ ct.text }}</p>
+        {%- endif %}
+        <ul class="pills">
+          {%- for col in p.solution_columns %}
+          {%- if c.includes contains col and so.columns[col] and so.columns[col] != "" %}
+          <li class="pill">{{ so.columns[col] }}</li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+      </li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
     {%- endif %}
   </div>
 </section>
