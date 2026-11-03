@@ -174,7 +174,7 @@ img { max-width: 100%; height: auto; display: block; }
     linear-gradient(90deg, var(--color-frame-line) 1px, transparent 1px);
   background-size: 100% 25%, 20% 100%;
 }
-.hub__frame img, .hub__video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.hub__frame img, .hub__video { display: block; width: 100%; height: 100%; object-fit: contain; } /* whole video/poster, never cropped */
 .hub__core { grid-area: core; text-align: center; max-width: var(--measure-text); justify-self: center; }
 .hub__modules {
   list-style: none; margin: 0; padding: 0;

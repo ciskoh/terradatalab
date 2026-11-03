@@ -18,6 +18,7 @@ hero_image: "hero-tree.png"
 viewer_video: "Screencast002.webm"
 # Poster = still image shown before/instead of the video: light copy of screencastPoster.png (file in assets/images/)
 viewer_poster: "screencast-poster.jpg"
+viewer_video_speed: 2                       # playback speed of the video (1 = normal, 2 = twice as fast)
 # Modules around the viewer, in display order: first 3 on the left, last 3 on the right.
 # ids = keys of how_we_work.platform.modules in the text files.
 modules: [satellite, public_db, metrics, operations, dynamic_monitoring, weather_scenarios]

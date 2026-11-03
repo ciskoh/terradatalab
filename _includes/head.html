@@ -35,8 +35,9 @@
 {%- endif %}
 <link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-500-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+{%- assign asset_version = site.time | date: '%s' %}{% comment %} added to CSS/JS links so browsers fetch the new files after every build {% endcomment %}
+<link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}?v={{ asset_version }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ asset_version }}">
 {%- if page.ref == "home" and p.viewer_video and p.viewer_video != "" %}
-<script src="{{ '/assets/js/viewer-video.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/viewer-video.js' | relative_url }}?v={{ asset_version }}" defer></script>
 {%- endif %}

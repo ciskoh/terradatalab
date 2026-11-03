@@ -6,6 +6,11 @@
   if (!video || !("IntersectionObserver" in window)) return;
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+  // playback speed from _data/platform.yml (viewer_video_speed); default speed is kept again after loading
+  var speed = parseFloat(video.getAttribute("data-speed")) || 1;
+  video.defaultPlaybackRate = speed;
+  video.playbackRate = speed;
+
   new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
