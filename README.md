@@ -3,6 +3,14 @@
 Single-page site built with [Jekyll](https://jekyllrb.com) and hosted on GitHub Pages.
 Languages: English (default, at `/`), German (`/de/`), French (`/fr/`), Italian (`/it/`).
 
+Repository: <https://github.com/ciskoh/terradatalab> (branch `main`)
+
+```bash
+git clone https://github.com/ciskoh/terradatalab.git
+```
+
+`docs/` (private reference material) and `.claude/` are git-ignored, so they exist only in the local copy.
+
 ## Where things are
 
 | What | Where |
@@ -39,8 +47,18 @@ bundle exec jekyll serve      # http://localhost:4000
 3. Add the code to `languages:` and a `defaults:` entry in `_config.yml`.
 
 ## Deployment
-GitHub Pages → *Deploy from a branch* (root folder). GitHub builds the site on every push.
+Every push to `main` triggers the GitHub Actions workflow `.github/workflows/jekyll-gh-pages.yml`,
+which builds the site and deploys it to GitHub Pages. It can also be started by hand from the repository's *Actions* tab.
+In the repository settings, *Pages → Source* must be set to *GitHub Actions*.
+
+```bash
+git add <files>
+git commit -m "Describe the change"
+git push                      # publishes the site
+```
+
+Without a custom domain the site is served at `https://ciskoh.github.io/terradatalab/`;
+for that address `_config.yml` needs `baseurl: "/terradatalab"`, otherwise styles and links break.
 
 When the custom domain is ready: set `url` in `_config.yml` to it (e.g. `https://www.terradatalab.net`),
-keep `baseurl: ""`, add a `CNAME` file with the domain, and configure DNS.
-For a project page without a custom domain (`https://<user>.github.io/<repo>/`) set `baseurl: "/<repo>"`.
+set `baseurl: ""`, add a `CNAME` file with the domain, and configure DNS.

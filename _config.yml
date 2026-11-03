@@ -5,7 +5,7 @@ title: TerraDataLab
 # GitHub Pages project site: https://<user>.github.io/<repo>/
 # When the custom domain is live: set url to it, baseurl to "", and add a CNAME file.
 url: ""
-baseurl: ""
+baseurl: "/terradatalab"
 
 # First language is the default and is served at the site root.
 languages: [en, de, fr, it]
