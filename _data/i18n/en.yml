@@ -25,10 +25,11 @@ nav:
 udl_banner:                 # blue UrbanDataLab banner, home page only: under the header and again above the footer (empty = hidden)
   text: "Looking for other use cases?"   # text of the banner
   link: "Visit UrbanDataLab"             # link to urbandatalab.ch (sister_url in _data/platform.yml); the arrow is added by the design
+  tagline: "Your Data Expert for Smarter Location Decisions."   # shown after the link, desktop only (empty = hidden)
 
 hero:                       # first block of the page
   eyebrow: ""               # small line above the headline (not used for now)
-  title: "Trust your work. Give your project the tools to prove it."   # headline
+  title: "Trust your carbon and nature projects. We build the tools to prove it."   # headline
   subtitle: "We build the data pipelines, tools and dashboards that show, with evidence, how your project makes the world a better place."   # text below the headline
   offer: ""                 # short highlighted line ("the offer")
   cta_primary: "Book a 30-minute call"      # main button: opens the booking page (new tab)
@@ -36,13 +37,13 @@ hero:                       # first block of the page
   image_alt: ""             # description of the hero image for screen readers (empty = decorative)
 
 how_we_work:                # "How we work" section (header link "How we work")
-                            # display order: title → platform block → steps → button (cta) → paragraphs (body)
+                            # display order: title → intro → platform hub → button (cta) → steps (each: title, text, detail paragraph below)
   eyebrow: ""               # small line above the headline (not used for now)
   title: "Built with you. Built for your project."   # main headline at the top of the section
   platform:                 # block "viewer at the centre + modules around it"
-    title: "Start with the core. Grow from there."   # centred headline of the block
+    title: ""               # centred headline of the block (not used for now; empty = hidden)
     intro: "A customisable data viewer brings all your project data into one place. Plug in the modules your project needs, when it needs them."   # text below the block headline
-    video_alt: ""           # description of the Core Data Viewer video for screen readers
+    video_alt: "Shows the Core Data Viewer displaying data related to an agricarbon project in Switzerland."   # description of the Core Data Viewer video for screen readers
     core:                   # caption under the video
       name: "Core Data Viewer"
       text: "One place to view and control your project data, for the whole team."
@@ -65,34 +66,33 @@ how_we_work:                # "How we work" section (header link "How we work")
       weather_scenarios:
         name: "Weather Scenario Builder"
         text: "Weather scenarios from your local climate history."
-  steps:                    # numbered steps, 01–03 automatically
+  steps:                    # numbered steps, 01–03 automatically; detail = paragraph below each step
     - title: "Workshop"
       text: "Define requirements together."
+      detail: |
+        We start with a workshop. Map what you actually need, not what a template says you should need. Then we build it—and you only pay for the parts that matter to your project.
     - title: "Setup"
       text: "See your data overview immediately."
-    - title: "Development prioritized with you"
+      detail: |
+        The infrastructure is yours to choose. Want it in the cloud? On your servers? Hybrid? You decide. As your project evolves and you learn more, the platform evolves with it. No "phase 2 costs" that balloon. Just work that responds to what you're actually doing.
+    - title: "Development prioritised with you"
       text: "Your priorities set the order. We build, review and refine together."
+      detail: |
+        And you're never locked in. Raw data exports whenever you want. Core components are open source. APIs so you can plug it into whatever else your team uses. You own your data and your setup.
   cta: "Let's talk about what your project actually needs."   # button below the steps (e-mail)
-  body: |                  # paragraphs at the end of the section, full width
-    We start with a workshop. Map what you actually need, not what a template says you should need. Then we build it—and you only pay for the parts that matter to your project.
 
-    The infrastructure is yours to choose. Want it in the cloud? On your servers? Hybrid? You decide. As your project evolves and you learn more, the platform evolves with it. No "phase 2 costs" that balloon. Just work that responds to what you're actually doing.
-
-    And you're never locked in. Raw data exports whenever you want. Core components are open source. APIs so you can plug it into whatever else your team uses. You own your data and your setup.
-
-solutions:                  # "Solutions" section: table of combinations
+solutions:                  # "Solutions" section: cards, one per combination, each listing its modules by the names under "columns" (no table)
   eyebrow: ""               # small line above the headline (not used for now)
-  title: "One platform. Five combinations."   # headline
-  intro: "From baseline through audit."       # text below the headline
-  legend_included: ""       # screen-reader text for a filled dot ("included")
-  legend_not_included: ""   # screen-reader text for an empty dot
-  columns:                  # table column headers; ids must match _data/platform.yml (solution_columns); on phones the same names appear as small labels on each card
+  title: "One platform. Five combinations for carbon and nature projects."   # headline
+  intro: "For sustainability projects, from baseline through audit."   # text below the headline
+  modules_label: "Modules"  # green label before the module names on each card
+  columns:                  # module names listed on each card; ids must match _data/platform.yml (solution_columns)
     core: "Core Data Viewer"
     satellite: "Satellite Hook"
     public_db: "Public Databases"
     metrics: "Metric Calculator"
     operations: "Operations Hook"
-  items:                    # table rows (name + short text); ids must match _data/platform.yml (combinations)
+  items:                    # one card per combination (name + short text); ids must match _data/platform.yml (combinations)
     see_field:
       name: "See your field"
       text: "All your project data in one view, shared by the whole team."
@@ -101,13 +101,13 @@ solutions:                  # "Solutions" section: table of combinations
       text: "Satellite and soil data show where to sample, so fewer field measurements hold up in audit."
     land_evolution:
       name: "Land evolution"
-      text: "Track change over time with satellite evidence and metrics tied to their sources."
+      text: "Track soil and vegetation with satellites and metrics tied to your methodology."
     operations:
       name: "Operations"
       text: "Field work and satellite monitoring in one place, traceable as it happens."
     audit:
       name: "Audit preparation"
-      text: "Every number linked to its source and every observation to its place, ready for the verifier."
+      text: "Every number linked to its source and every observation to its place, ready for your validation or certification."
 
 cta:                        # green band near the bottom
   title: "Ready to talk about your project?"   # text in the band
@@ -131,7 +131,7 @@ about:                      # "Who we are" section, after the green band
     patrick:
       name: "Patrick Schirmer"   # empty = card not shown
       role: "Product & Platform Manager"
-      bio: "Architect and urban data scientist. PhD in agent-based urban simulation (ETH Zurich, 2015). Planner on large development projects in Europe and Russia (KCAP); data hubs and models for the Swiss real estate market (FPRE, 2015–2018)."
+      bio: "Architect and urban data scientist. PhD in agent-based urban simulation (ETH Zurich). Planner on large development projects across Europe."
       photo_alt: ""         # description of the photo for screen readers
       linkedin: "LinkedIn"  # link text; the URL is linkedin_url of this person in _data/platform.yml
 

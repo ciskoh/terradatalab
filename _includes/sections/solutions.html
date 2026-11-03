@@ -1,12 +1,12 @@
 {%- comment -%}
-  Solutions: static table of combinations (no JS). Columns and rows come from _data/platform.yml
-  (solution_columns, combinations), text from t.solutions. Filled dot = included, outlined dot = not included.
-  Phones (≤640px, MEMORY.md §6.7): the table is hidden and the same data shows as one card per combination,
-  its modules as green pills (column names). Only one of the two is displayed, so screen readers read it once.
+  Solutions (MEMORY.md §7.7, card B): one card per combination on all screen sizes (no table, no JS).
+  Each card = name · text · "Modules" label (green) + the included module names joined by " · ", in the order of
+  solution_columns. Combinations and modules come from _data/platform.yml (solution_columns, combinations), text from t.solutions.
+  Grid: 3 per row on desktop, 2 at ≤960px, 1 at ≤640px.
 {%- endcomment -%}
 {%- assign so = t.solutions -%}
-{%- assign table_text = "" -%}
-{%- for c in p.combinations -%}{%- assign table_text = table_text | append: so.items[c.id].name | append: so.items[c.id].text -%}{%- endfor -%}
+{%- assign cards_text = "" -%}
+{%- for c in p.combinations -%}{%- assign cards_text = cards_text | append: so.items[c.id].name | append: so.items[c.id].text -%}{%- endfor -%}
 <section class="section" id="solutions"{% if so.title and so.title != "" %} aria-labelledby="solutions-title"{% endif %}>
   <div class="wrap">
     {%- assign head_text = so.eyebrow | append: so.title | append: so.intro %}
@@ -23,54 +23,18 @@
       {%- endif %}
     </header>
     {%- endif %}
-    {%- if table_text != "" %}
-    <div class="table-scroll">
-      <table class="combos">
-        <thead>
-          <tr>
-            <td></td>
-            {%- for col in p.solution_columns %}
-            <th scope="col">{{ so.columns[col] }}</th>
-            {%- endfor %}
-          </tr>
-        </thead>
-        <tbody>
-          {%- for c in p.combinations %}
-          {%- assign ct = so.items[c.id] %}
-          {%- assign row_text = ct.name | append: ct.text %}
-          {%- if row_text != "" %}
-          <tr>
-            <th scope="row">
-              {%- if ct.name and ct.name != "" %}
-              <span class="combos__name">{{ ct.name }}</span>
-              {%- endif %}
-              {%- if ct.text and ct.text != "" %}
-              <span class="combos__text">{{ ct.text }}</span>
-              {%- endif %}
-            </th>
-            {%- for col in p.solution_columns %}
-            <td>
-              {%- if c.includes contains col %}
-              <span class="dot dot--included"></span>
-              {%- if so.legend_included and so.legend_included != "" %}<span class="visually-hidden">{{ so.legend_included }}</span>{% endif %}
-              {%- else %}
-              <span class="dot dot--empty"></span>
-              {%- if so.legend_not_included and so.legend_not_included != "" %}<span class="visually-hidden">{{ so.legend_not_included }}</span>{% endif %}
-              {%- endif %}
-            </td>
-            {%- endfor %}
-          </tr>
-          {%- endif %}
-          {%- endfor %}
-        </tbody>
-      </table>
-    </div>
-
+    {%- if cards_text != "" %}
     <ul class="combo-cards">
       {%- for c in p.combinations %}
       {%- assign ct = so.items[c.id] %}
       {%- assign row_text = ct.name | append: ct.text %}
       {%- if row_text != "" %}
+      {%- assign module_names = "" | split: "" %}
+      {%- for col in p.solution_columns %}
+      {%- if c.includes contains col and so.columns[col] and so.columns[col] != "" %}
+      {%- assign module_names = module_names | push: so.columns[col] %}
+      {%- endif %}
+      {%- endfor %}
       <li class="combo-card">
         {%- if ct.name and ct.name != "" %}
         <h3 class="combo-card__name">{{ ct.name }}</h3>
@@ -78,13 +42,11 @@
         {%- if ct.text and ct.text != "" %}
         <p class="combo-card__text">{{ ct.text }}</p>
         {%- endif %}
-        <ul class="pills">
-          {%- for col in p.solution_columns %}
-          {%- if c.includes contains col and so.columns[col] and so.columns[col] != "" %}
-          <li class="pill">{{ so.columns[col] }}</li>
-          {%- endif %}
-          {%- endfor %}
-        </ul>
+        {%- if module_names.size > 0 %}
+        <p class="combo-card__modules">
+          {%- if so.modules_label and so.modules_label != "" %}<span class="combo-card__label">{{ so.modules_label }}</span> {% endif -%}
+          {{ module_names | join: " · " }}</p>
+        {%- endif %}
       </li>
       {%- endif %}
       {%- endfor %}

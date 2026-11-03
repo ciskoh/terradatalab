@@ -1,6 +1,7 @@
 {%- comment -%}
-  UrbanDataLab banner (MEMORY.md §6.4, §6.10): thin blue strip, home page only, under the header and again above the footer.
+  UrbanDataLab banner (MEMORY.md §6.4, §6.10, §7.4): thin blue strip, home page only, under the header and again above the footer.
   Text from t.udl_banner, link from _data/platform.yml (sister_url). Hidden if both texts are empty.
+  Optional tagline (UDL's own sentence) after the link: desktop only, hidden at ≤960px by the CSS.
 {%- endcomment -%}
 {%- assign ub = t.udl_banner -%}
 {%- assign ub_text = ub.text | append: ub.link -%}
@@ -12,6 +13,9 @@
     {%- endif %}
     {%- if ub.link and ub.link != "" and site.data.platform.sister_url and site.data.platform.sister_url != "" %}
     <a href="{{ site.data.platform.sister_url }}" target="_blank" rel="noopener">{{ ub.link }}<svg class="udl-banner__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    {%- endif %}
+    {%- if ub.tagline and ub.tagline != "" %}
+    <span class="udl-banner__tagline">{{ ub.tagline }}</span>
     {%- endif %}
   </p>
 </div>

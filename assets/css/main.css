@@ -119,6 +119,7 @@ img { max-width: 100%; height: auto; display: block; }
 .udl-banner a { display: inline-flex; align-items: center; gap: 6px; color: var(--color-udl-text); font-weight: var(--fw-medium); text-decoration: none; }
 .udl-banner a:hover { color: var(--color-udl-text); text-decoration: underline; }
 .udl-banner :focus-visible { outline-color: var(--color-focus-inverse); }
+.udl-banner__tagline { margin-left: 12px; }   /* UDL's sentence after the link (MEMORY.md §7.4); desktop only */
 .udl-banner__arrow { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---- Hero: text left, tree image right ---- */
@@ -146,7 +147,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero .actions { margin-top: 8px; }
 
-/* ---- How we work: title · platform hub · steps · button · paragraphs ---- */
+/* ---- How we work: title · platform intro · hub · button (centred) · steps with detail paragraphs (MEMORY.md §7.6) ---- */
 /* platform hub: modules left and right, video of the Core Data Viewer in the centre */
 .platform-hub { margin-top: 56px; }
 .platform-hub:first-child { margin-top: 0; }
@@ -201,56 +202,37 @@ img { max-width: 100%; height: auto; display: block; }
 .hub__core .hub__name { margin-bottom: 4px; }
 .hub__core p { text-wrap: balance; }
 
-/* numbered steps 01–03 (big light accent numbers, as in the wireframe) */
+/* e-mail button: centred, directly below the hub */
+.how-we-work__cta { margin-top: 56px; justify-content: center; }
+/* numbered steps 01–03 (big light accent numbers, as in the wireframe); 3 columns, aligned at the top;
+   each column = number · title · short text · detail paragraph in lede type */
 .steps {
-  list-style: none; margin: var(--section-space) 0 0; padding: 0;
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 48px;
-  border-top: 1px solid var(--color-line-alt); padding-top: 56px;
+  list-style: none; margin: 56px 0 0; padding: 0;   /* same 56px rhythm as title → hub → button */
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; align-items: start;
 }
 .step { display: flex; flex-direction: column; gap: 10px; }
 .step__num { font-weight: var(--fw-light); font-size: var(--fs-step-num); line-height: 1; color: var(--color-accent); }
 .step__title { font-size: var(--fs-h3); line-height: var(--lh-h3); }
 .step p { font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-muted); }
-.how-we-work__cta { margin-top: 56px; }
-/* paragraphs at the end: full width in two text columns (readable line length) */
-.how-we-work__body {
-  margin-top: var(--section-space); padding-top: 56px; border-top: 1px solid var(--color-line-alt);
-  columns: 2; column-gap: 64px;
-  font-size: var(--fs-lede); line-height: var(--lh-lede); color: var(--color-text-lede);
-}
-.how-we-work__body p { break-inside: avoid; margin-bottom: 1em; }
-.how-we-work__body p + p { margin-top: 0; }
+.step p.step__detail { margin-top: 14px; font-size: var(--fs-step-detail); line-height: var(--lh-lede); color: var(--color-text-lede); text-wrap: pretty; }
 
-/* ---- Solutions: static table of combinations ---- */
+/* ---- Solutions: card grid, one card per combination (card B, MEMORY.md §7.7); 3 · 2 · 1 per row ---- */
 .solutions__head { margin-bottom: 48px; }
-.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.combos { width: 100%; border-collapse: collapse; }
-.combos th, .combos td { padding: 22px 12px; border-top: 1px solid var(--color-line); vertical-align: middle; }
-.combos thead th, .combos thead td { border-top: 0; padding-top: 0; padding-bottom: 16px; }
-.combos thead th {
-  font-size: var(--fs-item); font-weight: var(--fw-medium); line-height: 1.3;
-  color: var(--color-text-soft); text-align: center;
+.combo-cards {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;
 }
-.combos tbody tr:last-child th, .combos tbody tr:last-child td { border-bottom: 1px solid var(--color-line); }
-.combos tbody th { width: 42%; padding-left: 0; text-align: left; font-weight: var(--fw-regular); }
-.combos td { text-align: center; }
-.combos__name { display: block; font-size: var(--fs-row-name); font-weight: var(--fw-medium); line-height: var(--lh-h3); }
-.combos__text { display: block; margin-top: 4px; font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-muted); }
-.dot { display: inline-block; width: var(--dot-size); height: var(--dot-size); border-radius: 50%; vertical-align: middle; }
-.dot--included { background: var(--color-accent); }
-.dot--empty { border: var(--btn-border) solid var(--color-dot-empty); }
-/* phone version of the table: one card per combination, modules as pills (shown ≤640px only) */
-.combo-cards { display: none; list-style: none; margin: 0; padding: 0; }
-.combo-card { padding: 24px 0; border-top: 1px solid var(--color-line); }
-.combo-card:last-child { border-bottom: 1px solid var(--color-line); }
+.combo-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 32px; border-radius: var(--radius); background: var(--color-bg-alt);
+}
 .combo-card__name { font-size: var(--fs-row-name); font-weight: var(--fw-medium); line-height: var(--lh-h3); }
-.combo-card__text { margin-top: 4px; font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-muted); }
-.pills { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.pill {
-  padding: 5px 12px; border-radius: var(--radius-pill);
-  background: var(--color-pill); color: var(--color-accent);
-  font-size: var(--fs-pill); font-weight: var(--fw-medium); line-height: 1.3;
+.combo-card__text { font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-muted); }
+.combo-card__modules {   /* pushed to the bottom so the module lines align across a row */
+  margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-line-alt);
+  font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-soft);
 }
+.combo-card__label { margin-right: 6px; font-weight: var(--fw-medium); color: var(--color-accent); }
 
 /* ---- CTA band ---- */
 .cta-band { background: var(--color-band); color: var(--color-band-text); }
@@ -321,12 +303,15 @@ main { flex: 1 0 auto; }   /* fills the space between header and footer (see bod
 /* ---- Medium screens ---- */
 @media (max-width: 960px) {
   .split { grid-template-columns: 1fr; gap: 32px; }
-  .how-we-work__body { columns: 1; }
+  .udl-banner__tagline { display: none; }   /* banner stays one line on tablets and phones */
   /* hub: screenshot + caption on top, modules below in two columns, no connectors */
   .hub { grid-template-columns: 1fr 1fr; grid-template-areas: "frame frame" "core core" "left right"; row-gap: 32px; column-gap: 40px; }
   .hub__modules { justify-content: flex-start; }
   .hub__modules--left .hub__module { flex-direction: row; text-align: left; }
   .hub__module::after { display: none; }
+  /* steps stacked (the detail paragraphs in lede type are too long for 3 narrow columns), readable line length */
+  .steps { grid-template-columns: 1fr; gap: 48px; max-width: var(--measure-text); }
+  .combo-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .people { grid-template-columns: 1fr; }
   .site-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -352,13 +337,11 @@ main { flex: 1 0 auto; }   /* fills the space between header and footer (see bod
   .platform-hub__head { margin-bottom: 40px; }
   .hub { grid-template-columns: 1fr; grid-template-areas: "frame" "core" "left" "right"; row-gap: 24px; }
   .hub__core { text-align: left; justify-self: start; }
-  .steps { gap: 36px; padding-top: 40px; }
   .how-we-work__cta { margin-top: 40px; }
-  .how-we-work__body { padding-top: 40px; }
+  .steps { gap: 40px; margin-top: 40px; }
   .solutions__head { margin-bottom: 32px; }
-  /* table replaced by cards with module pills (display:none, so it is not read twice) */
-  .table-scroll { display: none; }
-  .combo-cards { display: block; }
+  .combo-cards { grid-template-columns: 1fr; gap: 16px; }
+  .combo-card { padding: 24px; }
   .values, .values__title { margin-top: 48px; }
   .values__title + .values { margin-top: 20px; }
   .people { margin-top: 48px; gap: 40px; }

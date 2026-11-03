@@ -1,6 +1,6 @@
 {%- comment -%}
-  How we work (order agreed in MEMORY.md §6.6): title · platform hub (video of the viewer at the centre, modules around it)
-  · numbered steps · e-mail button · paragraphs (full width, at the end).
+  How we work (order agreed in MEMORY.md §6.6, updated §7.6): title · platform intro · hub (video of the viewer at the centre,
+  modules around it) · e-mail button (centred) · numbered steps, each with its detail paragraph below (one block per column).
   Module ids/order and the video/poster files come from _data/platform.yml; all text from t.how_we_work.
   First 3 modules go left of the video, the others right. Icons are simple outline shapes chosen by module id.
   The video starts only when scrolled into view (assets/js/viewer-video.js); without JS or with "reduce motion" the poster shows.
@@ -105,13 +105,17 @@
     </div>
     {%- endif %}
 
-    {%- comment %} ---- Numbered steps ---- {% endcomment %}
+    {%- if hw.cta and hw.cta != "" %}
+    <p class="actions how-we-work__cta"><a class="btn btn--primary" href="mailto:{{ p.contact_email }}">{{ hw.cta }}</a></p>
+    {%- endif %}
+
+    {%- comment %} ---- Numbered steps (text + detail paragraph, MEMORY.md §7.6) ---- {% endcomment %}
     {%- assign steps_text = "" %}
-    {%- for step in hw.steps %}{% assign steps_text = steps_text | append: step.title | append: step.text %}{% endfor %}
+    {%- for step in hw.steps %}{% assign steps_text = steps_text | append: step.title | append: step.text | append: step.detail %}{% endfor %}
     {%- if steps_text != "" %}
     <ol class="steps">
       {%- for step in hw.steps %}
-      {%- assign step_text = step.title | append: step.text %}
+      {%- assign step_text = step.title | append: step.text | append: step.detail %}
       {%- if step_text != "" %}
       <li class="step">
         <span class="step__num" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
@@ -121,30 +125,13 @@
         {%- if step.text and step.text != "" %}
         <p>{{ step.text }}</p>
         {%- endif %}
+        {%- if step.detail and step.detail != "" %}
+        <p class="step__detail">{{ step.detail }}</p>
+        {%- endif %}
       </li>
       {%- endif %}
       {%- endfor %}
     </ol>
-    {%- endif %}
-
-    {%- if hw.cta and hw.cta != "" %}
-    <p class="actions how-we-work__cta"><a class="btn btn--primary" href="mailto:{{ p.contact_email }}">{{ hw.cta }}</a></p>
-    {%- endif %}
-
-    {%- comment %} ---- Paragraphs (separated by an empty line in the text file) ---- {% endcomment %}
-    {%- if hw.body and hw.body != "" %}
-    {%- capture blank_line %}
-
-{% endcapture %}
-    {%- assign paras = hw.body | strip | split: blank_line %}
-    <div class="prose how-we-work__body">
-      {%- for para in paras %}
-      {%- assign para_text = para | strip %}
-      {%- if para_text != "" %}
-      <p>{{ para_text | escape }}</p>
-      {%- endif %}
-      {%- endfor %}
-    </div>
     {%- endif %}
   </div>
 </section>

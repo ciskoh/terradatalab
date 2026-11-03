@@ -22,6 +22,9 @@
 | 2026-11-03 | Matteo, review #2 (§6) | **Hero:** title "Trust your work. Give your project the tools to prove it."; tree image (`image001.png`) on the right. **How we work:** order title → platform hub (Core Data Viewer **video** `Screencast002.webm` + poster) → steps → button → paragraphs; Dynamic Monitoring one-liner "Compare your project area with reference sites, dynamically." |
 | 2026-11-03 | Matteo, review #2 (§6) | **Solutions:** full module names in the table; on phones one card per combination with green module pills. **Who we are:** "Our values" heading; round b/w photos; second person **Patrick Schirmer** (Product & Platform Manager). **Legal:** imprint = Matteo's private address (no company), linked in the footer; Privacy link hidden until text exists; 404 texts set. |
 | 2026-11-03 | Matteo, after deploy | **Core Data Viewer video plays at 2× speed** (`viewer_video_speed: 2` in platform.yml; 1 = normal). Video and poster are shown whole in their frame (never cropped). |
+| 2026-11-03 | Matteo, review #3 (§7.5) | **Messaging rule: we build the tools that prove the impact of carbon/nature projects; we do not carry out the nature-based solutions ourselves.** Copy must never suggest otherwise. Keywords sustainability / carbon / nature should appear in key titles. |
+| 2026-11-03 | Matteo, review #3 (§7.6) | **British spelling site-wide** (e.g. "prioritised", "customisable", "centre"). |
+| 2026-11-03 | Matteo, review #3 (§7) | **UDL banner** adds "Your Data Expert for Smarter Location Decisions." after the link, desktop only. **Hero title:** "Trust your carbon and nature projects. We build the tools to prove it." **How we work:** platform title dropped; button centred under the hub; each paragraph under its step (01–03). **Solutions:** card grid (3/2/1) with a "Modules" line, table dropped; new title/intro with keywords. **Patrick bio** shortened. |
 
 Notes on UrbanDataLab (checked 2026-11-02): built with Tilda (a hosted builder), English only, flat URLs: `/platform`, `/solutions`, `/resources`, `/imprint`, `/privacy-policy`, `/terms-and-conditions`.
 → We reuse its URL names and page pattern, not its technology.
@@ -206,7 +209,7 @@ Already compatible: Ubuntu, white page + very light alt bands, 1200px width, lef
 ## 5. Current task: section-by-section review with Matteo (started 2026-11-02)
 Order: 1 Header · 2 Hero · 3 Platform · 4 Solutions · 5 CTA band · 6 Footer, then the deferred items below.
 
-**RESUME POINT (updated 2026-11-03):** Reviews #1 (§5) and #2 (§6) complete, IMPLEMENTED and committed; push by Matteo pending (§6.12 follow-up). Open for Matteo: privacy text, logo (header + footer, §3.8 F), hero angles trial (§5.x), DE/FR/IT translations.
+**RESUME POINT (updated 2026-11-03):** Reviews #1 (§5) and #2 (§6) complete, implemented, committed and pushed. **Review #3 (§7): all sections agreed and IMPLEMENTED and committed 2026-11-03; R1/R2 kept as built (Matteo did not object).** Open for Matteo: privacy text, logo (header + footer, §3.8 F), hero angles trial (§5.x), DE/FR/IT translations.
 Workflow per section: Matteo states changes → clarifying questions → plan here → approval → implement → log in §1.
 
 ### 5.1 Header: AGREED, NOT IMPLEMENTED (Matteo: record only, do not act yet; move on to the next section)
@@ -510,6 +513,116 @@ Not touched: unused files (cleanup candidates from §5.8 + `coreDataViewer.webm`
 
 ---
 
+## 7. Current task: review #3, section by section (started 2026-11-03)
+Matteo: "let's go for review #3. Let's proceed like the others."
+Workflow per section (as §5/§6): show current content + assets → Matteo states changes → clarifying questions → plan here → approval → implement (copywriter → web designer → style-revisor) → log in §1.
+Rules still valid: always "we" (bios may use "I"), no eyebrows, mailto = m.jriva@urbandatalab.net, booking link on Hero primary + CTA band, "UrbanDataLab" spelling, list the assets each section needs.
+Order: 0 Site-wide · 1 Header (+ UDL banner) · 2 Hero · 3 How we work · 4 Solutions · 5 CTA band · 6 Who we are · 7 Footer (+ UDL banner) · 8 Legal + 404.
+Open items to raise in the matching section: logo (§3.8 F, sections 1 + 7), privacy text (8), hero angles trial (2), Solutions full rework (4), alt texts empty (hero image, video, photos).
+
+### 7.3 Section 0, Site-wide: NO CHANGES (2026-11-03)
+Matteo moved on without changes (treated as "keep as is"). Custom domain, alt texts and visitor statistics stay open (not decided).
+
+### 7.4 Section 1, Header + UrbanDataLab banner: AGREED, NOT IMPLEMENTED (2026-11-03)
+Matteo (2026-11-03): **the UrbanDataLab banner must include the sentence "Your Data Expert for Smarter Location Decisions."** (verbatim, UDL's tagline).
+Matteo's answers:
+1. **Option B, sentence after the link:** *Looking for other use cases?* **Visit UrbanDataLab →** Your Data Expert for Smarter Location Decisions.
+2. **Both banners identical** (under the header + above the footer; same include, so automatic).
+3. **Sentence shown on desktop only**: hidden at ≤960 px (tablet + phone, the site's existing breakpoints); there the banner stays as today (one line).
+4. **Rest of the header unchanged** (text logo, 3 nav links, "Let's talk" mailto button, 2 rows on phones).
+Plan: new key `udl_banner.tagline` in all 4 text files (en = the sentence, de/fr/it empty; empty = not shown); `_includes/udl-banner.html` adds `<span class="udl-banner__tagline">` after the link; CSS `display: none` at ≤960 px. Banner stays one line on desktop (≈1120 px wrap holds ~105 characters at 16 px; to verify in the build, otherwise it wraps to 2 lines).
+Images: none (optional white UDL logo still open).
+
+### 7.5 Section 2, Hero: AGREED, NOT IMPLEMENTED
+Matteo (2026-11-03): **the title lacks keywords related to sustainability, carbon, nature-based solutions**; asked for options that are not too wordy (text generation explicitly requested). Current: "Trust your work. Give your project the tools to prove it."
+Options sent in chat (2026-11-03):
+1. "Trust your nature-based solutions. Give them the data to prove it."
+2. "Trust your carbon and nature projects. We build the tools to prove it."
+3. "Nature-based solutions you can trust. Data that proves it."
+4. "Prove the impact of your nature-based solutions."
+5. "Carbon, nature, sustainability: trust your work, and prove it."
+Also raised: the subtitle and the tab title can carry the remaining keywords (tab title already has "sustainability"). Hero-angles trial + image alt text: asked, no answer yet.
+**Decision (Matteo, 2026-11-03): option 2, "Trust your carbon and nature projects. We build the tools to prove it."** → `en.yml hero.title`. Reason given by Matteo: option 3 suggests we carry out the nature-based solutions, but **we only build the tools to prove them** (messaging rule, logged in §1).
+Not answered, defaults kept (flag if wrong): subtitle unchanged; hero-angles trial stays parked (§5.x); tree image stays decorative (no alt text).
+Status: AGREED, NOT IMPLEMENTED.
+
+### 7.6 Section 3, How we work: AGREED, NOT IMPLEMENTED
+Matteo's decisions (2026-11-03):
+1. **Drop the platform-block title "Start with the core. Grow from there."** (`how_we_work.platform.title: ""`; the template already hides an empty title). Asked: does the intro below it stay?
+2. **Video screen-reader description** (Matteo's text): "Shows the core data manager displaying data related to an agricarbon project in Switzerland" → `how_we_work.platform.video_alt`. Asked: "core data manager" → "Core Data Viewer" (module name)? Final full stop.
+3. **British spelling site-wide** (logged in §1). Only hit in the English text: "Development prioritized with you" → "prioritised" (step 03 title). Imprint/404/templates: no other hits.
+4. **E-mail button "Let's talk about what your project actually needs." centred, directly below the platform hub** (before the steps). New order: main title → intro → hub with video → button → steps 01–03 → paragraphs.
+5. **The 3 paragraphs aligned with steps 01/02/03**: same 3-column grid as the steps (paragraph 1 under 01, 2 under 02, 3 under 03) instead of 2 text columns; phones: stacked. Asked: separate row under the steps (current divider line kept) or directly under each step's text.
+Matteo's answers, round 2 (2026-11-03): (1) **intro stays**; (2) video description: **"Shows the Core Data Viewer displaying data related to an agricarbon project in Switzerland."**; (3) **layout B: each paragraph directly under its step's text** (one block per column; the divider line between steps and paragraphs goes); (4) phones: columns stacked.
+Plan: text moves from `how_we_work.body` (removed) into each step as a new field `detail` (step 1 = "We start with a workshop…", step 2 = "The infrastructure is yours to choose…", step 3 = "And you're never locked in…"), same keys in all 4 files, de/fr/it empty. Template: `detail` rendered under the step text in larger lede type; button block moved between hub and steps, centred; platform title key emptied.
+
+### 7.7 Section 4, Solutions: AGREED, NOT IMPLEMENTED
+Matteo (2026-11-03): **"Transform this section into cards version B as you proposed in review #2. Insert some keywords here."**
+- Card B (review #2 mock-up, §6.7): one card per combination = name · text · line "**Modules** Core Data Viewer · Satellite Hook · …" (label in green). Now on **all screen sizes**: the table is dropped (desktop too) and the phone pill cards (A) are replaced by B.
+- New text key `solutions.modules_label: "Modules"` (all 4 files, de/fr/it empty). Keys `legend_included` / `legend_not_included` become unused → remove.
+- Asked: desktop layout (grid 3+2 vs ruled full-width rows vs 5 in a row); keyword proposals sent in chat (text generation explicitly requested), Matteo to pick.
+Matteo's answers (2026-11-03):
+- **Desktop layout A: card grid 3 + 2** (tablet 2 per row, phone 1 per row = mock-up B).
+- **Title (option a): "One platform. Five combinations for carbon and nature projects."** (Matteo: "ok"; read as accepting the proposal; flag if he meant "keep as is").
+- **Intro (option d): "For sustainability projects, from baseline through audit."**
+- **Get baseline: unchanged.**
+- **Land evolution (Matteo's text): "Track soil and vegetation with satellites and metrics tied to your methodology."** (full stop added).
+- **Audit preparation (Matteo's text, normalised): "Every number linked to its source and every observation to its place, ready for your validation or certification."** ("you Validation" → "your validation").
+Status: AGREED, NOT IMPLEMENTED. Implementation: en.yml solutions title/intro/items + modules_label; platform.yml unchanged (includes); template solutions.html → card grid only (table + pill cards removed); CSS grid 3/2/1.
+
+### 7.8 Section 5, CTA band: NO CHANGES (2026-11-03)
+Matteo: "no good as is". Title, button "Get in touch" → booking link, e-mail vs booking split all unchanged.
+
+### 7.9 Section 6, Who we are: AGREED, NOT IMPLEMENTED
+Matteo (2026-11-03): **"Just shorten a bit the bio of Patrick, rest stays as is"** (photo alt texts stay empty).
+Options sent in chat (only facts already in the bio, no new ones):
+A. "Architect and urban data scientist. PhD in agent-based urban simulation (ETH Zurich, 2015); data hubs and models for the Swiss real estate market (FPRE)." (recommended)
+B. "Architect and urban data scientist. PhD in agent-based urban simulation (ETH Zurich). Planner on large development projects across Europe."
+C. "Architect and urban data scientist with a PhD in agent-based urban simulation from ETH Zurich."
+**Decision: B** → `about.people.patrick.bio: "Architect and urban data scientist. PhD in agent-based urban simulation (ETH Zurich). Planner on large development projects across Europe."` Rest unchanged.
+
+### 7.10 Section 7, Footer (+ UDL banner): NO CHANGES (2026-11-03)
+Matteo: "no all good". Banner above the footer gets the tagline automatically (§7.4). LinkedIn (personal), e-mail domain, fixed © 2026: unchanged.
+
+### 7.11 Section 8, Legal + 404: NO CHANGES (not discussed; Matteo asked to implement after the footer)
+
+### 7.12 Implementation plan for review #3 (Matteo 2026-11-03: "please implement")
+Same procedure as §5.8/§6.12: **copywriter agent** → **web-designer agent** → **style-revisor agent** vs urbandatalab.ch (simple fixes applied, large ones logged for Matteo) → build check → screenshots → log in §1.
+Copywriter (text files only: `_data/i18n/*.yml`, identical keys in all 4, de/fr/it empty):
+- §7.4 `udl_banner.tagline: "Your Data Expert for Smarter Location Decisions."`
+- §7.5 `hero.title: "Trust your carbon and nature projects. We build the tools to prove it."`
+- §7.6 `how_we_work.platform.title: ""`; `video_alt` = Matteo's text; step 3 title "Development prioritised with you"; new `detail` per step (the 3 paragraphs, verbatim, in order); `how_we_work.body` removed.
+- §7.7 solutions title / intro / land_evolution.text / audit.text; new `modules_label: "Modules"`; `legend_included` / `legend_not_included` removed.
+- §7.9 Patrick bio B.
+- British spelling check of all English text.
+Web designer (templates + CSS only):
+- udl-banner.html: tagline span after the link, hidden ≤960 px.
+- how-we-work.html: order title → intro → hub → centred button → steps (each with its detail paragraph below, lede type) ; old body block + divider removed; phones stacked.
+- solutions.html: card grid only (3 per row desktop, 2 tablet, 1 phone; 3+2 rows), each card = name · text · "Modules" label (green) + module names joined by " · "; table + pill cards + their CSS removed.
+- Comments in templates/CSS updated.
+**Outcome so far (2026-11-03):**
+- Copywriter DONE: all §7.12 text changes; 4 files load, identical keys (94); British-spelling check: no other hits.
+- Web designer DONE, build OK: udl-banner tagline (regular weight, hidden ≤960 px, one line at 1280 px); how-we-work new order, `.step__detail` in lede type, old body block + divider removed; solutions = `<ul class="combo-cards">`. Removed unused tokens `--color-pill`, `--color-dot-empty`, `--fs-pill`, `--dot-size`, `--radius-pill` + table/dot/pill CSS.
+- Designer's own choices: hub → button → steps spacing 56 px (40 px phones; was 90 px + divider); cards light grey `--color-bg-alt`, radius 15 px, padding 32/24 px, gap 24/16 px, no shadow/border; modules line pinned to the card bottom with a thin rule above (aligned across a row); label green medium, names soft grey 16 px. **To confirm by Matteo: steps stack already at ≤960 px (tablet), not only on phones** (3 columns of 20 px text would be ~20 characters wide).
+- Style-revisor (vs urbandatalab.ch, CSS values; no renders) simple fix APPLIED: step detail paragraph 20 → 18 px (new token `--fs-step-detail`; UDL 3-column card text is 18 px, 22 px only for full-width intros). Compatible: banner tagline, 56 px rhythm, 3-col steps, cards (radius 15, grey #F5F7FA, 20/16 px type, green label ~7:1). Backup: session scratchpad `style-review3-backup/`.
+- **Items for Matteo (NOT changed):** **R1** steps stack at ≤960 px (tablet), recommended keep: matches UDL (Tilda grid: 1 column, max 640 px at ≤960 px). **R2** Solutions cards 2 per row on tablet vs UDL 1 per row: recommended keep 2 (agreed 3/2/1); strict parity = small CSS change.
+- Build OK; screenshots taken by Claude (headless Firefox, reduced motion, temporary profile in the project deleted after): banner fits one line at 1000 px; phone: button under the hub, steps with paragraphs stacked, cards 1 per row.
+- Committed 2026-11-03 as 7b6ec67-amended (Matteo: "ok commit and push"); push from Claude's shell failed again (no GitHub credentials): Matteo pushes. R1/R2 not answered: kept as built.
+
+### 7.2 Section status
+- 0 Site-wide: NO CHANGES (§7.3)
+- 1 Header + UDL banner: AGREED, NOT IMPLEMENTED (§7.4)
+- 2 Hero: AGREED, NOT IMPLEMENTED (§7.5)
+- 3 How we work: AGREED, NOT IMPLEMENTED (§7.6)
+- 4 Solutions: AGREED, NOT IMPLEMENTED (§7.7)
+- 5 CTA band: NO CHANGES (§7.8)
+- 6 Who we are: AGREED, NOT IMPLEMENTED (§7.9)
+- 7 Footer: NO CHANGES (§7.10)
+- 8 Legal + 404: NO CHANGES (§7.11)
+- Implementation: DONE and committed 2026-11-03 (§7.12)
+
+---
+
 ## 4. Screenshots log (folder `screenshots/`, not published)
 | Date | Files | State captured |
 |---|---|---|
@@ -517,3 +630,4 @@ Not touched: unused files (cleanup candidates from §5.8 + `coreDataViewer.webm`
 | 2026-11-02 | `screenshots/2026-11-02_home_1280px_after-style-review.png`, `screenshots/2026-11-02_home_390px_after-style-review.png` | Same draft **after the simple style fixes** of §3.8 (lighter titles, rounder/taller buttons, tighter spacing, slim CTA band, white footer text). |
 | 2026-11-03 | `screenshots/2026-11-03_home_1280px_after-section-review.png`, `screenshots/2026-11-03_home_390px_after-section-review.png` | **After the section-by-section review (§5)**, incl. the style-revisor's simple fixes: Hero (new copy, booking button) → How we work (paragraphs, platform hub with screenshot placeholder, steps) → Solutions table → green band "Get in touch" → Who we are (photo placeholder) → footer with UDL strip + 4 columns. Headless Firefox, local build. |
 | 2026-11-03 | `screenshots/2026-11-03_home_1280px_after-review2.png`, `screenshots/2026-11-03_home_390px_after-review2.png`, `screenshots/2026-11-03_imprint_1280px_after-review2.png` | **After review #2 (§6)** incl. the style-revisor's simple fixes: UDL banner under the header → hero with tree → How we work (title, hub with video poster, steps, button, paragraphs) → Solutions (table; phone cards with pills) → green band → Who we are (Our values, Matteo + Patrick round photos) → UDL banner → footer (Imprint only). Imprint page. Headless Firefox, reduced motion. Retaken after L1/L2, cleanup and Patrick's re-crop. |
+| 2026-11-03 | `screenshots/2026-11-03_home_1280px_after-review3.png`, `screenshots/2026-11-03_home_1000px_after-review3.png`, `screenshots/2026-11-03_home_390px_after-review3.png` | **After review #3 (§7)** incl. the style-revisor fix: banner with tagline (desktop; 1000 px still one line) → new hero title → How we work (no platform title, button under the hub, steps with paragraphs) → Solutions cards → rest unchanged. Headless Firefox, reduced motion. |

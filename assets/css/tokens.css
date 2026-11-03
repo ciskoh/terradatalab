@@ -33,12 +33,10 @@
   --color-header-bg: rgba(255, 255, 255, .94);
   --color-udl: #1c3f4a;             /* UrbanDataLab banner (UDL's dark blue, checked on urbandatalab.ch) */
   --color-udl-text: #ffffff;
-  --color-pill: #e8f0ea;            /* Solutions phone cards: light green module pills */
   --color-frame: #1d2233;           /* video frame background; the poster JPG is flattened on this colour */
   --color-frame-line: rgba(255, 255, 255, .06);
   --color-placeholder: #e4e8ed;     /* photo placeholder */
   --color-connector: #c3cad3;       /* thin lines from the modules to the video */
-  --color-dot-empty: #8a94a3;       /* outlined dot "not included" (3:1 on white) */
   --color-focus: #2D5F3F;           /* keyboard focus outline */
   --color-focus-inverse: #ffffff;   /* focus outline on green / navy */
 
@@ -81,7 +79,7 @@
   --fs-h3-block: clamp(24px, 2.6vw, 32px);  /* sub-block title inside a section (platform hub) */
   --fs-row-name: 20px;                      /* item names: Solutions table rows, platform modules (UrbanDataLab: 20px) */
   --fs-value: 21px;                         /* Who we are: values row */
-  --fs-pill: 14px;                          /* Solutions phone cards: module pills */
+  --fs-step-detail: 18px;                   /* How we work: detail paragraph under each step (UrbanDataLab 3-column card text: 18px) */
   --fs-udl: 16px;                           /* UrbanDataLab banner (UrbanDataLab smallest text: 16px) */
 
   /* Layout */
@@ -105,12 +103,10 @@
   --video-ratio: 1331 / 743;        /* Core Data Viewer video (Screencast002.webm) */
   --icon-size: 28px;                /* module outline icons */
   --icon-stroke: 1.5;
-  --dot-size: 14px;                 /* Solutions table dots */
   --photo-size: 168px;              /* person photo */
   --hero-image-max: 560px;          /* hero tree, desktop */
   --hero-image-max-mobile: 320px;   /* hero tree, phones */
   --udl-banner-height: 40px;
-  --radius-pill: 999px;
   --value-mark: 14px;               /* parallelogram before each value */
   --brand-mark: 16px;
   --brand-mark-footer: 14px;
