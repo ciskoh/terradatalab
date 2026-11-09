@@ -35,7 +35,7 @@ hero:                       # first block of the page
   offer: ""                 # short highlighted line ("the offer")
   cta_primary: "Book a 30-minute call"      # main button: opens the booking page (new tab)
   cta_secondary: "See how we work"          # second button: jumps to How we work
-  image_alt: ""             # description of the hero image for screen readers (empty = decorative)
+  image_alt: "A tree that turns from a photograph into a digital mesh model and back."   # description of the hero image for screen readers (empty = decorative)
 
 how_we_work:                # "How we work" section (header link "How we work")
                             # display order: title → intro → platform hub → button (cta) → steps (each: title, text, detail paragraph below)
@@ -127,13 +127,13 @@ about:                      # "Who we are" section, after the green band
       name: "Matteo Jucker Riva"
       role: "Data Scientist & Remote Sensing Specialist"
       bio: "Geography PhD. 10+ years of field sampling and satellite data across soil carbon, land management, and ecosystem monitoring."
-      photo_alt: ""         # description of the photo for screen readers
+      photo_alt: "Portrait of Matteo Jucker Riva"   # description of the photo for screen readers
       linkedin: "LinkedIn"  # link text; the URL is linkedin_url of this person in _data/platform.yml
     patrick:
       name: "Patrick Schirmer"   # empty = card not shown
       role: "Product & Platform Manager"
       bio: "Spatial data scientist with a PhD in agent-based simulation (ETH Zurich). Develops data strategies for organizations and leads the shared data platform udl.ai that powers TerraDataLab."
-      photo_alt: ""         # description of the photo for screen readers
+      photo_alt: "Portrait of Patrick Schirmer"   # description of the photo for screen readers
       linkedin: "LinkedIn"  # link text; the URL is linkedin_url of this person in _data/platform.yml
 
 footer:                     # bottom of the page

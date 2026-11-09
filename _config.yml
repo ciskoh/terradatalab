@@ -41,3 +41,9 @@ exclude:
   - vendor/
   - .claude/
   - screenshots/
+  # Image masters: kept in the repo, not published (MEMORY.md §8.5). If one is needed on the site again, remove it here.
+  - assets/images/image001.png
+  - assets/images/screencastPoster.png
+  - assets/images/matteo001.png
+  - assets/images/patrick001.png
+  - assets/images/hero-tree.png

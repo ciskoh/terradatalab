@@ -12,17 +12,18 @@ apple_touch_icon: "apple-touch-icon.png"   # iPhone/iPad home-screen icon, 180×
 share_image: "share.jpg"                   # share image 1200×630 for link previews
 
 # Hero › image on the right: web copy of image001.png (file in assets/images/, empty = no image)
-# Used only as the fallback when the two animated layers below are empty.
+# Used only as the fallback when the two animated layers below are empty. NOT published at the moment
+# (listed under exclude in _config.yml): remove it from that list before using the fallback.
 hero_image: "hero-tree.png"
 # Hero › animated photo ↔ mesh tree (MEMORY.md §8.2): two full trees made by mirroring each half of image001.png,
 # same size and framing. The split line slides left/right. Both set = animation; either empty = hero_image above.
-hero_image_photo: "hero-tree-photo.png"
-hero_image_mesh: "hero-tree-mesh.png"
+hero_image_photo: "hero-tree-photo.webp"
+hero_image_mesh: "hero-tree-mesh.webp"
 
 # How we work › platform block. Core Data Viewer video in the centre of the platform hub (file in assets/images/)
 viewer_video: "Screencast002.webm"
 # Poster = still image shown before/instead of the video: light copy of screencastPoster.png (file in assets/images/)
-viewer_poster: "screencast-poster.jpg"
+viewer_poster: "screencast-poster.webp"
 viewer_video_speed: 2                       # playback speed of the video (1 = normal, 2 = twice as fast)
 # Modules around the viewer, in display order: first 3 on the left, last 3 on the right.
 # ids = keys of how_we_work.platform.modules in the text files.
@@ -49,8 +50,8 @@ combinations:
 # linkedin_url: this person's LinkedIn profile (empty = no link on the card).
 people:
   - id: matteo
-    photo: "matteo.png"
+    photo: "matteo.webp"
     linkedin_url: "http://www.linkedin.com/in/matteojriva"
   - id: patrick
-    photo: "patrick.png"
+    photo: "patrick.webp"
     linkedin_url: "https://www.linkedin.com/in/patrick-m-schirmer/"
