@@ -129,7 +129,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding-top: var(--hero-space-top); padding-bottom: var(--hero-space-bottom);
 }
 .hero__inner--image {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center;   /* half-and-half: bigger tree (MEMORY.md §8.2) */
+  display: grid; grid-template-columns: minmax(0, var(--hero-text-ratio)) minmax(0, 1fr); gap: 48px; align-items: center;   /* text a bit wider than the tree so the green title phrase fits on 2 lines (MEMORY.md §8.2, §8.3) */
 }
 .hero__text { display: flex; flex-direction: column; gap: 28px; }
 .hero__image { width: 100%; max-width: var(--hero-image-max); justify-self: end; border-radius: var(--radius-media); } /* 18px image radius, as on UrbanDataLab */
@@ -150,6 +150,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: var(--fs-h1); line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
   max-width: var(--measure-hero); text-wrap: balance;
 }
+.hero__title-accent { display: block; color: var(--color-accent); font-weight: var(--fw-medium); }   /* 2nd phrase: brand green, a bit bolder (500 vs 400), always on its own line (MEMORY.md §8.3) */
 .hero__subtitle {
   font-size: var(--fs-hero-sub); line-height: var(--lh-lede); color: var(--color-text-lede);
   max-width: var(--measure-text); text-wrap: pretty;

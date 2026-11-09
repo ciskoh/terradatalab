@@ -11,7 +11,7 @@
       <p class="eyebrow">{{ t.hero.eyebrow }}</p>
       {%- endif %}
       {%- if t.hero.title and t.hero.title != "" %}
-      <h1 id="hero-title" class="hero__title">{{ t.hero.title }}</h1>
+      <h1 id="hero-title" class="hero__title">{{ t.hero.title }}{% if t.hero.title_accent and t.hero.title_accent != "" %} <span class="hero__title-accent">{{ t.hero.title_accent }}</span>{% endif %}</h1>
       {%- endif %}
       {%- if t.hero.subtitle and t.hero.subtitle != "" %}
       <p class="hero__subtitle">{{ t.hero.subtitle }}</p>

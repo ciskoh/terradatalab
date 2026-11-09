@@ -29,7 +29,8 @@ udl_banner:                 # blue UrbanDataLab banner, home page only: under th
 
 hero:                       # first block of the page
   eyebrow: ""               # small line above the headline (not used for now)
-  title: ""                 # headline
+  title: ""                 # headline, first part
+  title_accent: ""          # headline, second part: shown in green on its own line (empty = not shown)
   subtitle: ""              # text below the headline
   offer: ""                 # short highlighted line ("the offer")
   cta_primary: ""                           # main button: opens the booking page (new tab)

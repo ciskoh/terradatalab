@@ -29,7 +29,8 @@ udl_banner:                 # blue UrbanDataLab banner, home page only: under th
 
 hero:                       # first block of the page
   eyebrow: ""               # small line above the headline (not used for now)
-  title: "Trust your carbon and nature projects. We build the tools to prove it."   # headline
+  title: "Trust your carbon and nature projects."   # headline, first part
+  title_accent: "We build the tools that prove it."   # headline, second part: shown in green on its own line (empty = not shown)
   subtitle: "We build the data pipelines, tools and dashboards that show, with evidence, how your project makes the world a better place."   # text below the headline
   offer: ""                 # short highlighted line ("the offer")
   cta_primary: "Book a 30-minute call"      # main button: opens the booking page (new tab)

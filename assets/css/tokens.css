@@ -58,7 +58,7 @@
   --ls-eyebrow: .14em;
   --fs-brand: 18px;
   --fs-brand-footer: 17px;
-  --fs-h1: clamp(32px, 5vw, 62px);
+  --fs-h1: clamp(38px, 5.3vw, 68px);       /* hero title; +10% (MEMORY.md §8.3) */
   --lh-h1: 1.17;
   --ls-h1: 0;
   --fs-h2: clamp(30px, 3.4vw, 40px);        /* main section titles (Platform, Solutions) */
@@ -107,6 +107,7 @@
   --hero-image-max: 560px;          /* hero tree, desktop */
   --hero-image-max-mobile: 100%;    /* hero tree, phones: full text width (MEMORY.md §8.2) */
   --hero-reveal-duration: 5s;       /* hero tree: one sweep photo → mesh (there and back = 2×), incl. short pauses at each end */
+  --hero-text-ratio: 1.25fr;        /* hero: text column vs tree column (1fr); larger = wider text, smaller tree */
   --hero-image-grow: 1.05;          /* hero tree: 5% bigger than its column, into the right margin (desktop/tablet) */
   --udl-banner-height: 40px;
   --value-mark: 14px;               /* parallelogram before each value */
