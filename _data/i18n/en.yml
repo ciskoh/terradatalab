@@ -70,15 +70,15 @@ how_we_work:                # "How we work" section (header link "How we work")
     - title: "Workshop"
       text: "Define requirements together."
       detail: |
-        We start with a workshop. Map what you actually need, not what a template says you should need. Then we build it—and you only pay for the parts that matter to your project.
+        We start with a workshop. Map what you actually need, not what a template says you should need. The infrastructure is yours to choose. Want it in the cloud? On your servers? Hybrid? You decide
     - title: "Setup"
       text: "See your data overview immediately."
       detail: |
-        The infrastructure is yours to choose. Want it in the cloud? On your servers? Hybrid? You decide. As your project evolves and you learn more, the platform evolves with it. No "phase 2 costs" that balloon. Just work that responds to what you're actually doing.
+        As soon as we have the area of interest, your project data is there for you. And you're never locked in: raw data exports whenever you want. core components are open source. APIs so you can plug it into whatever else your team uses.
     - title: "Development prioritised with you"
-      text: "Your priorities set the order. We build, review and refine together."
+      text: "Your priorities set the order. We build, review and refine together"
       detail: |
-        And you're never locked in. Raw data exports whenever you want. Core components are open source. APIs so you can plug it into whatever else your team uses. You own your data and your setup.
+        Open source components and customized modules based on your needs allow you to enrich, integrate and validate all project information. And you pay only what you use.
   cta: "Let's talk about what your project actually needs."   # button below the steps (e-mail)
 
 solutions:                  # "Solutions" section: cards, one per combination, each listing its modules by the names under "columns" (no table)
@@ -98,15 +98,15 @@ solutions:                  # "Solutions" section: cards, one per combination, e
       text: "All your project data in one view, shared by the whole team."
     baseline:
       name: "Get baseline"
-      text: "Satellite and soil data show where to sample, so fewer field measurements hold up in audit."
+      text: "Satellite and soil data show the current state of the land, and compares it dynamically with reference areas"
     land_evolution:
       name: "Land evolution"
-      text: "Track soil and vegetation with satellites and metrics tied to your methodology."
+      text: "Track changes in the land using satellite time series and measurements, and relate them to your actions"
     operations:
       name: "Operations"
-      text: "Field work and satellite monitoring in one place, traceable as it happens."
+      text: "Field work, observations and measurments in one place, traceable as it happens."
     audit:
-      name: "Audit preparation"
+      name: "Reporting"
       text: "Every number linked to its source and every observation to its place, ready for your validation or certification."
 
 cta:                        # green band near the bottom
@@ -131,7 +131,7 @@ about:                      # "Who we are" section, after the green band
     patrick:
       name: "Patrick Schirmer"   # empty = card not shown
       role: "Product & Platform Manager"
-      bio: "Architect and urban data scientist. PhD in agent-based urban simulation (ETH Zurich). Planner on large development projects across Europe."
+      bio: "Spatial data scientist with a PhD in agent-based simulation (ETH Zurich). Develops data strategies for organizations and leads the shared data platform udl.ai that powers TerraDataLab."
       photo_alt: ""         # description of the photo for screen readers
       linkedin: "LinkedIn"  # link text; the URL is linkedin_url of this person in _data/platform.yml
 
