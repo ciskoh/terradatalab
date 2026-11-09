@@ -1,0 +1,10 @@
+---
+# robots.txt: tells search engines they may read the whole site and where the sitemap is (MEMORY.md §8.4).
+# The address comes from "url" in _config.yml.
+layout: null
+sitemap: false
+---
+User-agent: *
+Allow: /
+
+Sitemap: {{ "/sitemap.xml" | absolute_url }}

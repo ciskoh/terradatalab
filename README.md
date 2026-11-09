@@ -46,6 +46,22 @@ bundle exec jekyll serve      # http://localhost:4000
 2. Create `<code>/index.html`, `<code>/imprint.md`, `<code>/privacy-policy.md` (copy the `de/` ones and change the permalinks).
 3. Add the code to `languages:` and a `defaults:` entry in `_config.yml`.
 
+## Search engines (sitemap, robots.txt, Search Console)
+- `sitemap.xml` is generated automatically at every build (plugin `jekyll-sitemap` in `_config.yml`); `robots.txt` is at the root and points to it.
+- Pages not ready yet (German, French and Italian pages, all privacy policies) carry two lines in their front matter, `sitemap: false` and `noindex: true`:
+  they are left out of the sitemap and of search results, and not announced as translations. **When a page has content, delete those two lines.**
+- Check after a deploy: <https://www.terradatalab.ch/sitemap.xml> and <https://www.terradatalab.ch/robots.txt>.
+
+**Google Search Console (once):**
+1. Go to <https://search.google.com/search-console>, sign in, *Add property* → **Domain** → `terradatalab.ch`.
+2. Google shows a TXT record (`google-site-verification=…`). Add it in the DNS settings at the domain registrar, then click *Verify* (DNS changes can take up to a few hours).
+3. In the property: *Sitemaps* → enter `https://www.terradatalab.ch/sitemap.xml` → *Submit*.
+4. Optional: *URL inspection* → enter `https://www.terradatalab.ch/` → *Request indexing*.
+
+**Bing Webmaster Tools (once, after Google):**
+1. Go to <https://www.bing.com/webmasters>, sign in, choose **Import from Google Search Console**, allow access and select the site.
+2. The site and its sitemap are taken over; check under *Sitemaps* that `sitemap.xml` is listed (otherwise add it there).
+
 ## Deployment
 Every push to `main` triggers the GitHub Actions workflow `.github/workflows/jekyll-gh-pages.yml`,
 which builds the site and deploys it to GitHub Pages. It can also be started by hand from the repository's *Actions* tab.

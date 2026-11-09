@@ -4,10 +4,15 @@
 {%- if t.meta.description and t.meta.description != "" %}
 <meta name="description" content="{{ t.meta.description | escape }}">
 {%- endif %}
+{%- comment %} Pages with "noindex: true" in their front matter (empty languages, privacy, 404) are kept out of search results
+  and are not announced as translations (MEMORY.md §8.4). {% endcomment %}
+{%- if page.noindex %}
+<meta name="robots" content="noindex">
+{%- endif %}
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 {%- for lang in site.languages %}
 {%- assign alt = site.pages | where: "ref", page.ref | where: "lang", lang | first %}
-{%- if alt %}
+{%- if alt and alt.noindex != true %}
 <link rel="alternate" hreflang="{{ lang }}" href="{{ alt.url | absolute_url }}">
 {%- endif %}
 {%- endfor %}
