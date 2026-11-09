@@ -129,10 +129,23 @@ img { max-width: 100%; height: auto; display: block; }
   padding-top: var(--hero-space-top); padding-bottom: var(--hero-space-bottom);
 }
 .hero__inner--image {
-  display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 48px; align-items: center;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center;   /* half-and-half: bigger tree (MEMORY.md §8.2) */
 }
 .hero__text { display: flex; flex-direction: column; gap: 28px; }
 .hero__image { width: 100%; max-width: var(--hero-image-max); justify-self: end; border-radius: var(--radius-media); } /* 18px image radius, as on UrbanDataLab */
+/* Animated tree (MEMORY.md §8.2): starts as the photo only; the mesh then grows from the left edge to the right
+   (left of the split = mesh, right = photo; no visible line, MEMORY.md §8.2) until the whole tree is mesh, then goes back. Loops.
+   --split is a registered property so it can be animated; browsers without @property show a still 50/50 split.
+   Desktop/tablet: 5% bigger than its column, growing into the right margin (left edge stays aligned). */
+@property --split { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+.hero-reveal {
+  position: relative; overflow: hidden; --split: 50%;
+  width: calc(100% * var(--hero-image-grow)); max-width: calc(var(--hero-image-max) * var(--hero-image-grow)); justify-self: start;
+  animation: hero-reveal var(--hero-reveal-duration) ease-in-out infinite alternate;
+}
+.hero-reveal img { display: block; width: 100%; height: auto; }
+.hero-reveal__mesh { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--split)) 0 0); }
+@keyframes hero-reveal { 0%, 12% { --split: 0%; } 88%, 100% { --split: 100%; } }
 .hero__title {
   font-size: var(--fs-h1); line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
   max-width: var(--measure-hero); text-wrap: balance;
@@ -330,6 +343,7 @@ main { flex: 1 0 auto; }   /* fills the space between header and footer (see bod
   .hero__inner--image { grid-template-columns: 1fr; gap: 40px; }   /* tree below the buttons, smaller */
   .hero__text { gap: 22px; }
   .hero__image { max-width: var(--hero-image-max-mobile); justify-self: start; }
+  .hero-reveal { width: 100%; }   /* phones: no growth into the margin */
   .actions .btn { flex: 1 1 100%; }
   .cta-band .btn { width: 100%; }
   .how-we-work__head, .platform-hub__head { text-align: left; align-items: flex-start; } /* left, like the video caption and modules below */

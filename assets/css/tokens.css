@@ -105,7 +105,9 @@
   --icon-stroke: 1.5;
   --photo-size: 168px;              /* person photo */
   --hero-image-max: 560px;          /* hero tree, desktop */
-  --hero-image-max-mobile: 320px;   /* hero tree, phones */
+  --hero-image-max-mobile: 100%;    /* hero tree, phones: full text width (MEMORY.md §8.2) */
+  --hero-reveal-duration: 5s;       /* hero tree: one sweep photo → mesh (there and back = 2×), incl. short pauses at each end */
+  --hero-image-grow: 1.05;          /* hero tree: 5% bigger than its column, into the right margin (desktop/tablet) */
   --udl-banner-height: 40px;
   --value-mark: 14px;               /* parallelogram before each value */
   --brand-mark: 16px;

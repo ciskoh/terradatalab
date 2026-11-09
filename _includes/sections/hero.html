@@ -1,7 +1,10 @@
 <section class="hero" id="top"{% if t.hero.title and t.hero.title != "" %} aria-labelledby="hero-title"{% endif %}>
   {%- comment %} Text left, image right (p.hero_image; empty = text only). Phones: image below the buttons. {% endcomment %}
   {%- assign has_hero_image = false %}
+  {%- assign has_hero_reveal = false %}
+  {%- if p.hero_image_photo and p.hero_image_photo != "" and p.hero_image_mesh and p.hero_image_mesh != "" %}{% assign has_hero_reveal = true %}{% endif %}
   {%- if p.hero_image and p.hero_image != "" %}{% assign has_hero_image = true %}{% endif %}
+  {%- if has_hero_reveal %}{% assign has_hero_image = true %}{% endif %}
   <div class="wrap hero__inner{% if has_hero_image %} hero__inner--image{% endif %}">
     <div class="hero__text">
       {%- if t.hero.eyebrow and t.hero.eyebrow != "" %}
@@ -28,7 +31,14 @@
       </div>
       {%- endif %}
     </div>
-    {%- if has_hero_image %}
+    {%- if has_hero_reveal %}
+    {%- comment %} Animated tree (MEMORY.md §8.2): photo tree below, mesh tree on top, revealed from the left edge as the split moves (no visible line).
+      One description for the whole frame (t.hero.image_alt; empty = decorative). width/height = intrinsic size of both files. {% endcomment %}
+    <div class="hero__image hero-reveal"{% if t.hero.image_alt and t.hero.image_alt != "" %} role="img" aria-label="{{ t.hero.image_alt | escape }}"{% else %} aria-hidden="true"{% endif %}>
+      <img class="hero-reveal__photo" src="{{ p.hero_image_photo | prepend: '/assets/images/' | relative_url }}" alt="" width="758" height="706" fetchpriority="high">
+      <img class="hero-reveal__mesh" src="{{ p.hero_image_mesh | prepend: '/assets/images/' | relative_url }}" alt="" width="758" height="706">
+    </div>
+    {%- elsif has_hero_image %}
     {%- comment %} width/height = intrinsic size of hero-tree.png (reserves the space while loading) {% endcomment %}
     <img class="hero__image" src="{{ p.hero_image | prepend: '/assets/images/' | relative_url }}" alt="{{ t.hero.image_alt | escape }}" width="763" height="700" fetchpriority="high">
     {%- endif %}
