@@ -9,8 +9,8 @@
 {%- if t.nav.skip != "" and t.nav.skip %}
 <a class="skip-link" href="#main">{{ t.nav.skip }}</a>
 {%- endif %}
-{% include header.html %}
 {%- if page.ref == "home" %}{% include udl-banner.html %}{% endif %}
+{% include header.html %}
 <main id="main">
 {{ content }}
 </main>
