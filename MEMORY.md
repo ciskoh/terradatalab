@@ -25,6 +25,10 @@
 | 2026-11-03 | Matteo, review #3 (§7.5) | **Messaging rule: we build the tools that prove the impact of carbon/nature projects; we do not carry out the nature-based solutions ourselves.** Copy must never suggest otherwise. Keywords sustainability / carbon / nature should appear in key titles. |
 | 2026-11-03 | Matteo, review #3 (§7.6) | **British spelling site-wide** (e.g. "prioritised", "customisable", "centre"). |
 | 2026-11-03 | Matteo, review #3 (§7) | **UDL banner** adds "Your Data Expert for Smarter Location Decisions." after the link, desktop only. **Hero title:** "Trust your carbon and nature projects. We build the tools to prove it." **How we work:** platform title dropped; button centred under the hub; each paragraph under its step (01–03). **Solutions:** card grid (3/2/1) with a "Modules" line, table dropped; new title/intro with keywords. **Patrick bio** shortened. |
+| 2026-11-09 | Matteo, change list (§8.1) | **UDL banner at the very top of the home page, above the header** (footer banner kept; home page only). |
+| 2026-11-09 | Matteo, change list (§8.2) | **Hero tree bigger** (text/image columns 1.25:1 since §8.3, tree 105 % of its column into the right margin, ≈ 490 px at 1280 vs 420 before; full width on phones) and **animated**: starts as photo only, the mesh grows from left to right over the whole tree and back, looping, **no visible split line** (mirrored halves of the original image; still 50/50 for reduced motion). |
+| 2026-11-09 | Matteo, change list (§8.3) | **Hero title bigger** (68 px desktop, 38 px phones) with the **second phrase "We build the tools that prove it." in brand green, medium weight (500), on its own line** (text keys `hero.title` + `hero.title_accent`). |
+| 2026-11-09 | Matteo, change list (§8.4) | **SEO basics:** `sitemap.xml` (jekyll-sitemap) + `robots.txt`; **pages without content (DE/FR/IT, privacy policies, 404) are hidden from search engines** (`sitemap: false` + `noindex: true`, removed when a page gets content) and not announced as translations. Imprint stays indexable. Search Console verification by DNS (Matteo does it). |
 
 Notes on UrbanDataLab (checked 2026-11-02): built with Tilda (a hosted builder), English only, flat URLs: `/platform`, `/solutions`, `/resources`, `/imprint`, `/privacy-policy`, `/terms-and-conditions`.
 → We reuse its URL names and page pattern, not its technology.
@@ -620,6 +624,86 @@ Web designer (templates + CSS only):
 - 7 Footer: NO CHANGES (§7.10)
 - 8 Legal + 404: NO CHANGES (§7.11)
 - Implementation: DONE and committed 2026-11-03 (§7.12)
+
+---
+
+## 8. Current task: list of 6 changes (started 2026-11-09)
+Source: CLAUDE.md "CURRENT TASK". Workflow: one change at a time → plan here → Matteo approves → implement (copywriter for text, web designer for layout) → "finished" reported → Matteo confirms → next change.
+List: 1 UDL banner to the very top · 2 bigger, animated tree · 3 bigger hero title, 2nd phrase green · 4 sitemap.xml + robots.txt · 5 alt texts + image compression · 6 SEO keywords (text max +5%).
+Note: commit db036f2 "updated text" (Matteo, 2026-11-09) changed en.yml; to be read before items 3 and 6.
+
+### 8.1 Change 1, UDL banner at the very top: DONE 2026-11-09, CONFIRMED by Matteo ("yes go on")
+Today: `_layouts/default.html` puts the banner **under** the header and again above the footer (home page only).
+Plan (web designer, templates only, no text change):
+- `_layouts/default.html`: move the top `{% include udl-banner.html %}` before `{% include header.html %}` (after the skip link, so keyboard users still reach "skip to content" first).
+- The header stays sticky: the banner scrolls away and the header sticks at the top as it does today. No CSS change expected; check the anchor offset (`scroll-padding-top`) in the build.
+- Comment in `udl-banner.html` updated ("above the header").
+Questions: (a) footer banner: keep (default) or drop? (b) still home page only (default) or also imprint/legal pages?
+Matteo (2026-11-09): **(a) keep the footer banner; (b) home page only.** → implemented as planned (one-line move, done directly: no copywriter/designer agent needed). Build OK; order = banner → header → main; imprint has no banner; screenshots 1280/390 px OK (sticky header unchanged). Not committed.
+
+### 8.2 Change 2, bigger and animated tree: DONE 2026-11-09, CONFIRMED by Matteo ("yes go on")
+Today: hero grid text 3fr / image 2fr → tree ≈ 420 px wide on desktop (the 560 px cap is never reached); phones max 320 px. Source `hero-tree.png` is 763×700 px (half photo / half polygon mesh, split in the middle). Global rule already stops all animation for visitors with "reduce motion" set.
+**Size (web designer, CSS only):**
+- S1 (recommended): columns 1fr / 1fr → tree ≈ 560 px on desktop (+33 %); phones up to the full text width (≈ 360 px).
+- S2: tree breaks out to the right edge of the wrap, ≈ 640 px; title column narrower.
+- Limit: the source is only 763 px wide, so above ≈ 380 px it is already below retina sharpness; much bigger needs a higher-resolution original from Matteo (does one exist?).
+**Animation (CSS only, no JS, no new assets unless stated):**
+- A1 "Scan line": a thin bright-green line sweeps slowly across the tree and back, as if the tree were being scanned (pure overlay on the image).
+- A2 "Gentle sway": the tree moves very slightly (a few px float / sway), slow loop (≈ 6–8 s).
+- A3 "Entrance": the tree fades and rises in once on page load, then stays still.
+- A4 "Photo ↔ mesh reveal" (strongest effect): the split line moves left/right, so photo and mesh swap across the whole tree. **Needs two full images** (whole tree as photo + whole tree as mesh, same framing); only possible if Matteo has the originals.
+Combinations possible (e.g. A3 once + A1 loop).
+Matteo (2026-11-09): **size S1 (half-and-half, ≈ 560 px desktop, full text width on phones); animation A4 (photo ↔ mesh reveal) only.**
+Assets: the project has only the composite (`hero-tree.png`, `image001.png`); no separate photo/mesh originals found. **Needed from Matteo:** `tree-photo.png` (whole tree as photo) + `tree-mesh.png` (whole tree as mesh), identical size and framing, ideally ≥ 1200 px wide, into `assets/images/`.
+Implementation plan once the images exist (web designer): two stacked images in the hero frame; the mesh is clipped by a CSS `clip-path` whose edge moves slowly left ↔ right (≈ 8 s loop, eased), with a thin line on the edge; reduced motion = static 50/50 split (looks like today's image); composite stays as fallback; alt text handled in change 5.
+Matteo (2026-11-09): **"no other image is available, work with what you have."**
+Adapted plan (A4 with the existing composite): build the two full trees by **mirroring each half** of `image001.png` (split at x = 383 px; 2–3 px trimmed at the split to avoid a seam): photo tree = left half + its mirror, mesh tree = right half + its mirror, both 758×706 px, same framing. Test images + 3 mock frames (25/50/75 %) checked in the session scratchpad: believable, trees look symmetric; trunk widths differ slightly at the moving edge (acceptable).
+Implementation (web designer):
+- New files `assets/images/hero-tree-photo.png` + `hero-tree-mesh.png` (generated once by a small script, kept out of the site in the scratchpad); `_data/platform.yml`: new keys `hero_image_photo` / `hero_image_mesh` (old `hero_image` kept as the fallback: shown if the two new keys are empty).
+- `hero.html`: a frame with the photo tree and the mesh tree on top; the mesh is clipped by a CSS `clip-path: inset(0 0 0 X%)` whose X moves 15 % ↔ 85 % and back, ≈ 8 s loop, eased, with a thin white/green line on the edge. Alt text only on the frame (change 5); the mesh layer is `aria-hidden`.
+- Reduced motion: no movement, static 50/50 split (= today's look).
+- Size S1: hero grid 1fr / 1fr, tree ≈ 560 px desktop; phones up to the full text width.
+- Sharpness: source is 758 px, so on retina screens the tree is slightly soft at 560 px (same as today). Compression is handled in change 5.
+Matteo (2026-11-09): "yes go on" → **implemented** (directly, small CSS/template change):
+- `hero-tree-photo.png` + `hero-tree-mesh.png` (758×706, mirrored halves of image001.png, 256-colour PNG ≈ 220 KB each, like hero-tree.png); `platform.yml` keys `hero_image_photo` / `hero_image_mesh` (hero_image = fallback).
+- `hero.html`: `.hero-reveal` frame (photo + mesh + line); decorative (`aria-hidden`) while `hero.image_alt` is empty, `role="img"` + label once it is set (change 5).
+- CSS: grid 1fr/1fr; `@property --split` animated 15 % ↔ 85 %, 4.5 s each way (`--hero-reveal-duration`, ≈ 9 s loop, short pause at each end), thin green line (55 % opacity) on the split; reduced motion = still 50/50, no line; phones: tree full text width (`--hero-image-max-mobile: 100%`).
+- Build OK; screenshots 1280 / 900 / 390 px OK. Side effect: the title column is narrower, so the desktop title now runs on 5 lines (relevant for change 3). Not committed.
+Matteo's adjustments (2026-11-09): (1) start with the photo tree only, no mesh; (2) the mesh grows **from left to right**; (3) tree ≈ 5 % bigger, may extend slightly to the right. → **implemented**:
+- Sweep now 0 % → 100 % and back (photo only → whole tree mesh → photo only), 5 s each way (`--hero-reveal-duration: 5s`), pauses at each end; mesh = left of the line (`clip-path: inset(0 calc(100% - var(--split)) 0 0)`); the line fades out at the two ends. Interpretation: the sweep goes all the way to "all mesh" (flag if it should stop earlier).
+- Size: new token `--hero-image-grow: 1.05` → tree 105 % of its column, left edge aligned, growing into the right margin (1280 px: 528 → 554 px wide, 26 px into the margin); phones unchanged (full width).
+- Reduced motion unchanged (still 50/50, mesh now on the left). Screenshots start + frozen mid-sweep at 1280/390 px OK.
+Matteo (2026-11-09): **no visible line during the animation**; the mesh should appear without it → line element, its CSS and its fade animation removed. Mid-sweep screenshot OK.
+
+### 8.3 Change 3, bigger hero title, 2nd phrase green: DONE 2026-11-09 (+ adjustments), CONFIRMED by Matteo ("go on")
+Today: `hero.title` = one string "Trust your carbon and nature projects. We build the tools to prove it."; size `--fs-h1: clamp(32px, 5vw, 62px)` (62 px desktop, 32 px phones); colour navy. Desktop title column ≈ 528 px since change 2.
+Plan:
+- **Text (copywriter, wording unchanged):** split into two keys so the colour stays in the design, not in the text: `hero.title` = "Trust your carbon and nature projects." + new `hero.title_accent` = "We build the tools to prove it." (all 4 files; de/fr/it empty; empty accent = title only, one colour).
+- **Template:** `<h1>{{ title }} <span class="hero__title-accent">{{ title_accent }}</span></h1>`: one heading for search engines and screen readers.
+- **Design:** accent phrase in the brand green `--color-accent` #2D5F3F (same as the buttons; contrast on white ≈ 7.5:1).
+- **Size, mock-ups at 1280 / 390 px (scratchpad):** 68 px (+10 %) → 5 lines, the green phrase starts on its own line naturally ("nature projects." / "We build the" / "tools to prove it."): clean. 72 px (+16 %) → 6 lines with an awkward break ("nature" / "projects. We"). Phones: 32 → 38 px (4 lines, fine).
+- Recommendation: `--fs-h1: clamp(38px, 5.3vw, 68px)` + green phrase always starts on a new line (forced on desktop/tablet, so the break never lands mid-phrase at other widths).
+- Note: `--fs-h1` is used only by the hero title.
+Matteo (2026-11-09): "yes go on" → **implemented as recommended** (directly, small change): `hero.title` + new `hero.title_accent` (en filled, de/fr/it empty; 4 files identical keys); `hero.html` renders the accent as `<span class="hero__title-accent">` inside the h1; CSS: accent `display: block` (own line at all widths, phones included) + `--color-accent`; `--fs-h1: clamp(38px, 5.3vw, 68px)`. Build OK; screenshots 1280 (5 lines) / 900 / 390 px (4 lines) OK. Not committed.
+Matteo (2026-11-09): **green phrase a bit bolder** + wording **"We build the tools that prove it."** (full stop kept, as in the first phrase) → `hero.title_accent` updated; accent weight 400 → 500 (`--fw-medium`, next weight of Ubuntu). Side effect: on desktop (1280 px) the green phrase now runs on 3 lines (title 6 lines); tests at 64 px still give 3 lines (the column is the limit). Phones: 4 lines, fine. Kept at 68 px; options for Matteo: accept, or widen the text column (smaller tree).
+Matteo (2026-11-09): **option b, widen the text column** → new token `--hero-text-ratio: 1.25fr` (text column vs tree 1fr). 1280 px: text ≈ 586 px, green phrase on 2 lines ("We build the tools" / "that prove it."), title 5 lines; tree ≈ 491 px wide (was 554 after §8.2, 420 originally; still +5 % into the right margin). 1100 / 900 px: also 2 green lines. Not committed.
+
+### 8.4 Change 4, sitemap.xml + robots.txt: DONE 2026-11-09, AWAITING MATTEO'S CONFIRMATION
+Source: `docs/SEO_review.pdf` finding #1 (reviewed 3 Nov 2026 on ciskoh.github.io/terradatalab; the site is now at www.terradatalab.ch via CNAME, so both files sit at the domain root as search engines expect).
+Today: no sitemap, no robots.txt. Pages built: `/` (EN, full), `/de/` `/fr/` `/it/` (**live but with no text**), `/imprint/`, `/privacy-policy/` (empty, link hidden), `/404.html`. The `<head>` of every page announces DE/FR/IT as translations (`hreflang`), so search engines are pointed at empty pages.
+Plan:
+1. **sitemap.xml** via `jekyll-sitemap` (official GitHub Pages plugin, already in the `github-pages` gem; one line under `plugins:` in `_config.yml`). Lists every page automatically, incl. future pages and languages; pages with `sitemap: false` are left out.
+2. **robots.txt** as our own small file at the root (human-readable): allow everything + `Sitemap: https://www.terradatalab.ch/sitemap.xml` (domain taken from `_config.yml url`, so it follows a domain change).
+3. **Empty pages out of search** until they have content: DE/FR/IT stubs, privacy policy and 404 get `sitemap: false` + `noindex: true` in their front matter; `head.html` prints `<meta name="robots" content="noindex">` for them and lists `hreflang` only for languages that are indexable. When a translation is ready: delete those two lines in its stub (written in README).
+4. Sitemap content then: `/` + `/imprint/`.
+5. **Search Console + Bing Webmaster Tools:** only Matteo can do this (his Google/Microsoft accounts). Step-by-step in README: Google Search Console → add "Domain" property `terradatalab.ch` → verify with a DNS TXT record at the domain registrar (no website change) → Sitemaps → submit `sitemap.xml`; Bing Webmaster Tools → "Import from Google Search Console" (takes over site + sitemap).
+Questions: (a) hide DE/FR/IT/privacy/404 from search until they have content (recommended)? (b) imprint in the sitemap (default yes; it is a real page; alternative: noindex)? (c) Search Console verification by DNS record (recommended, nothing on the site) or by a meta tag on the site (needs the code Google gives)?
+Matteo (2026-11-09): **(a) hide empty pages until ready; (b) imprint in the sitemap; (c) Search Console verification by DNS record.** → implemented:
+- `_config.yml`: `plugins: [jekyll-sitemap]`. New `robots.txt` (Liquid, `layout: null`, allow all + absolute sitemap URL).
+- `sitemap: false` + `noindex: true` (with a comment "delete when ready") in `de|fr|it/index.html`, `de|fr|it/imprint.md`, all 4 `privacy-policy.md`; 404 the same (permanent). Found during the work: the DE/FR/IT imprint and privacy stubs also exist (empty), so they are hidden too.
+- `head.html`: `<meta name="robots" content="noindex">` for those pages; `hreflang` lists only indexable pages (now EN only).
+- README: new section "Search engines" with the rule + step-by-step Google Search Console (Domain property, DNS TXT) and Bing (import from GSC).
+- Build check: sitemap = `/` + `/imprint/`; robots.txt points to https://www.terradatalab.ch/sitemap.xml. Not committed. **Matteo's to-do after the push:** Search Console + Bing steps in README.
 
 ---
 
