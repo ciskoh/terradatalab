@@ -1,6 +1,6 @@
 # Language-neutral facts about the site. Text for every item is in _data/i18n/<lang>.yml.
 
-contact_email: "m.jriva@urbandatalab.net"                    # used by every e-mail link (mailto)
+contact_email: "info@terradatalab.ch"                    # used by every e-mail link (mailto)
 booking_url: "https://calendar.app.google/bSMCYqQJFt6VAV4Y6"  # booking page: Hero main button + green band button
 linkedin_url: "http://www.linkedin.com/in/matteojriva"        # footer LinkedIn link (personal profile for now)
 sister_url: "https://urbandatalab.ch"                         # sister company, linked by the UrbanDataLab banner (under the header and above the footer, home page only)
