@@ -30,6 +30,7 @@
 | 2026-11-09 | Matteo, change list (§8.3) | **Hero title bigger** (68 px desktop, 38 px phones) with the **second phrase "We build the tools that prove it." in brand green, medium weight (500), on its own line** (text keys `hero.title` + `hero.title_accent`). |
 | 2026-11-09 | Matteo, change list (§8.4) | **SEO basics:** `sitemap.xml` (jekyll-sitemap) + `robots.txt`; **pages without content (DE/FR/IT, privacy policies, 404) are hidden from search engines** (`sitemap: false` + `noindex: true`, removed when a page gets content) and not announced as translations. Imprint stays indexable. Search Console verification by DNS (Matteo does it). |
 | 2026-11-09 | Matteo, change list (§8.5) | **Alt texts** for the hero tree and both team photos (short "Portrait of …"). **Images as WebP** (tree, photos, video poster), icons compressed, **video re-encoded (5.9 → 0.7 MB)**. Image masters stay in the repo but are **not published**. |
+| 2026-11-10 | Matteo, change list (§8.6) | **SEO keywords:** tab title "TerraDataLab - nature-based dMRV software and data platform"; search snippet = own keyword text (no longer the hero subtitle); hero subtitle "MRV tools"; "nature data platform"; Satellite Hook "Remote sensing for carbon projects"; Metric Calculator names Verra VM0042, Gold Standard, ISO 14064, EU CRCF; Reporting card renamed "Reporting for carbon credits & certifications". Text growth limit +5 % (actual +2.3 %). |
 
 Notes on UrbanDataLab (checked 2026-11-02): built with Tilda (a hosted builder), English only, flat URLs: `/platform`, `/solutions`, `/resources`, `/imprint`, `/privacy-policy`, `/terms-and-conditions`.
 → We reuse its URL names and page pattern, not its technology.
@@ -707,7 +708,7 @@ Matteo (2026-11-09): **(a) hide empty pages until ready; (b) imprint in the site
 - Build check: sitemap = `/` + `/imprint/`; robots.txt points to https://www.terradatalab.ch/sitemap.xml. Not committed. **Matteo's to-do after the push:** Search Console + Bing steps in README.
 Commits (Matteo 2026-11-09: "commit what you have been doing until now atomically"): c94b79a change 1 · 579a644 change 2 (intermediate hero/CSS versions staged so each commit builds) · f4b9584 change 3 · 4a020b3 change 4 · e2753f5 MEMORY log. **Claude also pushed (not asked; push worked this time)** → told Matteo; revert offered if not wanted live.
 
-### 8.5 Change 5, alt texts + image compression: DONE 2026-11-09, AWAITING MATTEO'S CONFIRMATION
+### 8.5 Change 5, alt texts + image compression: DONE 2026-11-09, CONFIRMED by Matteo ("ok go on")
 Source: SEO review "No alt text on hero-tree.png, matteo.png, patrick.png" → add descriptive alt text; compress images.
 **Alt texts (copywriter; text proposals, Matteo picks; keys already exist, de/fr/it stay empty):**
 - `hero.image_alt` (the animated tree; the template then turns the frame into one labelled image):
@@ -733,6 +734,36 @@ Matteo (2026-11-09): **hero alt H1, photo alts P1 (short), extras O1 (unpublish 
 - Video `Screencast002.webm` re-encoded VP8 → VP9 (CRF 42, 1330×742, no audio): 5.9 MB → 0.7 MB; frame comparison at 20 s: no visible difference (text sharp). ffmpeg was already in the conda env (nothing installed).
 - `_config.yml exclude`: image001.png, screencastPoster.png, matteo001.png, patrick001.png, hero-tree.png (kept in the repo, not published; comment in platform.yml for the fallback).
 - Home page images: ≈ 650 KB → ≈ 330 KB; with the video ≈ 6.6 MB → ≈ 1.1 MB. Build OK, full-page screenshot OK.
+Committed fbc50b1 (change) + 4aee0aa (log), not pushed.
+
+### 8.6 Change 6, SEO keywords (max +5 % text): DONE 2026-11-10, AWAITING MATTEO'S CONFIRMATION
+Text generation explicitly requested (keywords to add). Budget: visible English text = 577 words (all sections, without meta, alt texts, 404) → **max +28 words**. Keywords woven into existing sentences, no new sentences; the meta title/description (search results only, not on the page) carry the core phrase and the geographic keywords.
+| Key | Today | Proposed | Words | Keywords |
+|---|---|---|---|---|
+| hero.subtitle | We build the data pipelines, tools and dashboards that show, with evidence, how your project makes the world a better place. | We build the **MRV software**, data pipelines and dashboards that show, with evidence, how your project makes the world a better place. | +1 | carbon project MRV software (with "carbon … projects" in the title above) |
+| how_we_work.platform.intro | A customisable data viewer brings all your project data into one place. … | A customisable **nature project data platform** brings all your data into one place. … | +1 | nature project data platform |
+| platform.modules.satellite.text | Enrich your data with satellite images and time series. | **Remote sensing for carbon projects**: satellite images and time series. | +1 | remote sensing for carbon projects |
+| platform.modules.metrics.text | Compliant metrics to measure your progress. | Metrics compliant with **Verra VM0042, Gold Standard, ISO 14064 and EU CRCF**. | +6 | all 4 standards ⚠ factual claim, Matteo to confirm |
+| solutions.intro | For sustainability projects, from baseline through audit. | A **soil carbon monitoring platform** for sustainability projects, from baseline through audit. | +5 | soil carbon monitoring platform |
+| solutions.items.baseline.text | Satellite and soil data show the current state of the land, and compares it dynamically with reference areas | Satellite and soil data show the current state of the land, guide **soil carbon baseline sampling design** and compare it with **reference sites**. | +5 | soil carbon baseline sampling design, reference site comparison |
+| solutions.items.land_evolution.text | Track changes in the land using satellite time series and measurements, and relate them to your actions | **Satellite monitoring of regenerative agriculture**: track land changes with time series and measurements, and relate them to your actions. | +2 | satellite monitoring of regenerative agriculture ⚠ confirm |
+| solutions.items.operations.text | Field work, observations and measurments in one place, traceable as it happens. | **Digital MRV for agroforestry**: field work, observations and measurements in one place, traceable as it happens. | +4 | digital MRV for agroforestry ⚠ confirm |
+| solutions.items.audit.text | Every number linked to its source …, ready for your validation or certification. | **Carbon audit data preparation**: every number linked to its source …, ready for validation or certification. | +3 | carbon audit data preparation |
+Total **+28 words (+4.9 %)**. Card names, titles and Matteo's Dynamic Monitoring line unchanged.
+Search results only (not counted; supersede the review #2 decisions "tab title = TerraDataLab - data solutions for sustainability" and "snippet = hero subtitle"):
+- meta.title: "TerraDataLab - carbon project MRV software and data platform" (60 characters)
+- meta.description: "Carbon project MRV software and data consulting from Switzerland: soil carbon monitoring, remote sensing and audit-ready data across DACH and Europe." (≈ 150 characters) → carbon project data consultant Switzerland / DACH / Europe.
+Not placed (budget): exact "carbon project data consultant", "Gold Standard soil carbon", "ISO 14064 verification data", "Verra VM0042 data requirements" as full phrases (the standard names themselves are placed); "EU CRCF carbon farming certification" (EU CRCF placed).
+Small fixes found (0 words, optional): typos "measurments", "compares"; missing full stops (step 1 detail, step 3 text, 2 cards); "core components" → "Core components"; British spelling "customized" → "customised" (step 3), "organizations" → "organisations" (Patrick bio).
+**Matteo's decisions (2026-11-10), implemented in en.yml:**
+- hero.subtitle (Matteo's text): "We build the MRV tools, data pipelines and dashboards that show, with evidence, how your project makes the world a better place."
+- platform.intro (Matteo's text): "A customisable nature data platform brings all your data into one place. Plug in the modules your project needs, when it needs them."
+- Satellite Hook + Metric Calculator: proposals accepted (Matteo confirmed the 4 standards by accepting "ok with your proposal").
+- Solutions intro: **unchanged** (asked; Matteo: keep current text). Get baseline, Land evolution, Operations: **previous text restored** (only the small fixes applied).
+- Reporting card **name** → "Reporting for carbon credits & certifications" (asked; Matteo: as the card name); card text unchanged.
+- meta.title: "TerraDataLab - nature-based dMRV software and data platform"; meta.description: "Nature-based and carbon software and data consulting from Switzerland: soil carbon monitoring, remote sensing and audit-ready data across DACH and Europe." (Matteo's texts; normalised: "nature based" → "nature-based", double space removed). Snippet no longer = hero subtitle.
+- Small fixes: "You decide." · "Core components" · "together." · "customised" · baseline "compare … reference areas." · land evolution full stop · "measurements" · Patrick "organisations".
+- Visible text 577 → 590 words (**+2.3 %**). Build OK; hub, cards (Reporting name on 2 lines) checked at 1280 px.
 
 ---
 
