@@ -736,7 +736,7 @@ Matteo (2026-11-09): **hero alt H1, photo alts P1 (short), extras O1 (unpublish 
 - Home page images: ≈ 650 KB → ≈ 330 KB; with the video ≈ 6.6 MB → ≈ 1.1 MB. Build OK, full-page screenshot OK.
 Committed fbc50b1 (change) + 4aee0aa (log), not pushed.
 
-### 8.6 Change 6, SEO keywords (max +5 % text): DONE 2026-11-10, AWAITING MATTEO'S CONFIRMATION
+### 8.6 Change 6, SEO keywords (max +5 % text): DONE 2026-11-10, CONFIRMED by Matteo ("yes all good")
 Text generation explicitly requested (keywords to add). Budget: visible English text = 577 words (all sections, without meta, alt texts, 404) → **max +28 words**. Keywords woven into existing sentences, no new sentences; the meta title/description (search results only, not on the page) carry the core phrase and the geographic keywords.
 | Key | Today | Proposed | Words | Keywords |
 |---|---|---|---|---|
@@ -764,6 +764,8 @@ Small fixes found (0 words, optional): typos "measurments", "compares"; missing 
 - meta.title: "TerraDataLab - nature-based dMRV software and data platform"; meta.description: "Nature-based and carbon software and data consulting from Switzerland: soil carbon monitoring, remote sensing and audit-ready data across DACH and Europe." (Matteo's texts; normalised: "nature based" → "nature-based", double space removed). Snippet no longer = hero subtitle.
 - Small fixes: "You decide." · "Core components" · "together." · "customised" · baseline "compare … reference areas." · land evolution full stop · "measurements" · Patrick "organisations".
 - Visible text 577 → 590 words (**+2.3 %**). Build OK; hub, cards (Reporting name on 2 lines) checked at 1280 px.
+
+**§8 change list: ALL 6 CHANGES DONE AND CONFIRMED (2026-11-10).** Changes 1–4 pushed (2026-11-09); 5–6 committed locally, push by Matteo. Open for Matteo: Google Search Console + Bing steps (README "Search engines").
 
 ---
 
