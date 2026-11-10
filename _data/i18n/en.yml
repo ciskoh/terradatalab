@@ -11,8 +11,8 @@
 #   - An empty text ("") is simply not shown on the page.
 
 meta:
-  title: "TerraDataLab - data solutions for sustainability"   # browser tab / search result title (empty: "TerraDataLab")
-  description: "We build the data pipelines, tools and dashboards that show, with evidence, how your project makes the world a better place."   # search result snippet + share-preview text (same text as hero.subtitle)
+  title: "TerraDataLab - nature-based dMRV software and data platform"   # browser tab / search result title (empty: "TerraDataLab")
+  description: "Nature-based and carbon software and data consulting from Switzerland: soil carbon monitoring, remote sensing and audit-ready data across DACH and Europe."   # search result snippet + share-preview text (keywords, MEMORY.md §8.6)
 
 nav:
   how_we_work: "How we work"         # header link to the How we work section
@@ -31,7 +31,7 @@ hero:                       # first block of the page
   eyebrow: ""               # small line above the headline (not used for now)
   title: "Trust your carbon and nature projects."   # headline, first part
   title_accent: "We build the tools that prove it."   # headline, second part: shown in green on its own line (empty = not shown)
-  subtitle: "We build the data pipelines, tools and dashboards that show, with evidence, how your project makes the world a better place."   # text below the headline
+  subtitle: "We build the MRV tools, data pipelines and dashboards that show, with evidence, how your project makes the world a better place."   # text below the headline
   offer: ""                 # short highlighted line ("the offer")
   cta_primary: "Book a 30-minute call"      # main button: opens the booking page (new tab)
   cta_secondary: "See how we work"          # second button: jumps to How we work
@@ -43,7 +43,7 @@ how_we_work:                # "How we work" section (header link "How we work")
   title: "Built with you. Built for your project."   # main headline at the top of the section
   platform:                 # block "viewer at the centre + modules around it"
     title: ""               # centred headline of the block (not used for now; empty = hidden)
-    intro: "A customisable data viewer brings all your project data into one place. Plug in the modules your project needs, when it needs them."   # text below the block headline
+    intro: "A customisable nature data platform brings all your data into one place. Plug in the modules your project needs, when it needs them."   # text below the block headline
     video_alt: "Shows the Core Data Viewer displaying data related to an agricarbon project in Switzerland."   # description of the Core Data Viewer video for screen readers
     core:                   # caption under the video
       name: "Core Data Viewer"
@@ -51,13 +51,13 @@ how_we_work:                # "How we work" section (header link "How we work")
     modules:                # items around the video; ids must match _data/platform.yml (modules)
       satellite:
         name: "Satellite Hook"
-        text: "Enrich your data with satellite images and time series."
+        text: "Remote sensing for carbon projects: satellite images and time series."
       public_db:
         name: "Public Databases"
         text: "Fewer samples, stronger baseline."
       metrics:
         name: "Metric Calculator"
-        text: "Compliant metrics to measure your progress."
+        text: "Metrics compliant with Verra VM0042, Gold Standard, ISO 14064 and EU CRCF."
       operations:
         name: "Operations Hook"
         text: "Keep track of measurements and interventions in your fields."
@@ -71,15 +71,15 @@ how_we_work:                # "How we work" section (header link "How we work")
     - title: "Workshop"
       text: "Define requirements together."
       detail: |
-        We start with a workshop. Map what you actually need, not what a template says you should need. The infrastructure is yours to choose. Want it in the cloud? On your servers? Hybrid? You decide
+        We start with a workshop. Map what you actually need, not what a template says you should need. The infrastructure is yours to choose. Want it in the cloud? On your servers? Hybrid? You decide.
     - title: "Setup"
       text: "See your data overview immediately."
       detail: |
-        As soon as we have the area of interest, your project data is there for you. And you're never locked in: raw data exports whenever you want. core components are open source. APIs so you can plug it into whatever else your team uses.
+        As soon as we have the area of interest, your project data is there for you. And you're never locked in: raw data exports whenever you want. Core components are open source. APIs so you can plug it into whatever else your team uses.
     - title: "Development prioritised with you"
-      text: "Your priorities set the order. We build, review and refine together"
+      text: "Your priorities set the order. We build, review and refine together."
       detail: |
-        Open source components and customized modules based on your needs allow you to enrich, integrate and validate all project information. And you pay only what you use.
+        Open source components and customised modules based on your needs allow you to enrich, integrate and validate all project information. And you pay only what you use.
   cta: "Let's talk about what your project actually needs."   # button below the steps (e-mail)
 
 solutions:                  # "Solutions" section: cards, one per combination, each listing its modules by the names under "columns" (no table)
@@ -99,15 +99,15 @@ solutions:                  # "Solutions" section: cards, one per combination, e
       text: "All your project data in one view, shared by the whole team."
     baseline:
       name: "Get baseline"
-      text: "Satellite and soil data show the current state of the land, and compares it dynamically with reference areas"
+      text: "Satellite and soil data show the current state of the land, and compare it dynamically with reference areas."
     land_evolution:
       name: "Land evolution"
-      text: "Track changes in the land using satellite time series and measurements, and relate them to your actions"
+      text: "Track changes in the land using satellite time series and measurements, and relate them to your actions."
     operations:
       name: "Operations"
-      text: "Field work, observations and measurments in one place, traceable as it happens."
+      text: "Field work, observations and measurements in one place, traceable as it happens."
     audit:
-      name: "Reporting"
+      name: "Reporting for carbon credits & certifications"
       text: "Every number linked to its source and every observation to its place, ready for your validation or certification."
 
 cta:                        # green band near the bottom
@@ -132,7 +132,7 @@ about:                      # "Who we are" section, after the green band
     patrick:
       name: "Patrick Schirmer"   # empty = card not shown
       role: "Product & Platform Manager"
-      bio: "Spatial data scientist with a PhD in agent-based simulation (ETH Zurich). Develops data strategies for organizations and leads the shared data platform udl.ai that powers TerraDataLab."
+      bio: "Spatial data scientist with a PhD in agent-based simulation (ETH Zurich). Develops data strategies for organisations and leads the shared data platform udl.ai that powers TerraDataLab."
       photo_alt: "Portrait of Patrick Schirmer"   # description of the photo for screen readers
       linkedin: "LinkedIn"  # link text; the URL is linkedin_url of this person in _data/platform.yml
 
