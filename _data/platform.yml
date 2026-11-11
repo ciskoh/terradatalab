@@ -46,7 +46,7 @@ combinations:
     includes: [core, metrics, operations]
 
 # Who we are › people cards, in display order (ids = keys of about.people in the text files).
-# photo: file name in assets/images/ (empty = placeholder); photos are round crops of matteo001.png / patrick001.png (masters untouched). A card with an empty name is not shown.
+# photo: file name in assets/images/ (empty = placeholder); photos are round crops of matteo001.png / Patrick_Schirmer.jpg (masters untouched; patrick.webp 336 px since 2026-11-11). A card with an empty name is not shown.
 # linkedin_url: this person's LinkedIn profile (empty = no link on the card).
 people:
   - id: matteo
