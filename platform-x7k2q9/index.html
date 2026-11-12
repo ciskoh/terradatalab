@@ -1,0 +1,595 @@
+---
+# Hidden page (MEMORY.md §10): reachable only by its address, not linked anywhere on the site,
+# not in sitemap.xml (sitemap: false), kept out of search results (noindex: true).
+# Content = body of the Claude Design export in docs/Carbon data management platform/export/ (English only,
+# text kept in this file as an exception: it is a design export). To update: re-export, then replace
+# everything below the front matter with the export's <body> content (<main> -> <div>, image paths as below)
+# and re-copy platform.css into assets/css/platform-details.css (keep its font block).
+layout: default
+ref: platform-details
+lang: en
+title: "Platform modules"
+permalink: /platform-x7k2q9/
+noindex: true
+sitemap: false
+extra_css: platform-details.css
+---
+<div class="tdl-page">
+<h1 class="tdl-title">TerraDataLab · nature data platform modules</h1>
+<section id="module-map" class="tdl-module tdl-module--map">
+<h2 class="tdl-caption"><span class="tdl-caption-name">Module map</span> · click a module to open its screen</h2>
+<div class="tdl-mock tdl-mock--map">
+<div class="tdl-map-card t1">
+<div class="t2">
+<span class="tdl-map-heading t3">Carbon NBS Methodology Demonstrator · module flow</span>
+<div class="t4"></div>
+
+</div>
+<div class="tdl-map-canvas t5">
+<svg class="tdl-map-arrows t6" aria-hidden="true" viewBox="0 0 848 560">
+<defs><marker id="mA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#6F8A93" stroke-width="1.5"></path></marker></defs>
+<g stroke="#4F6A73" stroke-width="1.4" marker-end="url(#mA)" fill="none">
+<line x1="290" y1="96" x2="370" y2="142"></line>
+<line x1="558" y1="96" x2="478" y2="142"></line>
+<line x1="424" y1="400" x2="424" y2="374"></line>
+<line x1="282" y1="252" x2="248" y2="252"></line>
+<line x1="248" y1="306" x2="282" y2="306"></line>
+<line x1="566" y1="252" x2="600" y2="252"></line>
+<line x1="600" y1="306" x2="566" y2="306"></line>
+<line x1="540" y1="458" x2="578" y2="458"></line>
+</g>
+</svg>
+<a class="tdl-map-node t7" href="#core-data-viewer">
+<span class="t8">CORE DATA VIEWER</span>
+<span class="t9">CSV upload · Sheets</span>
+<span class="t10"><span class="t11">Spatial database</span><span class="t12">Fields, sub-areas, time</span></span>
+<span class="t10"><span class="t11">Dashboards</span><span class="t12">Maps, summary, crop classes</span></span>
+</a>
+<a class="tdl-map-node t13" href="#satellite-hook">
+<span class="t14">Satellite Hook</span><span class="t15">Remote sensing for carbon projects: satellite images and time series.</span>
+</a>
+<a class="tdl-map-node t16" href="#public-databases">
+<span class="t14">Public Databases</span><span class="t15">Fewer samples, stronger baseline.</span>
+</a>
+<a class="tdl-map-node t17" href="#operations-hook">
+<span class="t14">Operations Hook</span><span class="t18">Keep track of measurements and interventions in your fields.</span>
+</a>
+<a class="tdl-map-node t19" href="#human-validation">
+<span class="t20">Human validation</span>
+</a>
+<div class="tdl-map-node t21">
+<span class="t14">Metric Calculator</span><span class="t15">Metrics compliant with Verra VM0042, Gold Standard, ISO 14064 and EU CRCF.</span>
+</div>
+<div class="tdl-map-node t22">
+<span class="t14">Model hub</span><span class="t12">Predictions only</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="core-data-viewer" class="tdl-module">
+<h2 class="tdl-caption"><span class="tdl-caption-name">Core Data Viewer</span> · One place to view and control your project data, for the whole team.</h2>
+<div class="tdl-mock">
+<div class="t23">
+
+<div class="t24">
+<div class="t25">
+<span class="t26">UDL</span><span class="t27">UrbanDataLab</span>
+<div class="t4"></div><span class="t28">‹</span>
+</div>
+<div class="t29">
+<div class="t30"><span class="t31"></span>Mapview</div>
+<div class="t30"><span class="t32"></span>Local Report<div class="t4"></div><span class="t33">›</span></div>
+<div class="t34"><span class="t35"></span>Core Data Viewer<div class="t4"></div><span class="t33">⌄</span></div>
+<div class="t36"><span class="t37"></span>Sheets</div>
+<div class="t38"><span class="t39"></span>Dashboards</div>
+</div>
+<div class="t4"></div>
+<div class="t40">
+<div class="t30"><span class="t41"></span>Users</div>
+<div class="t30"><span class="t42"></span>Internal docs</div>
+<div class="t30"><span class="t43"></span>Docs</div>
+<div class="t30"><span class="t44"></span>udl_terradatalab</div>
+</div>
+</div>
+
+<div class="t45">
+
+<div class="t46">
+<div class="t47">FILTERS</div>
+<div class="t48">Project name</div>
+<div class="t49">AgriCarbon NBS Switzerland<div class="t4"></div><span class="t50">×</span><span class="t51">▼</span></div>
+</div>
+
+<div class="t52">
+<div class="t47">FIELDS MAP</div>
+<div class="t53">
+<span class="t54">Mean SOC (%)</span>
+<span class="t55">SoilGrids SOC</span>
+<span class="t55">NDVI stdev</span>
+</div>
+<div class="t56">FIELDS · MEAN SOC (%)</div>
+<img class="t57" src="{{ '/assets/images/platform/core-data-viewer-fields-map.webp' | relative_url }}" alt="Core Data Viewer fields map: agricultural field parcels coloured by mean soil organic carbon (SOC, %) on a basemap." width="939" height="373" loading="lazy" decoding="async">
+</div>
+
+<div class="t58">
+<div class="t47">SUMMARY</div>
+<div class="t59">
+<div class="t60"><div class="t61">Fields</div><div class="t62">309</div></div>
+<div class="t60"><div class="t61">Total area</div><div class="t62">1.8 Mio.</div><div class="t63">m²</div></div>
+<div class="t60"><div class="t61">Mean field area</div><div class="t62">5'947.8</div><div class="t63">m²</div></div>
+<div class="t60"><div class="t61">Mean elevation</div><div class="t62">372.6</div><div class="t63">m a.s.l.</div></div>
+</div>
+</div>
+
+<div class="t64">
+<div class="t47">MEAN ELEVATION BY CROP CLASS (M A.S.L.)</div>
+<svg class="t65" viewBox="0 0 938 260">
+<line x1="40" x2="930" y1="10" y2="10" stroke="#1F3B43" stroke-width="1"></line><line x1="40" x2="930" y1="38.14" y2="38.14" stroke="#1F3B43" stroke-width="1"></line><line x1="40" x2="930" y1="66.28" y2="66.28" stroke="#1F3B43" stroke-width="1"></line><line x1="40" x2="930" y1="94.42" y2="94.42" stroke="#1F3B43" stroke-width="1"></line><line x1="40" x2="930" y1="122.55999999999999" y2="122.55999999999999" stroke="#1F3B43" stroke-width="1"></line><line x1="40" x2="930" y1="150.7" y2="150.7" stroke="#1F3B43" stroke-width="1"></line><line x1="40" x2="930" y1="178.84" y2="178.84" stroke="#1F3B43" stroke-width="1"></line><line x1="40" x2="930" y1="206.98" y2="206.98" stroke="#1F3B43" stroke-width="1"></line><text x="26" y="14" text-anchor="end" font-family="Exo 2,Arial" font-size="10.5" fill="#C7D5D9">480</text><text x="26" y="42.1" text-anchor="end" font-family="Exo 2,Arial" font-size="10.5" fill="#C7D5D9">450</text><text x="26" y="70.3" text-anchor="end" font-family="Exo 2,Arial" font-size="10.5" fill="#C7D5D9">420</text><text x="26" y="98.4" text-anchor="end" font-family="Exo 2,Arial" font-size="10.5" fill="#C7D5D9">390</text><text x="26" y="126.6" text-anchor="end" font-family="Exo 2,Arial" font-size="10.5" fill="#C7D5D9">360</text><text x="26" y="154.7" text-anchor="end" font-family="Exo 2,Arial" font-size="10.5" fill="#C7D5D9">330</text><text x="26" y="182.8" text-anchor="end" font-family="Exo 2,Arial" font-size="10.5" fill="#C7D5D9">300</text><text x="26" y="211" text-anchor="end" font-family="Exo 2,Arial" font-size="10.5" fill="#C7D5D9">270</text>
+
+<path d="M50,55.4 L110,55.4 L110,58.4 L50,58.4 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="77" y="56.9" width="6" height="0" fill="#3B7C90"></rect>
+<line x1="64" x2="96" y1="56.9" y2="56.9" stroke="#fff" stroke-width="1.6"></line>
+<line x1="64" x2="96" y1="55.024" y2="55.024" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M155,92.544 C188,93.8103 182,107.7396 155,117.86999999999999 C128,107.7396 122,93.8103 155,92.544 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="152" y="97.6092" width="6" height="15.195599999999995" fill="#3B7C90"></rect>
+<line x1="139" x2="171" y1="101.92399999999999" y2="101.92399999999999" stroke="#fff" stroke-width="1.6"></line>
+<line x1="139" x2="171" y1="103.8" y2="103.8" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M230,14.69 C263,17.973 257,54.08599999999999 230,80.35 C203,54.08599999999999 197,17.973 230,14.69 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="227" y="27.822" width="6" height="39.395999999999994" fill="#3B7C90"></rect>
+<line x1="214" x2="246" y1="73.78399999999999" y2="73.78399999999999" stroke="#fff" stroke-width="1.6"></line>
+<line x1="214" x2="246" y1="70.97" y2="70.97" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M275,135.13 L335,135.13 L335,138.13 L275,138.13 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="302" y="136.63" width="6" height="0" fill="#3B7C90"></rect>
+<line x1="289" x2="321" y1="136.63" y2="136.63" stroke="#fff" stroke-width="1.6"></line>
+<line x1="289" x2="321" y1="136.63" y2="136.63" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M380,16.566 C413,26.0867 407,130.81439999999998 380,206.98 C353,130.81439999999998 347,26.0867 380,16.566 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="377" y="54.648799999999994" width="6" height="114.24839999999999" fill="#3B7C90"></rect>
+<line x1="364" x2="396" y1="112.24199999999999" y2="112.24199999999999" stroke="#fff" stroke-width="1.6"></line>
+<line x1="364" x2="396" y1="111.30399999999999" y2="111.30399999999999" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M455,11.876 C488,14.5962 482,44.5184 455,66.28 C428,44.5184 422,14.5962 455,11.876 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="452" y="22.7568" width="6" height="32.6424" fill="#3B7C90"></rect>
+<line x1="439" x2="471" y1="57.837999999999994" y2="57.837999999999994" stroke="#fff" stroke-width="1.6"></line>
+<line x1="439" x2="471" y1="64.404" y2="64.404" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M530,13.751999999999999 C563,17.879199999999997 557,63.27839999999999 530,96.29599999999999 C503,63.27839999999999 497,17.879199999999997 530,13.751999999999999 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="527" y="30.2608" width="6" height="49.526399999999995" fill="#3B7C90"></rect>
+<line x1="514" x2="546" y1="71.90799999999999" y2="71.90799999999999" stroke="#fff" stroke-width="1.6"></line>
+<line x1="514" x2="546" y1="68.156" y2="68.156" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M605,130.064 C638,130.7206 632,137.9432 605,143.196 C578,137.9432 572,130.7206 605,130.064 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="602" y="132.69039999999998" width="6" height="7.879200000000003" fill="#3B7C90"></rect>
+<line x1="589" x2="621" y1="136.63" y2="136.63" stroke="#fff" stroke-width="1.6"></line>
+<line x1="589" x2="621" y1="135.692" y2="135.692" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M680,22.194 C713,31.3395 707,131.94 680,205.10399999999998 C653,131.94 647,31.3395 680,22.194 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="677" y="58.775999999999996" width="6" height="109.746" fill="#3B7C90"></rect>
+<line x1="664" x2="696" y1="106.61399999999999" y2="106.61399999999999" stroke="#fff" stroke-width="1.6"></line>
+<line x1="664" x2="696" y1="103.8" y2="103.8" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M755,82.226 C788,84.7117 782,112.0544 755,131.94 C728,112.0544 722,84.7117 755,82.226 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="752" y="92.1688" width="6" height="29.8284" fill="#3B7C90"></rect>
+<line x1="739" x2="771" y1="106.61399999999999" y2="106.61399999999999" stroke="#fff" stroke-width="1.6"></line>
+<line x1="739" x2="771" y1="103.8" y2="103.8" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M830,24.07 C863,29.4635 857,88.792 830,131.94 C803,88.792 797,29.4635 830,24.07 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="827" y="45.644000000000005" width="6" height="64.722" fill="#3B7C90"></rect>
+<line x1="814" x2="846" y1="146.01" y2="146.01" stroke="#fff" stroke-width="1.6"></line>
+<line x1="814" x2="846" y1="130.064" y2="130.064" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+
+<path d="M905,21.256 C938,30.5422 932,132.6904 905,206.98 C878,132.6904 872,30.5422 905,21.256 Z" fill="#1E4A57" fill-opacity=".75" stroke="#2C6273" stroke-width="1"></path>
+<rect x="902" y="58.4008" width="6" height="111.4344" fill="#3B7C90"></rect>
+<line x1="889" x2="921" y1="150.7" y2="150.7" stroke="#fff" stroke-width="1.6"></line>
+<line x1="889" x2="921" y1="130.064" y2="130.064" stroke="#C7D5D9" stroke-width="1" stroke-dasharray="3 2"></line>
+<text x="80" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">fallow_land</text><text x="155" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">green_silo_maize</text><text x="230" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">unknown_other</text><text x="305" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">tree_orchards</text><text x="380" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">meadow_grass</text><text x="455" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">rapeseed</text><text x="530" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">berries_shrubs</text><text x="605" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">spelt</text><text x="680" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">temp_grassland</text><text x="755" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">wine_vine</text><text x="830" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">winter_barley</text><text x="905" y="248" text-anchor="middle" font-family="Exo 2,Arial" font-size="9.5" fill="#C7D5D9">soft_wheat</text>
+</svg>
+</div>
+
+<div class="t66">
+<div class="t47">CROP CLASSES</div>
+<div class="t67">
+<svg class="t68" viewBox="0 0 160 160">
+<circle cx="80" cy="80" r="60" fill="none" stroke="#86C5D5" stroke-width="24" stroke-dasharray="189.79218913877023 376.99111843077515" stroke-dashoffset="0" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#2D6B82" stroke-width="24" stroke-dasharray="117.3899213606743 376.99111843077515" stroke-dashoffset="-190.99218913877021" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#F5A99B" stroke-width="24" stroke-dasharray="21.26966931044355 376.99111843077515" stroke-dashoffset="-309.5821104994445" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#D8573F" stroke-width="24" stroke-dasharray="13.779779540295703 376.99111843077515" stroke-dashoffset="-332.0517798098881" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#E8744F" stroke-width="24" stroke-dasharray="8.786519693530469 376.99111843077515" stroke-dashoffset="-347.0315593501838" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#C9D9DD" stroke-width="24" stroke-dasharray="5.041574808456542 376.99111843077515" stroke-dashoffset="-357.01807904371424" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#9FBFCB" stroke-width="24" stroke-dasharray="3.793259846765234 376.99111843077515" stroke-dashoffset="-363.2596538521708" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#E9C2B8" stroke-width="24" stroke-dasharray="2.5449448850739254 376.99111843077515" stroke-dashoffset="-368.252913698936" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#5E8FA0" stroke-width="24" stroke-dasharray="1.296629923382617 376.99111843077515" stroke-dashoffset="-371.99785858401" transform="rotate(-90 80 80)"></circle><circle cx="80" cy="80" r="60" fill="none" stroke="#F0E2DD" stroke-width="24" stroke-dasharray="1.296629923382617 376.99111843077515" stroke-dashoffset="-374.4944885073926" transform="rotate(-90 80 80)"></circle>
+</svg>
+</div>
+<div class="t69">
+<span class="t70"><span class="t71"></span>pasture_meadow_grassland_grass (153)</span>
+<span class="t70"><span class="t72"></span>vineyards_wine_vine_rebland (95)</span>
+<div class="t4"></div><span class="t73">◀ 1/6 ▶</span>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section id="satellite-hook" class="tdl-module">
+<h2 class="tdl-caption"><span class="tdl-caption-name">Satellite Hook</span> · Remote sensing for carbon projects: satellite images and time series.</h2>
+<div class="tdl-mock">
+<div class="t74">
+
+<div class="t75">
+<div class="t76">
+<div class="t77">ADD LAYER</div>
+<span class="t78">Category</span>
+<div class="t79">vegetation productivity<span class="t80">⌄</span></div>
+<span class="t81">Layer</span>
+<div class="t82"><div class="t83">ARVI<span class="t80">⌄</span></div><div class="t84">i</div></div>
+<div class="t85">Add to map</div>
+</div>
+
+<div class="t76">
+<div class="t77">CLUSTERIZE</div>
+<span class="t78">Layer</span>
+<div class="t79">NDVI-vegetation productivity<span class="t80">⌄</span></div>
+<span class="t81">Method</span>
+<div class="t86">
+<span class="t87"><span class="t88"></span>K-means</span>
+<span class="t87"><span class="t89"></span>Quantiles</span>
+<span class="t90"><span class="t89"></span>Equal interval</span>
+</div>
+<span class="t91">Number of classes</span>
+<div class="t92"><div class="t93"></div><div class="t94"></div><div class="t95"></div></div>
+<div class="t96"><span class="t97">2</span><span class="t97">3</span><span>4</span><span>5</span><span>6</span></div>
+<div class="t98">OK</div>
+</div>
+
+<div class="t76">
+<div class="t77">FIELD HISTORY</div>
+<span class="t78">Layer</span>
+<div class="t79">NDVI-vegetation productivity<span class="t80">⌄</span></div>
+<span class="t81">Timeframe</span>
+<div class="t99">2026-05-12<span>→</span>2026-11-12<div class="t4"></div><span class="t80">⌄</span></div>
+<span class="t81">Fields (max 6, or click on the map)</span>
+<div class="t100">107, 515, 441<div class="t4"></div><span class="t101">3 selected</span><span class="t102">×</span><span class="t80">⌄</span></div>
+<div class="t85">Show history</div>
+<span class="t91">Aggregate over the timeframe</span>
+<div class="t82"><div class="t83">Mean<span class="t80">⌄</span></div><div class="t103">Show on map</div></div>
+</div>
+</div>
+
+<div class="t104">
+<div class="t105">FIELD MAP · SATELLITE LAYERS</div>
+<img class="t106" src="{{ '/assets/images/platform/satellite-hook-field-map.webp' | relative_url }}" alt="Satellite Hook field map: field parcels with the Sentinel-2 NDVI vegetation productivity layer and K-means sub-area classes." width="1243" height="579" loading="lazy" decoding="async">
+</div>
+
+<div class="t107">
+<div class="t108">
+<div class="t109">LEGEND</div>
+<div class="t110"><span class="t111">✓</span><span class="t112">Sub-areas · NDVI</span><span class="t113">×</span></div>
+<div class="t114"><span class="t115">1</span><span class="t116">2</span><span class="t117">3</span></div>
+<div class="t118"><span>low</span><span>K-means, 3 classes per field</span><span>high</span></div>
+<div class="t119"></div>
+<div class="t110"><span class="t111">✓</span><span class="t112">NDVI-vegetation productivity</span><span class="t113">×</span></div>
+<div class="t120"></div>
+<div class="t118"><span>-1</span><span>1</span></div>
+<div class="t119"></div>
+<div class="t110"><span class="t121"></span><span class="t122">Field boundaries</span></div>
+<div class="t123"></div>
+<div class="t124"></div>
+</div>
+<div class="t125">
+<div class="t126">FIELD VALUES</div>
+<div class="t127">Click a field on the map</div>
+</div>
+</div>
+
+<div class="t128">
+<div class="t129">
+<span class="t126">FIELD HISTORY · SENTINEL-2</span>
+<div class="t4"></div>
+<span class="t130"><span class="t131"></span>Field 107</span>
+<span class="t130"><span class="t132"></span>Field 515</span>
+<span class="t130"><span class="t133"></span>Field 441</span>
+</div>
+<span class="t134">NDVI-vegetation productivity · 14 scenes with cloud cover &lt; 20 % from 2026-05-12 to 2026-11-12; a field is shown on a date when at least half of its pixels are clear.</span>
+<svg class="t135" viewBox="0 0 1510 250">
+<line x1="44" x2="1500" y1="45" y2="45" stroke="#1F3B43" stroke-width="1"></line><line x1="44" x2="1500" y1="103.00000000000003" y2="103.00000000000003" stroke="#1F3B43" stroke-width="1"></line><line x1="44" x2="1500" y1="161" y2="161" stroke="#1F3B43" stroke-width="1"></line><line x1="44" x2="1500" y1="219.00000000000003" y2="219.00000000000003" stroke="#1F3B43" stroke-width="1"></line><text x="52" y="41" font-family="Arial" font-size="11.5" fill="#C7D5D9">0.8</text><text x="52" y="99" font-family="Arial" font-size="11.5" fill="#C7D5D9">0.6</text><text x="52" y="157" font-family="Arial" font-size="11.5" fill="#C7D5D9">0.4</text><text x="52" y="215" font-family="Arial" font-size="11.5" fill="#C7D5D9">0.2</text>
+<line x1="275" x2="275" y1="0" y2="225" stroke="#1F3B43" stroke-width="1"></line><line x1="520" x2="520" y1="0" y2="225" stroke="#1F3B43" stroke-width="1"></line><line x1="774" x2="774" y1="0" y2="225" stroke="#1F3B43" stroke-width="1"></line><line x1="1024" x2="1024" y1="0" y2="225" stroke="#1F3B43" stroke-width="1"></line><line x1="1272" x2="1272" y1="0" y2="225" stroke="#1F3B43" stroke-width="1"></line><text x="275" y="244" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#C7D5D9">Jun 2026</text><text x="520" y="244" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#C7D5D9">Jul 2026</text><text x="774" y="244" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#C7D5D9">Aug 2026</text><text x="1024" y="244" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#C7D5D9">Sep 2026</text><text x="1272" y="244" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#C7D5D9">Oct 2026</text>
+<text x="14" y="120" transform="rotate(-90 14 120)" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#C7D5D9">NDVI (mean, band = 10–90 %)</text>
+
+<polygon points="128,13 193,11 209,15 316,10 357,64 397,14 643,43 806,49 864,54 969,50 1215,41 1272,43 1419,97 1419,137 1272,93 1215,101 969,90 864,104 806,109 643,83 397,64 357,124 316,50 209,65 193,71 128,53" fill="#5B8FE0" fill-opacity=".16"></polygon>
+<polyline points="128,19 193,17 209,21 316,16 357,70 397,20 643,49 806,55 864,60 969,56 1215,47 1272,49 1419,103" fill="none" stroke="#5B8FE0" stroke-width="2"></polyline>
+<circle cx="128" cy="19" r="2.6" fill="#5B8FE0"></circle><circle cx="193" cy="17" r="2.6" fill="#5B8FE0"></circle><circle cx="209" cy="21" r="2.6" fill="#5B8FE0"></circle><circle cx="316" cy="16" r="2.6" fill="#5B8FE0"></circle><circle cx="357" cy="70" r="2.6" fill="#5B8FE0"></circle><circle cx="397" cy="20" r="2.6" fill="#5B8FE0"></circle><circle cx="643" cy="49" r="2.6" fill="#5B8FE0"></circle><circle cx="806" cy="55" r="2.6" fill="#5B8FE0"></circle><circle cx="864" cy="60" r="2.6" fill="#5B8FE0"></circle><circle cx="969" cy="56" r="2.6" fill="#5B8FE0"></circle><circle cx="1215" cy="47" r="2.6" fill="#5B8FE0"></circle><circle cx="1272" cy="49" r="2.6" fill="#5B8FE0"></circle><circle cx="1419" cy="103" r="2.6" fill="#5B8FE0"></circle>
+
+<polygon points="128,14 193,11 209,16 316,11 397,16 643,55 806,55 864,59 969,58 1215,40 1272,37 1419,23 1419,75 1272,99 1215,112 969,110 864,121 806,127 643,107 397,78 316,83 209,68 193,73 128,86" fill="#1FAF7A" fill-opacity=".16"></polygon>
+<polyline points="128,20 193,17 209,22 316,17 397,22 643,61 806,61 864,65 969,64 1215,46 1272,43 1419,29" fill="none" stroke="#1FAF7A" stroke-width="2"></polyline>
+<circle cx="128" cy="20" r="2.6" fill="#1FAF7A"></circle><circle cx="193" cy="17" r="2.6" fill="#1FAF7A"></circle><circle cx="209" cy="22" r="2.6" fill="#1FAF7A"></circle><circle cx="316" cy="17" r="2.6" fill="#1FAF7A"></circle><circle cx="397" cy="22" r="2.6" fill="#1FAF7A"></circle><circle cx="643" cy="61" r="2.6" fill="#1FAF7A"></circle><circle cx="806" cy="61" r="2.6" fill="#1FAF7A"></circle><circle cx="864" cy="65" r="2.6" fill="#1FAF7A"></circle><circle cx="969" cy="64" r="2.6" fill="#1FAF7A"></circle><circle cx="1215" cy="46" r="2.6" fill="#1FAF7A"></circle><circle cx="1272" cy="43" r="2.6" fill="#1FAF7A"></circle><circle cx="1419" cy="29" r="2.6" fill="#1FAF7A"></circle>
+
+<polygon points="128,26 193,23 209,29 316,25 357,49 537,107 643,54 806,64 864,71 969,72 1272,74 1419,140 1419,202 1272,146 969,154 864,133 806,136 643,136 537,169 357,121 316,107 209,91 193,95 128,108" fill="#F06A35" fill-opacity=".16"></polygon>
+<polyline points="128,32 193,29 209,35 316,31 357,55 537,113 643,60 806,70 864,77 969,78 1272,80 1419,146" fill="none" stroke="#F06A35" stroke-width="2"></polyline>
+<circle cx="128" cy="32" r="2.6" fill="#F06A35"></circle><circle cx="193" cy="29" r="2.6" fill="#F06A35"></circle><circle cx="209" cy="35" r="2.6" fill="#F06A35"></circle><circle cx="316" cy="31" r="2.6" fill="#F06A35"></circle><circle cx="357" cy="55" r="2.6" fill="#F06A35"></circle><circle cx="537" cy="113" r="2.6" fill="#F06A35"></circle><circle cx="643" cy="60" r="2.6" fill="#F06A35"></circle><circle cx="806" cy="70" r="2.6" fill="#F06A35"></circle><circle cx="864" cy="77" r="2.6" fill="#F06A35"></circle><circle cx="969" cy="78" r="2.6" fill="#F06A35"></circle><circle cx="1272" cy="80" r="2.6" fill="#F06A35"></circle><circle cx="1419" cy="146" r="2.6" fill="#F06A35"></circle>
+
+</svg>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="public-databases" class="tdl-module">
+<h2 class="tdl-caption"><span class="tdl-caption-name">Public Databases</span> · Fewer samples, stronger baseline.</h2>
+<div class="tdl-mock">
+<div class="t136">
+<div class="t137">
+<span class="t138">Carbon NBS Methodology Demonstrator · Public Databases</span>
+<span class="t139">Static reference maps · no time series</span>
+<div class="t4"></div>
+<span class="t140">Track permanently</span>
+</div>
+<div class="t141">
+<div class="t107">
+<div class="t142">
+<div class="t143">LAYER</div>
+<span class="t144">Category</span>
+<div class="t79">soil carbon<span class="t80">⌄</span></div>
+<span class="t145">Property</span>
+<div class="t79">OC density (kg/m³)<span class="t80">⌄</span></div>
+<span class="t145">Depth</span>
+<div class="t146">
+<span class="t147"><span class="t148"></span>0-5cm</span>
+<span class="t149"><span class="t150"></span>5-15cm</span>
+<span class="t147"><span class="t148"></span>15-30cm</span>
+</div>
+<span class="t145">Opacity</span>
+<div class="t151"><div class="t152"></div><div class="t153"></div><div class="t154"></div></div>
+</div>
+<div class="t155">
+<div class="t156">LEGEND</div>
+<span class="t157">OC density 5-15cm</span>
+<div class="t158"></div>
+<div class="t118"><span>0</span><span>kg/m³</span><span>80</span></div>
+</div>
+</div>
+<div class="t159">
+<div class="t160">FIELD MAP · PUBLIC SOIL MAPS</div>
+<img class="t161" src="{{ '/assets/images/platform/public-databases-soil-map.webp' | relative_url }}" alt="Public Databases field map: field boundaries over the SoilGrids organic carbon density layer at 5-15 cm depth (kg/m³)." width="1197" height="672" loading="lazy" decoding="async">
+</div>
+<div class="t162">
+<div class="t163">ABOUT THIS LAYER</div>
+<span class="t164">OC density 5-15cm · kg/m³</span>
+<div class="t165">
+<span class="t166">SoilGrids 2.0 (ISRIC)</span><span class="t166">250 m</span><span class="t166">depth 5-15cm</span><span class="t166">static</span>
+</div>
+<p class="t167">Organic carbon density (kg/m³): carbon content combined with bulk density and coarse fragments.</p>
+<p class="t167">Relevant to convert carbon concentration into mass per volume, the step between SOC content and SOC stock.</p>
+<p class="t168">SoilGrids 2.0 (ISRIC) property ocd, depth 5-15cm, mean prediction, converted to kg/m³</p>
+<p class="t169">Resolution: one pixel covers 6.25 ha, the median field 0.1 ha. Values describe the area around a field, not the field itself: use them as context or baseline, not as a field measurement.</p>
+<p class="t168">Static map: one modelled value per pixel, no time series. Changes on the fields are tracked with the Satellite Hook and field measurements.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="operations-hook" class="tdl-module">
+<h2 class="tdl-caption"><span class="tdl-caption-name">Operations Hook</span> · Keep track of measurements and interventions in your fields.</h2>
+<div class="tdl-mock">
+<div class="t136">
+<div class="t137">
+<span class="t138">Carbon NBS Methodology Demonstrator · Operations Hook</span>
+<span class="t170">Structured + unstructured evidence · human sign-off</span>
+<div class="t4"></div>
+<span class="t140">Upload evidence</span>
+</div>
+<div class="t171">
+
+<div class="t107">
+<div class="t155">
+<div class="t172">INTAKE</div>
+<span class="t78">Unstructured</span>
+<div class="t173">Lab result PDFs<span class="t174">31</span></div>
+<div class="t175">Voice notes → text<span class="t176">47</span></div>
+<div class="t175">Operation reports<span class="t176">22</span></div>
+<div class="t175">Photos &amp; invoices<span class="t176">64</span></div>
+<span class="t91">Structured streams</span>
+<div class="t175">Soil moisture probes<span class="t176">9</span></div>
+<div class="t175">Weather station<span class="t176">1</span></div>
+<div class="t175">Machinery telemetry<span class="t176">4</span></div>
+<div class="t177">Flux tower · offline<span class="t178">6 d</span></div>
+</div>
+<div class="t179">
+<div class="t156">FILTER</div>
+<span class="t78">Sub-area</span>
+<div class="t79">All sub-areas<span class="t80">⌄</span></div>
+<span class="t81">State</span>
+<div class="t180">
+<span class="t87"><span class="t88"></span>Needs validation (18)</span>
+<span class="t87"><span class="t148"></span>Validated (142)</span>
+<span class="t87"><span class="t148"></span>Rejected (7)</span>
+</div>
+</div>
+</div>
+
+<div class="t181">
+<div class="t182">
+<div class="t183"><div class="t184">Awaiting validation</div><div class="t185">18</div><div class="t186">4 flagged low confidence</div></div>
+<div class="t183"><div class="t184">Human-confirmed</div><div class="t185">142 / 167</div><div class="t187">85 % signed off</div></div>
+<div class="t183"><div class="t184">Edited after extraction</div><div class="t185">19 %</div><div class="t187">of auto-extracted values</div></div>
+<div class="t183"><div class="t184">Median time to validate</div><div class="t185">2.4 h</div><div class="t187">last 30 days</div></div>
+</div>
+<a class="t188" href="#human-validation">
+<div class="t189"><span class="t163">EVIDENCE QUEUE</span><span class="t190">click a row to open human validation</span></div>
+<div class="t191"><span>ITEM</span><span>TYPE</span><span>SUB-AREA</span><span>EXTRACTED VALUE</span><span>CONFIDENCE</span><span>STATE</span></div>
+
+<div class="t192">
+<span class="t193"><span class="t194">Bodenlabor_2026-08-28.pdf</span><span class="t176">6 pages · 12 samples · scanned</span></span>
+<span class="t102">PDF · lab</span><span class="t102">Parcel 4</span><span>SOC 71.4 t C/ha</span>
+<span class="t195"><span class="t196"><span class="t197"></span></span><span class="t198">0.56</span></span>
+<span class="t199">Review · low OCR</span>
+</div>
+
+<div class="t192">
+<span class="t193"><span class="t194">Voice note · Anna, 27 Aug 07:12</span><span class="t176">“…about four tonnes of compost on the north strip…”</span></span>
+<span class="t102">Voice → text</span><span class="t102">Nordfeld</span><span>Compost 4 t/ha</span>
+<span class="t195"><span class="t196"><span class="t200"></span></span><span class="t198">0.62</span></span>
+<span class="t199">Review · area ambiguous</span>
+</div>
+
+<div class="t192">
+<span class="t193"><span class="t194">Moisture probe NF-03</span><span class="t176">10-min interval · 4 320 readings</span></span>
+<span class="t102">Sensor</span><span class="t102">Nordfeld</span><span>VWC 24.8 % avg</span>
+<span class="t195"><span class="t196"><span class="t201"></span></span><span class="t198">0.97</span></span>
+<span class="t202">Auto-accepted</span>
+</div>
+
+<div class="t192">
+<span class="t193"><span class="t194">Tillage log · 19 Aug</span><span class="t176">Telemetry + operator note</span></span>
+<span class="t102">Report</span><span class="t102">Parcel 7</span><span>No-till pass</span>
+<span class="t195"><span class="t196"><span class="t203"></span></span><span class="t198">0.91</span></span>
+<span class="t202">Validated · MJ</span>
+</div>
+
+<div class="t192">
+<span class="t193"><span class="t194">Seed &amp; amendment invoice.jpg</span><span class="t176">Photo · 2 line items</span></span>
+<span class="t102">Photo · OCR</span><span class="t102">Unassigned</span><span>Lime 1.2 t — ?</span>
+<span class="t195"><span class="t196"><span class="t204"></span></span><span class="t198">0.41</span></span>
+<span class="t199">Review · assign area</span>
+</div>
+
+<div class="t192">
+<span class="t193"><span class="t194">Weather station TAL-01</span><span class="t176">Hourly · rain, temp, ET₀</span></span>
+<span class="t102">Sensor</span><span class="t102">Site-wide</span><span>842 mm cum.</span>
+<span class="t195"><span class="t196"><span class="t205"></span></span><span class="t198">0.99</span></span>
+<span class="t202">Auto-accepted</span>
+</div>
+
+<div class="t192">
+<span class="t193"><span class="t194">Cover crop plan 2026.docx</span><span class="t176">Narrative · no values</span></span>
+<span class="t102">Document</span><span class="t102">Talwiese</span><span>context only</span>
+<span class="t195"><span class="t196"><span class="t206"></span></span><span class="t198">n/a</span></span>
+<span class="t207">Filed</span>
+</div>
+
+</a>
+</div>
+
+<div class="t208">
+<div class="t163">COVERAGE PER SUB-AREA</div>
+
+<div class="t209">
+<div class="t210">Parcel 4 · Nordfeld<span class="t174">good</span></div>
+<div class="t211">
+<span class="t212"></span><span class="t213"></span><span class="t214"></span>
+</div>
+<span class="t78">12 lab · 9 notes · 2 sensors</span>
+</div>
+
+<div class="t209">
+<div class="t210">Parcel 7 · Mühlacker<span class="t174">good</span></div>
+<div class="t211">
+<span class="t215"></span><span class="t216"></span><span class="t217"></span>
+</div>
+<span class="t78">8 lab · 14 notes · 1 sensor</span>
+</div>
+
+<div class="t209">
+<div class="t210">Parcel 2 · Talwiese<span class="t218">thin</span></div>
+<div class="t211">
+<span class="t219"></span><span class="t220"></span><span class="t221"></span>
+</div>
+<span class="t78">3 lab · 2 notes · no sensor</span>
+</div>
+
+<div class="t209">
+<div class="t210">Riparian strip<span class="t222">no evidence</span></div>
+<div class="t211">
+<span class="t223"></span><span class="t224"></span><span class="t221"></span>
+</div>
+<span class="t78">nothing collected since 2024</span>
+</div>
+
+<div class="t225"><span class="t226"><span class="t227"></span>lab</span><span class="t226"><span class="t228"></span>notes</span><span class="t226"><span class="t229"></span>sensor</span><span class="t226"><span class="t230"></span>gap</span></div>
+<div class="t231"></div>
+<div class="t163">RECENT SIGN-OFFS</div>
+<div class="t232">
+<span><b>MJ</b> corrected SOC 68.2 → 71.4 on lab PDF <span class="t50">· 2 h</span></span>
+<span><b>AK</b> assigned voice note to Nordfeld <span class="t50">· yesterday</span></span>
+<span><b>RT</b> rejected duplicate invoice scan <span class="t50">· 3 d</span></span>
+</div>
+<p class="t233">Riparian strip has no evidence since 2024 — sample before Q4 close.</p>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section id="human-validation" class="tdl-module">
+<h2 class="tdl-caption"><span class="tdl-caption-name">Operations Hook</span> · Human validation of a lab PDF</h2>
+<div class="tdl-mock">
+<div class="t136">
+<div class="t137">
+<a class="t234" href="#operations-hook">Operations Hook</a><span class="t235">/</span>
+<span class="t138">Validate · Bodenlabor_2026-08-28.pdf</span>
+<span class="t139">confidence 0.56 · 2 fields need attention</span>
+<div class="t4"></div>
+<span class="t236">item 1 of 18</span>
+</div>
+<div class="t237">
+
+<div class="t238">
+<div class="t110"><span class="t163">SOURCE DOCUMENT</span><span class="t190">scanned · page 3 of 6 · uploaded by Anna K, 28 Aug 2026</span><div class="t4"></div><span class="t239">− 92 % +</span></div>
+<div class="t240">
+<div class="t241"><span class="t242"></span><span class="t242"></span><span class="t243"></span><span class="t242"></span><span class="t242"></span></div>
+<div class="t244">
+<div class="t245"><div class="t246"><span class="t247">Bodenlabor Ins AG · Prüfbericht</span><span class="t248">Analytik nach ISO 17025 · Auftrag 26-4471 · Seite 3 von 6</span></div><span class="t249">28.08.2026</span></div>
+<div class="t250"><span class="t193"><span class="t251">AUFTRAGGEBER</span>Hof Talwiese GmbH</span><span class="t193"><span class="t251">SCHLAG</span><span class="t252">Nordfeld / Parzelle 4</span></span><span class="t193"><span class="t251">PROBENAHME</span>19.08.2026 · 0–30 cm</span><span class="t193"><span class="t251">VERFAHREN</span>Trockenverbrennung</span></div>
+<div class="t253">
+<div class="t254"><span>PROBE</span><span>PARAMETER</span><span>WERT</span><span>EINHEIT</span><span>METHODE</span></div>
+<div class="t255"><span>P4-01</span><span>Organischer Kohlenstoff</span><span class="t256">2,41</span><span>%</span><span>DIN 19539</span></div>
+<div class="t255"><span>P4-01</span><span>Trockenrohdichte</span><span class="t257">1,I5</span><span>g/cm³</span><span>DIN 18125</span></div>
+<div class="t255"><span>P4-01</span><span>Steingehalt &gt; 2 mm</span><span>7,8</span><span>Vol-%</span><span>—</span></div>
+<div class="t255"><span>P4-02</span><span>Organischer Kohlenstoff</span><span>2,28</span><span>%</span><span>DIN 19539</span></div>
+<div class="t255"><span>P4-03</span><span>Organischer Kohlenstoff</span><span>2,55</span><span>%</span><span>DIN 19539</span></div>
+</div>
+<span class="t258">Mischprobe aus 12 Einstichen je Teilfläche. Umrechnung auf Flächenvorrat erfolgt durch den Auftraggeber.</span>
+<div class="t4"></div>
+<div class="t259"><span>Freigabe: Dr. H. Brunner</span><span>Bodenlabor Ins AG · CH-3232 Ins</span></div>
+</div>
+</div>
+</div>
+
+<div class="t260">
+<div class="t163">EXTRACTED RECORD</div>
+<div class="t261">
+<span>Sub-area</span><div class="t262">Parcel 4 · Nordfeld<span class="t263">⌄</span></div><span class="t264">0.94</span>
+<span>Sampling date</span><div class="t265">2026-08-19</div><span class="t264">0.98</span>
+<span>Depth</span><div class="t265">0–30 cm</div><span class="t264">0.97</span>
+</div>
+<div class="t266">
+<div class="t267">Bulk density · P4-01<span class="t268">0.38 · check</span></div>
+<span class="t269">Read as <b class="t270">1,I5 g/cm³</b> — character ambiguity, likely 1.15</span>
+<div class="t271"><div class="t272">1.15</div><span class="t273">Accept</span></div>
+<span class="t78">Plausible range for this soil type: 1.05 – 1.45 g/cm³</span>
+</div>
+<div class="t274">
+<div class="t275"><div class="t276">Corg · P4-01</div><div class="t277">2.41 %</div></div>
+<div class="t275"><div class="t276">Corg · P4-02</div><div class="t277">2.28 %</div></div>
+<div class="t275"><div class="t276">Stone content</div><div class="t277">7.8 %</div></div>
+</div>
+<div class="t231"></div>
+<div class="t163">DERIVED ON ACCEPT</div>
+<div class="t278"><span class="t279">71.4</span><span class="t280">t C/ha ± 2.1 · SOC stock 0–30 cm</span><div class="t4"></div><span class="t281">+3.2 vs Jun</span></div>
+<span class="t190">Corg 2.41 % × BD 1.15 × 30 cm × (1 − 0.078)</span>
+<div class="t4"></div>
+<div class="t271">
+<span class="t282">Reject</span>
+<span class="t283">Ask Anna</span>
+<div class="t4"></div>
+<span class="t284">Validate &amp; next</span>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</div>
