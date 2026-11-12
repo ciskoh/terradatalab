@@ -46,6 +46,13 @@ bundle exec jekyll serve      # http://localhost:4000
 2. Create `<code>/index.html`, `<code>/imprint.md`, `<code>/privacy-policy.md` (copy the `de/` ones and change the permalinks).
 3. Add the code to `languages:` and a `defaults:` entry in `_config.yml`.
 
+## Hidden pages
+Reachable only by their address: not linked anywhere on the site, not in `sitemap.xml` (`sitemap: false`), kept out of search results (`noindex: true`).
+Not secret: anyone with the link can open them, and bots that ignore `noindex` can still read them. Do not list them in `robots.txt` (it is public).
+- **Platform details** — `/platform-x7k2q9/` → `platform-x7k2q9/index.html`, styles `assets/css/platform-details.css` (loaded via `extra_css` in the front matter), images `assets/images/platform/`, font `assets/fonts/exo2-latin-variable.woff2`.
+  Made from a Claude Design export (master in `docs/`, not published); how to update it is described at the top of the page file.
+- To remove a hidden page: delete its folder (and its CSS/images if no other page uses them).
+
 ## Search engines (sitemap, robots.txt, Search Console)
 - `sitemap.xml` is generated automatically at every build (plugin `jekyll-sitemap` in `_config.yml`); `robots.txt` is at the root and points to it.
 - Pages not ready yet (German, French and Italian pages, all privacy policies) carry two lines in their front matter, `sitemap: false` and `noindex: true`:
