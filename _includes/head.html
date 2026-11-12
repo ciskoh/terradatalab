@@ -43,6 +43,10 @@
 {%- assign asset_version = site.time | date: '%s' %}{% comment %} added to CSS/JS links so browsers fetch the new files after every build {% endcomment %}
 <link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}?v={{ asset_version }}">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ asset_version }}">
+{%- comment %} Extra stylesheet for one page only: "extra_css: file.css" in its front matter (hidden platform page, MEMORY.md §10) {% endcomment %}
+{%- if page.extra_css and page.extra_css != "" %}
+<link rel="stylesheet" href="{{ page.extra_css | prepend: '/assets/css/' | relative_url }}?v={{ asset_version }}">
+{%- endif %}
 {%- if page.ref == "home" and p.viewer_video and p.viewer_video != "" %}
 <script src="{{ '/assets/js/viewer-video.js' | relative_url }}?v={{ asset_version }}" defer></script>
 {%- endif %}
