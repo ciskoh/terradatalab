@@ -252,7 +252,7 @@ img { max-width: 100%; height: auto; display: block; }
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; align-items: start;
 }
 .step { display: flex; flex-direction: column; gap: 10px; }
-.step__num { font-weight: var(--fw-light); font-size: var(--fs-step-num); line-height: 1; color: var(--color-accent); }
+.step__num { font-family: var(--font-display); font-weight: var(--fw-light); font-size: var(--fs-step-num); line-height: 1; color: var(--color-accent); }
 .step__title { font-size: var(--fs-h3); line-height: var(--lh-h3); }
 .step p { font-size: var(--fs-item); line-height: var(--lh-body); color: var(--color-text-muted); }
 .step p.step__detail { margin-top: 14px; font-size: var(--fs-step-detail); line-height: var(--lh-lede); color: var(--color-text-lede); text-wrap: pretty; }
