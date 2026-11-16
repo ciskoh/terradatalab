@@ -38,8 +38,8 @@
 {%- if p.apple_touch_icon and p.apple_touch_icon != "" %}
 <link rel="apple-touch-icon" href="{{ p.apple_touch_icon | prepend: '/assets/images/' | relative_url }}">
 {%- endif %}
-<link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-500-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/raleway-latin-variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/opensans-latin-variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 {%- assign asset_version = site.time | date: '%s' %}{% comment %} added to CSS/JS links so browsers fetch the new files after every build {% endcomment %}
 <link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}?v={{ asset_version }}">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ asset_version }}">

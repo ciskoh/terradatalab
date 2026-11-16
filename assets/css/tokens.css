@@ -9,6 +9,13 @@
 @font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/ubuntu-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/ubuntu-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Ubuntu"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/ubuntu-latin-700-normal.woff2") format("woff2"); }
+/* Ubuntu now only for the logo (700) and the hidden platform-details page (MEMORY.md §14). */
+
+/* ---- Raleway (titles + subtitles) and Open Sans (all other text), self-hosted (MEMORY.md §14):
+        one variable file each (all weights), latin subset, from @fontsource-variable 5.1.0.
+        Licences: assets/fonts/OFL-Raleway.txt, assets/fonts/OFL-OpenSans.txt (SIL OFL 1.1). ---- */
+@font-face { font-family: "Raleway"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../fonts/raleway-latin-variable.woff2") format("woff2"); }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300 800; font-display: swap; src: url("../fonts/opensans-latin-variable.woff2") format("woff2"); }
 
 :root {
   /* Colours */
@@ -58,8 +65,9 @@
   --rgb-veil: 255 255 255;          /* veil over the artwork in Solutions (= --color-bg) */
 
   /* Typography */
-  --font-display: "Ubuntu", system-ui, sans-serif;
-  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;   /* running text (MEMORY.md §12.1); Helvetica is not self-hosted (licence), so Windows/Android show Arial. Titles + logo stay Ubuntu */
+  --font-display: "Raleway", system-ui, sans-serif;     /* titles + subtitles (MEMORY.md §14) */
+  --font-body: "Open Sans", system-ui, sans-serif;      /* all other text: running text, nav, buttons, banner, footer (MEMORY.md §14) */
+  --font-brand: "Ubuntu", system-ui, sans-serif;        /* logo wordmark stays Ubuntu, matches docs/logo (MEMORY.md §14) */
   --fw-light: 300;
   --fw-regular: 400;
   --fw-medium: 500;

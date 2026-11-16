@@ -16,6 +16,7 @@ body {
   overflow-x: hidden;
 }
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: var(--fw-medium); margin: 0; }
+h1, h2, h3, h4, .hero__subtitle, .hero__offer, .step__num { font-variant-numeric: lining-nums; }   /* Raleway shows old-style figures by default; lining keeps 01–03 and years on the line (MEMORY.md §14) */
 .hero__title, .section-head h2, .platform-hub__title, .cta-band h2, .prose h1 { font-weight: var(--fw-regular); } /* titles at 400, as on UrbanDataLab */
 p { margin: 0; }
 a { color: var(--color-accent); }
@@ -92,7 +93,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .brand {
   display: inline-flex; align-items: center; gap: 10px;
-  font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--fs-brand);
+  font-family: var(--font-brand); font-weight: var(--fw-bold); font-size: var(--fs-brand);
   color: var(--color-text); text-decoration: none;
 }
 .brand:hover { color: var(--color-text); }
@@ -152,11 +153,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero__title-accent { display: block; color: var(--color-accent); font-weight: var(--fw-medium); }   /* 2nd phrase: brand green, a bit bolder (500 vs 400), always on its own line (MEMORY.md §8.3) */
 .hero__subtitle {
-  font-size: var(--fs-hero-sub); line-height: var(--lh-lede); color: var(--color-text-lede);
+  font-family: var(--font-display); font-size: var(--fs-hero-sub); line-height: var(--lh-lede); color: var(--color-text-lede);
   max-width: var(--measure-text); text-wrap: pretty;
 }
 .hero__offer {
-  font-size: var(--fs-offer); line-height: var(--lh-h3); font-weight: var(--fw-medium);
+  font-family: var(--font-display); font-size: var(--fs-offer); line-height: var(--lh-h3); font-weight: var(--fw-medium);
   color: var(--color-accent);
 }
 .hero .actions { margin-top: 8px; }
