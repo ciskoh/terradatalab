@@ -188,7 +188,7 @@ img { max-width: 100%; height: auto; display: block; }
 #solutions::before { transform: scaleX(-1); }
 /* shared edge How we work → Solutions: no sharp cut in the strokes, no hard grey/white line (MEMORY.md §13.2) */
 #how-we-work::before { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - var(--art-edge-fade)), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - var(--art-edge-fade)), transparent); }
-#solutions::before { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 var(--art-edge-fade)); mask-image: linear-gradient(to bottom, transparent, #000 var(--art-edge-fade)); }
+#solutions::before, #solutions::after { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 var(--art-edge-fade)); mask-image: linear-gradient(to bottom, transparent, #000 var(--art-edge-fade)); }
 #solutions { background: linear-gradient(var(--color-bg-alt), var(--color-bg) var(--art-edge-fade)); }
 
 /* ---- Artwork behind Who we are (MEMORY.md §13.3): as Solutions, but the bottom part of the artwork turned upside down,
