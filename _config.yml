@@ -48,3 +48,4 @@ exclude:
   - assets/images/patrick001.png
   - assets/images/Patrick_Schirmer.jpg
   - assets/images/hero-tree.png
+  - assets/images/website_background.png   # watercolour artwork master (24 MB); the site uses watercolour-background.webp (MEMORY.md §11)
