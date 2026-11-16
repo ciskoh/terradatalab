@@ -44,7 +44,10 @@
      The rgb-* values are "R G B" triplets so the CSS can add transparency: rgb(var(--rgb-…) / .5). */
   --art-image: url("../images/watercolour-background.webp");
   --art-section-opacity: .55;       /* artwork behind How we work and Solutions */
-  --color-art-bg: #0A0E27;          /* navy behind the artwork (hero, CTA band) */
+  --color-art-bg: #0A0E27;          /* navy behind the artwork (CTA band) */
+  --color-hero-bg: #26324F;         /* hero: lighter slate blue, softer next to the tree (MEMORY.md §13.1 A) */
+  --rgb-hero-shade: 38 50 79;       /* shade behind the hero text (= --color-hero-bg) */
+  --art-hero-opacity: .45;          /* artwork in the hero, quieter so the title reads clearly */
   --color-art-text: #ffffff;        /* hero title on the artwork */
   --color-art-text-soft: #e6e9f0;   /* hero subtitle on the artwork */
   --color-art-accent: #8fd1a4;      /* hero 2nd title phrase: light green, readable on navy */

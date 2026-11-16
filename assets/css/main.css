@@ -161,22 +161,23 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero .actions { margin-top: 8px; }
 
-/* Hero on the watercolour artwork (MEMORY.md §11): navy + full-colour artwork, navy shade from the left behind the text,
-   light glow behind the tree that fades to transparent. Layers: artwork (-3) · shade (-2) · glow (-1) · content. */
-.hero { isolation: isolate; background: var(--color-art-bg); color: var(--color-art-text); }
+/* Hero on the watercolour artwork (MEMORY.md §11, softened in §13.1 A): slate blue + artwork at --art-hero-opacity, strong shade
+   from the left so no strokes cross the title, soft light glow behind the tree that fades to transparent.
+   Layers: artwork (-3) · shade (-2) · glow (-1) · content. */
+.hero { isolation: isolate; background: var(--color-hero-bg); color: var(--color-art-text); }
 .hero::before, .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
-.hero::before { z-index: -3; background: var(--art-image) center / cover no-repeat; }
-.hero::after { z-index: -2; background: linear-gradient(90deg, rgb(var(--rgb-art-shade) / .85) 0%, rgb(var(--rgb-art-shade) / .45) 45%, rgb(var(--rgb-art-shade) / 0) 70%); }
+.hero::before { z-index: -3; background: var(--art-image) center / cover no-repeat; opacity: var(--art-hero-opacity); }
+.hero::after { z-index: -2; background: linear-gradient(90deg, rgb(var(--rgb-hero-shade) / .92) 0%, rgb(var(--rgb-hero-shade) / .8) 40%, rgb(var(--rgb-hero-shade) / .3) 62%, rgb(var(--rgb-hero-shade) / 0) 80%); }
 /* glow: sits in the tree's grid cell (an absolutely positioned grid child takes its cell as reference), so it follows the tree on phones */
 .hero__inner--image::before {
-  content: ""; position: absolute; grid-column: 2; grid-row: 1; inset: -32% -30% -32% -22%; z-index: -1; pointer-events: none;
-  background: radial-gradient(closest-side, rgb(var(--rgb-tree-glow) / .95) 0%, rgb(var(--rgb-tree-glow) / .85) 45%, rgb(var(--rgb-tree-glow) / .4) 75%, rgb(var(--rgb-tree-glow) / 0) 100%);
+  content: ""; position: absolute; grid-column: 2; grid-row: 1; inset: -45% -40% -45% -32%; z-index: -1; pointer-events: none;
+  background: radial-gradient(closest-side, rgb(var(--rgb-tree-glow) / .75) 0%, rgb(var(--rgb-tree-glow) / .5) 35%, rgb(var(--rgb-tree-glow) / .2) 65%, rgb(var(--rgb-tree-glow) / 0) 100%);
 }
 .hero .hero__title { color: var(--color-art-text); }
 .hero .hero__title-accent, .hero .hero__offer { color: var(--color-art-accent); }
 .hero .hero__subtitle { color: var(--color-art-text-soft); }
 .hero .btn--secondary { border-color: var(--color-art-text); color: var(--color-art-text); }
-.hero .btn--secondary:hover { background: var(--color-art-text); border-color: var(--color-art-text); color: var(--color-art-bg); }
+.hero .btn--secondary:hover { background: var(--color-art-text); border-color: var(--color-art-text); color: var(--color-hero-bg); }
 .hero :focus-visible { outline-color: var(--color-focus-inverse); }
 
 /* ---- Artwork behind How we work and Solutions (MEMORY.md §11): artwork at --art-section-opacity, light veil in the centre
@@ -378,8 +379,8 @@ main { flex: 1 0 auto; }   /* fills the space between header and footer (see bod
   .hero__text { gap: 22px; }
   .hero__image { max-width: var(--hero-image-max-mobile); justify-self: start; }
   .hero-reveal { width: 100%; }   /* phones: no growth into the margin */
-  .hero::after { background: rgb(var(--rgb-art-shade) / .6); }   /* text spans the full width: even shade (MEMORY.md §11) */
-  .hero__inner--image::before { grid-column: 1; grid-row: 2; inset: -18% -12%; }   /* glow follows the tree below the text */
+  .hero::after { background: rgb(var(--rgb-hero-shade) / .75); }   /* text spans the full width: even shade (MEMORY.md §11, §13.1) */
+  .hero__inner--image::before { grid-column: 1; grid-row: 2; inset: -25% -18%; }   /* glow follows the tree below the text */
   .cta-band::before { background: rgb(var(--rgb-art-shade) / .55); }
   /* tall narrow sections: "cover" would show only a blown-up detail → artwork repeated down the section, even veil over it */
   #how-we-work::before, #solutions::before { background: var(--art-image) center top / 150% auto repeat-y; }
