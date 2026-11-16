@@ -40,6 +40,19 @@
   --color-focus: #2D5F3F;           /* keyboard focus outline */
   --color-focus-inverse: #ffffff;   /* focus outline on green / navy */
 
+  /* Watercolour artwork background (MEMORY.md §11): hero, How we work, Solutions, CTA band, footer.
+     The rgb-* values are "R G B" triplets so the CSS can add transparency: rgb(var(--rgb-…) / .5). */
+  --art-image: url("../images/watercolour-background.webp");
+  --art-section-opacity: .55;       /* artwork behind How we work and Solutions */
+  --color-art-bg: #0A0E27;          /* navy behind the artwork (hero, CTA band) */
+  --color-art-text: #ffffff;        /* hero title on the artwork */
+  --color-art-text-soft: #e6e9f0;   /* hero subtitle on the artwork */
+  --color-art-accent: #8fd1a4;      /* hero 2nd title phrase: light green, readable on navy */
+  --rgb-art-shade: 10 14 39;        /* navy shade behind text on the artwork */
+  --rgb-tree-glow: 245 247 250;     /* light area behind the tree, fades to transparent */
+  --rgb-veil-alt: 245 247 250;      /* veil over the artwork in How we work (= --color-bg-alt) */
+  --rgb-veil: 255 255 255;          /* veil over the artwork in Solutions (= --color-bg) */
+
   /* Typography */
   --font-display: "Ubuntu", system-ui, sans-serif;
   --font-body: "Ubuntu", system-ui, sans-serif;
