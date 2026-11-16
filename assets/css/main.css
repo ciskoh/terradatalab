@@ -50,7 +50,7 @@ img { max-width: 100%; height: auto; display: block; }
   min-height: var(--btn-height); padding: 0 40px;
   border-radius: var(--radius);
   border: var(--btn-border) solid transparent;
-  font-family: var(--font-body); font-weight: var(--fw-bold); font-size: var(--fs-body); line-height: 1.2;
+  font-family: var(--font-body); font-weight: var(--fw-bold); font-size: var(--fs-nav); line-height: 1.2;   /* buttons stay 16 px (MEMORY.md §12.1) */
   text-decoration: none; text-align: center;
   transition: background-color .15s, color .15s, border-color .15s;
 }
@@ -345,7 +345,7 @@ main { flex: 1 0 auto; }   /* fills the space between header and footer (see bod
 .prose h1 { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: var(--ls-h2); margin-bottom: 32px; }
 .prose h2 { font-size: var(--fs-h3); margin: 2em 0 .5em; }
 .wrap--narrow.prose h1 { text-align: center; } /* legal pages + 404: centred title, as on urbandatalab.ch/imprint */
-.wrap--narrow.prose p { font-size: var(--fs-lede); line-height: var(--lh-body); } /* legal pages + 404: text 20px, as on urbandatalab.ch/imprint (t-text_md) */
+.wrap--narrow.prose p { font-size: var(--fs-lede); line-height: var(--lh-body); } /* legal pages + 404: running text (MEMORY.md §12.1) */
 
 /* ---- Medium screens ---- */
 @media (max-width: 960px) {
