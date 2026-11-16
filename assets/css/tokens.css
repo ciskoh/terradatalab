@@ -83,26 +83,26 @@
   --ls-eyebrow: .14em;
   --fs-brand: 18px;
   --fs-brand-footer: 17px;
-  --fs-h1: clamp(36px, 4.4vw, 56px);       /* hero title; 56 px (MEMORY.md §12.1, supersedes §8.3) */
+  --fs-h1: clamp(40px, 5vw, 64px);         /* hero title; 64 px (MEMORY.md §14, supersedes §12.1) */
   --lh-h1: 1.17;
   --ls-h1: 0;
-  --fs-h2: clamp(26px, 2.8vw, 34px);        /* main section titles (MEMORY.md §12.1) */
+  --fs-h2: clamp(30px, 3.4vw, 42px);        /* main section titles (MEMORY.md §14) */
   --lh-h2: 1.23;
   --ls-h2: 0;
-  --fs-h2-band: 26px;                       /* CTA band title (MEMORY.md §12.1) */
+  --fs-h2-band: 32px;                       /* CTA band title (MEMORY.md §14) */
   --lh-h2-band: 1.23;
   --ls-h2-band: 0;
-  --fs-h3: 21px;
+  --fs-h3: 24px;                            /* small titles: steps, people, values title (MEMORY.md §14) */
   --lh-h3: 1.3;
   --fs-lede: 18px;                          /* section intros + legal/404 text (MEMORY.md §12.1) */
   --lh-lede: 1.6;
-  --fs-hero-sub: 16px;                      /* hero subtitle (MEMORY.md §12.1) */
-  --fs-offer: 21px;                         /* hero offer line */
+  --fs-hero-sub: 20px;                      /* hero subtitle, Raleway (MEMORY.md §14) */
+  --fs-offer: 24px;                         /* hero offer line (MEMORY.md §14) */
   --fs-item: 18px;                          /* item text: steps, modules, cards, bios (running text, MEMORY.md §12.1) */
   --fs-label: 13px;                         /* language switcher */
-  --fs-step-num: 44px;                      /* big light step numbers 01–03 (MEMORY.md §12.1) */
-  --fs-h3-block: 26px;                      /* sub-block title inside a section (platform hub) (MEMORY.md §12.1) */
-  --fs-row-name: 20px;                      /* item names: Solutions table rows, platform modules (UrbanDataLab: 20px) */
+  --fs-step-num: 52px;                      /* big light step numbers 01–03 (MEMORY.md §14) */
+  --fs-h3-block: 30px;                      /* sub-block title inside a section (platform hub) (MEMORY.md §14) */
+  --fs-row-name: 22px;                      /* item names: Solutions cards, platform modules (MEMORY.md §14) */
   --fs-value: 18px;                         /* Who we are: values row (MEMORY.md §12.1: running text) */
   --fs-step-detail: 18px;                   /* How we work: detail paragraph under each step (MEMORY.md §12.1) */
   --fs-udl: 16px;                           /* UrbanDataLab banner (UrbanDataLab smallest text: 16px) */
