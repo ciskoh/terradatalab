@@ -29,7 +29,7 @@ udl_banner:                 # blue UrbanDataLab banner, home page only: under th
 
 hero:                       # first block of the page
   eyebrow: ""               # small line above the headline (not used for now)
-  title: "Your sustainability projects."   # headline, first part
+  title: "Your sustainability projects"   # headline, first part
   title_accent: "Measuired and mapped by us"   # headline, second part: shown in green on its own line (empty = not shown)
   subtitle: "We build the MRV tools, data pipelines and dashboards that show, with evidence, how your carbon and nature project makes the world a better place."   # text below the headline
   offer: ""                 # short highlighted line ("the offer")
