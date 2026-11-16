@@ -40,10 +40,10 @@
   --color-focus: #2D5F3F;           /* keyboard focus outline */
   --color-focus-inverse: #ffffff;   /* focus outline on green / navy */
 
-  /* Watercolour artwork background (MEMORY.md §11): hero, How we work, Solutions, CTA band, footer.
+  /* Watercolour artwork background (MEMORY.md §11, §13): hero, How we work, Solutions, CTA band, Who we are, footer.
      The rgb-* values are "R G B" triplets so the CSS can add transparency: rgb(var(--rgb-…) / .5). */
   --art-image: url("../images/watercolour-background.webp");
-  --art-section-opacity: .55;       /* artwork behind How we work and Solutions */
+  --art-section-opacity: .55;       /* artwork behind How we work, Solutions and Who we are */
   --color-art-bg: #0A0E27;          /* navy behind the artwork (CTA band) */
   --color-hero-bg: #26324F;         /* hero: lighter slate blue, softer next to the tree (MEMORY.md §13.1 A) */
   --rgb-hero-shade: 38 50 79;       /* shade behind the hero text (= --color-hero-bg) */

@@ -190,6 +190,17 @@ img { max-width: 100%; height: auto; display: block; }
 #how-we-work::before { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - var(--art-edge-fade)), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - var(--art-edge-fade)), transparent); }
 #solutions::before { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 var(--art-edge-fade)); mask-image: linear-gradient(to bottom, transparent, #000 var(--art-edge-fade)); }
 #solutions { background: linear-gradient(var(--color-bg-alt), var(--color-bg) var(--art-edge-fade)); }
+
+/* ---- Artwork behind Who we are (MEMORY.md §13.3): as Solutions, but the bottom part of the artwork turned upside down,
+        fading in and out next to the navy CTA band and footer ---- */
+#who-we-are { position: relative; isolation: isolate; }
+#who-we-are::before, #who-we-are::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+#who-we-are::before {
+  z-index: -2; background: var(--art-image) center 85% / cover no-repeat; opacity: var(--art-section-opacity); transform: scaleY(-1);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 var(--art-edge-fade), #000 calc(100% - var(--art-edge-fade)), transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 var(--art-edge-fade), #000 calc(100% - var(--art-edge-fade)), transparent);
+}
+#who-we-are::after { z-index: -1; background: radial-gradient(ellipse 48% 50% at 50% 50%, rgb(var(--rgb-veil) / .92) 55%, rgb(var(--rgb-veil) / .35) 100%); }
 #how-we-work::after { z-index: -1; background: radial-gradient(ellipse 48% 50% at 50% 50%, rgb(var(--rgb-veil-alt) / .92) 55%, rgb(var(--rgb-veil-alt) / .35) 100%); }
 #solutions::after { z-index: -1; background: radial-gradient(ellipse 48% 50% at 50% 50%, rgb(var(--rgb-veil) / .92) 55%, rgb(var(--rgb-veil) / .35) 100%); }
 
@@ -390,6 +401,8 @@ main { flex: 1 0 auto; }   /* fills the space between header and footer (see bod
   #how-we-work::before, #solutions::before { background: var(--art-image) center top / 150% auto repeat-y; }
   #how-we-work::after { background: rgb(var(--rgb-veil-alt) / .6); }
   #solutions::after { background: rgb(var(--rgb-veil) / .6); }
+  #who-we-are::before { background: var(--art-image) center bottom / 150% auto repeat-y; }
+  #who-we-are::after { background: rgb(var(--rgb-veil) / .6); }
   .actions .btn { flex: 1 1 100%; }
   .cta-band .btn { width: 100%; }
   .how-we-work__head, .platform-hub__head { text-align: left; align-items: flex-start; } /* left, like the video caption and modules below */
