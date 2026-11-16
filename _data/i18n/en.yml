@@ -11,7 +11,7 @@
 #   - An empty text ("") is simply not shown on the page.
 
 meta:
-  title: "TerraDataLab - nature-based dMRV software and data platform"   # browser tab / search result title (empty: "TerraDataLab")
+  title: "TerraDataLab - data tools and expertise for your nature and carbon projects"   # browser tab / search result title (empty: "TerraDataLab")
   description: "Nature-based and carbon software and data consulting from Switzerland: soil carbon monitoring, remote sensing and audit-ready data across DACH and Europe."   # search result snippet + share-preview text (keywords, MEMORY.md §8.6)
 
 nav:
@@ -29,9 +29,9 @@ udl_banner:                 # blue UrbanDataLab banner, home page only: under th
 
 hero:                       # first block of the page
   eyebrow: ""               # small line above the headline (not used for now)
-  title: "Trust your carbon and nature projects."   # headline, first part
-  title_accent: "We build the tools that prove it."   # headline, second part: shown in green on its own line (empty = not shown)
-  subtitle: "We build the MRV tools, data pipelines and dashboards that show, with evidence, how your project makes the world a better place."   # text below the headline
+  title: "Impacts of your sutaianability projects."   # headline, first part
+  title_accent: "Measured and mapped with us"   # headline, second part: shown in green on its own line (empty = not shown)
+  subtitle: "We build the MRV tools, data pipelines and dashboards that show, with evidence, how your carbon and nature project makes the world a better place."   # text below the headline
   offer: ""                 # short highlighted line ("the offer")
   cta_primary: "Book a 30-minute call"      # main button: opens the booking page (new tab)
   cta_secondary: "See how we work"          # second button: jumps to How we work
@@ -43,7 +43,7 @@ how_we_work:                # "How we work" section (header link "How we work")
   title: "Built with you. Built for your project."   # main headline at the top of the section
   platform:                 # block "viewer at the centre + modules around it"
     title: ""               # centred headline of the block (not used for now; empty = hidden)
-    intro: "A customisable nature data platform brings all your data into one place. Plug in the modules your project needs, when it needs them."   # text below the block headline
+    intro: "A customisable data platform brings all your spatial data into one place. Plug in the modules your project needs, when it needs them."   # text below the block headline
     video_alt: "Shows the Core Data Viewer displaying data related to an agricarbon project in Switzerland."   # description of the Core Data Viewer video for screen readers
     core:                   # caption under the video
       name: "Core Data Viewer"
@@ -84,7 +84,7 @@ how_we_work:                # "How we work" section (header link "How we work")
 
 solutions:                  # "Solutions" section: cards, one per combination, each listing its modules by the names under "columns" (no table)
   eyebrow: ""               # small line above the headline (not used for now)
-  title: "One platform. Five combinations for carbon and nature projects."   # headline
+  title: "One platform. Many combinations for carbon and nature projects."   # headline
   intro: "For sustainability projects, from baseline through audit."   # text below the headline
   modules_label: "Modules"  # green label before the module names on each card
   columns:                  # module names listed on each card; ids must match _data/platform.yml (solution_columns)
