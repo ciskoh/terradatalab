@@ -52,6 +52,7 @@
   --color-art-text-soft: #e6e9f0;   /* hero subtitle on the artwork */
   --color-art-accent: #8fd1a4;      /* hero 2nd title phrase: light green, readable on navy */
   --rgb-art-shade: 10 14 39;        /* navy shade behind text on the artwork */
+  --art-edge-fade: 180px;           /* artwork fades out over this height where two artwork sections meet; grey → white blends over it too (MEMORY.md §13.2) */
   --rgb-tree-glow: 245 247 250;     /* light area behind the tree, fades to transparent */
   --rgb-veil-alt: 245 247 250;      /* veil over the artwork in How we work (= --color-bg-alt) */
   --rgb-veil: 255 255 255;          /* veil over the artwork in Solutions (= --color-bg) */
