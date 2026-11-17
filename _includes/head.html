@@ -50,3 +50,8 @@
 {%- if page.ref == "home" and p.viewer_video and p.viewer_video != "" %}
 <script src="{{ '/assets/js/viewer-video.js' | relative_url }}?v={{ asset_version }}" defer></script>
 {%- endif %}
+{%- comment %} Visitor statistics: GoatCounter (cookieless), code in _data/platform.yml; live build only,
+  so local previews are not counted (MEMORY.md §9). {% endcomment %}
+{%- if p.goatcounter_code and p.goatcounter_code != "" and jekyll.environment == "production" %}
+<script data-goatcounter="https://{{ p.goatcounter_code }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{%- endif %}
