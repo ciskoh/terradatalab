@@ -69,6 +69,12 @@ Not secret: anyone with the link can open them, and bots that ignore `noindex` c
 1. Go to <https://www.bing.com/webmasters>, sign in, choose **Import from Google Search Console**, allow access and select the site.
 2. The site and its sitemap are taken over; check under *Sitemaps* that `sitemap.xml` is listed (otherwise add it there).
 
+## Analytics (visitor statistics)
+- Tool: **GoatCounter**, cookieless, so no cookie banner is needed. Dashboard: <https://terradatalab.goatcounter.com> (log in with the GoatCounter account).
+- Setting: `goatcounter_code` in `_data/platform.yml`. The script is added in `_includes/head.html`, only on the live build, so local previews (`jekyll serve`) are not counted.
+- To switch it off: set `goatcounter_code: ""` and push.
+- Search data (what people searched for, clicks from Google/Bing) is in Google Search Console and Bing Webmaster Tools, see above.
+
 ## Deployment
 Every push to `main` triggers the GitHub Actions workflow `.github/workflows/jekyll-gh-pages.yml`,
 which builds the site and deploys it to GitHub Pages. It can also be started by hand from the repository's *Actions* tab.
