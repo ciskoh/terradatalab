@@ -5,6 +5,11 @@ booking_url: "https://calendar.app.google/bSMCYqQJFt6VAV4Y6"  # booking page: He
 linkedin_url: "http://www.linkedin.com/in/matteojriva"        # footer LinkedIn link (personal profile for now)
 sister_url: "https://urbandatalab.ch"                         # sister company, linked by the UrbanDataLab banner (under the header and above the footer, home page only)
 
+# Visitor statistics (MEMORY.md §9): GoatCounter, cookieless, no cookie banner needed.
+# Code = the part before ".goatcounter.com" (dashboard: https://terradatalab.goatcounter.com).
+# Counted only on the live site, not in local previews. Empty = no tracking script at all.
+goatcounter_code: "terradatalab"
+
 # Site-wide images: files in assets/images/, generated from the master image001.png (which stays untouched).
 favicon: "favicon-32.png"                  # browser-tab icon, 32×32
 favicon_large: "favicon-192.png"           # larger icon, 192×192 (Android)
